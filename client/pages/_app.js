@@ -1,24 +1,56 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import HeaderLayout from '../components/HeaderLayout';
+import HeaderLayout from '../layout/HeaderLayout';
 import Head from "next/head";
 import { createGlobalStyle } from "styled-components";
-
+import { ThemeProvider } from "styled-components";
 
 
 //페이지들의 공통적인 부분을 처리하는 곳
 //appjs는 indexjs의 부모인셈. 즉, index의 return이 들어옴
-const App = () => {
+const App = ({ Component }) => {
+    console.log(Component);
     return (
         <div>
-            <DefaultLayout />
-            <Head>
-                <meta charSet="utf-8" />
-                <title>폴로딩고</title>
-                <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
-            </Head>
-            <HeaderLayout />
+            <ThemeProvider
+                theme={{
+                    palette: {
+                        $darkcolor: "#000"
+                        , $whitecolor: "#fff"
+                        , $lightcolor: "#f4f4f4"
+                        , $primarycolor: "#b2b2b2"
+                        , $secondarycolor: "#666"
+                        , $hovercolor: "#555"
+                        , $emphasiscolor: "#f3885f"
+                        , $successcolor: "#3ba961"
+                        , $dangercolor: "#d23430"
+                        , $warningcolor: "#f0ae4d"
+                        , $infocolor: "#219bcf"
+                    }
+                }}
+            >
+                <DefaultLayout
+                    $darkcolor="#000"
+                    $whitecolor="#fff"
+                    $lightcolor="#f4f4f4"
+                    $primarycolor="#b2b2b2"
+                    $secondarycolor="#666"
+                    $hovercolor="#555"
+                    $emphasiscolor="#f3885f"
+                    $successcolor="#3ba961"
+                    $dangercolor="#d23430"
+                    $warningcolor="#f0ae4d"
+                    $infocolor="#219bcf"
+                />
+                <Head>
+                    <meta charSet="utf-8" />
+                    <title>폴로딩고(POLODINGO)</title>
+                    <link rel="preconnect" href="https://fonts.gstatic.com" />
+                    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+                </Head>
+                <HeaderLayout />
+                <Component />
+            </ThemeProvider>
         </div>
     )
 }
@@ -28,7 +60,6 @@ const App = () => {
 const DefaultLayout = createGlobalStyle`
 
 * {
-
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -36,8 +67,6 @@ const DefaultLayout = createGlobalStyle`
 }
 
 body {
-
-
 
   font-family: 'Nunito', sans-serif;
   font-size: 0.8rem;
@@ -47,10 +76,10 @@ body {
 
 a {
   text-decoration: none;
-  color: $dark-color;
+  color: ${props => props.$darkcolor};
 
   &:hover {
-    color: $secondary-color;
+    color:  ${props => props.$secondarycolor};
   }
 }
 
@@ -62,8 +91,8 @@ ul {
   display: inline-block;
   font-size: 0.8rem;
   padding: 12px;
-  color: $white-color;
-  background-color: $dark-color;
+  color: ${props => props.$whitecolor};
+  background-color: ${props => props.$darkcolor};
   text-align: center;
   vertical-align: middle;
   user-select: none;
@@ -71,8 +100,8 @@ ul {
   outline: none;
 
   &:hover {
-    background-color: $primary-color;
-    color: $light-color;
+    background-color: ${props => props.$primarycolor};
+    color: ${props => props.$lightcolor};
   }
 }
 
@@ -83,12 +112,12 @@ ul {
 }
 
 .error {
-  color: $danger-color;
+  color:${props => props.$dangercolor};
   font-size: 1rem;
 }
 
 .success {
-  color: $success-color;
+  color: ${props => props.$successcolor}
   font-size: 1rem;
 }
 
@@ -96,7 +125,7 @@ ul {
   width: 40px;
   padding: 5px;
   outline: none;
-  border-color: $primary-color;
+  border-color: ${props => props.$primarycolor};
   cursor: pointer;
 }
 
@@ -104,73 +133,6 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-}
-
-/* List */
-.list {
-  margin: 0.5rem 0;
-}
-
-.list li {
-  padding-bottom: 0.3rem;
-}
-
-/* Padding */
-.p {
-  padding: 0.5rem;
-}
-.p-1 {
-  padding: 1rem;
-}
-.p-2 {
-  padding: 2rem;
-}
-.p-3 {
-  padding: 3rem;
-}
-.py {
-  padding: 0.5rem 0;
-}
-.py-1 {
-  padding: 1rem 0;
-}
-.py-2 {
-  padding: 2rem 0;
-}
-.py-3 {
-  padding: 3rem 0;
-}
-.py-4 {
-  padding: 4rem 0;
-}
-.py-5 {
-  padding: 5rem 0;
-}
-
-/* Margin */
-.m {
-  margin: 0.5rem;
-}
-.m-1 {
-  margin: 1rem;
-}
-.m-2 {
-  margin: 2rem;
-}
-.m-3 {
-  margin: 3rem;
-}
-.my {
-  margin: 0.5rem 0;
-}
-.my-1 {
-  margin: 1rem 0;
-}
-.my-2 {
-  margin: 2rem 0;
-}
-.my-3 {
-  margin: 3rem 0;
 }`;
 
 

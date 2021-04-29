@@ -3,6 +3,7 @@ import React from 'react';
 
 
 const help = () => {
+    console.log("고객센터");
     return (
         <>
             <Head>

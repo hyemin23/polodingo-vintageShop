@@ -1,39 +1,50 @@
 import React from 'react';
-import ProptTypes from "prop-types";
 import Link from "next/link";
-import style from "styled-components";
+import styled from "styled-components";
+import { InstagramOutlined, SearchOutlined } from "@ant-design/icons";
+
 
 //children : 레이아웃으로 감싸진 당한 태그들 모두
-const HeaderLayout = () => {
+const HeaderLayout = ({ children }) => {
+    console.log(children)
     return (
         <div className="_header">
             <HeaderInner>
                 <ul>
                     <li>
                         <Link href="/help">
-                            <a>고객센터</a>
+                            <a>HELP</a>
                         </Link>
                     </li>
                     <li>
                         <Link href="/notice">
-                            <a>공지사항</a>
+                            <a>NOTICE</a>
                         </Link>
                     </li>
                     <li>
                         <Link href="/consignment">
-                            <a>위탁판매</a>
+                            <a>
+                                CONSIGNMENT SALES
+                                </a>
                         </Link>
                     </li>
                 </ul>
 
                 {/*로고*/}
                 <Logo>
-                    <a href="/">
-                        <img src="/images/logo.png" style={{ height: "40px" }} alt="로고" />
-                    </a>
+                    <Link href="/">
+                        <a>
+                            POLODINGO
+                        </a>
+                    </Link>
                 </Logo>
-
                 <ul>
+                    <li>
+                        <a href="#" >
+                            <SearchOutlined />
+                        </a>
+                    </li>
+
                     <li>
                         <Link href="/signup">
                             <a>
@@ -55,25 +66,35 @@ const HeaderLayout = () => {
                             </a>
                         </Link>
                     </li>
+                    <li>
+                        <a href="#">
+                            <InstagramOutlined />
+
+                        </a>
+                    </li>
+
                 </ul>
             </HeaderInner>
+            {children}
         </div>
     )
 }
 
-const HeaderInner = style.div`
+const HeaderInner = styled.div`
 
     display : flex;
     justify-content: space-between;
-
-    ul{
+    z-index : 30;
+    ul{  
         display : flex;
         padding : 1rem 2rem;
     }
     li{
+        
         padding : 0 1rem;
     }
     a{
+        color : #fff !important;
         font-size : 16px;
         font-weight : 400;
     }
@@ -82,9 +103,13 @@ const HeaderInner = style.div`
     }
 `;
 
-const Logo = style.div`
+const Logo = styled.div`
     display : flex;
-    padding : 1rem 2rem;
+    padding : 0.2rem 2rem;
+    a{
+        font-family: 'Cinzel', serif;
+        font-size : 2rem;
+    }
 `;
 
 export default HeaderLayout;
