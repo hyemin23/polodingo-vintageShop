@@ -9,7 +9,6 @@ import { ThemeProvider } from "styled-components";
 //페이지들의 공통적인 부분을 처리하는 곳
 //appjs는 indexjs의 부모인셈. 즉, index의 return이 들어옴
 const App = ({ Component }) => {
-    console.log(Component);
     return (
         <div>
             <ThemeProvider
@@ -44,7 +43,7 @@ const App = ({ Component }) => {
                 />
                 <Head>
                     <meta charSet="utf-8" />
-                    <title>폴로딩고(POLODINGO)</title>
+                    <title>폴로딩고</title>
                     <link rel="preconnect" href="https://fonts.gstatic.com" />
                     <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
                 </Head>

@@ -2,14 +2,15 @@ import React from 'react';
 import Link from "next/link";
 import styled from "styled-components";
 import { InstagramOutlined, SearchOutlined } from "@ant-design/icons";
-
+import { useRouter } from "next/router";
 
 //children : 레이아웃으로 감싸진 당한 태그들 모두
 const HeaderLayout = ({ children }) => {
-    console.log(children)
+    const router = useRouter();
+
     return (
-        <div className="_header">
-            <HeaderInner>
+        <header>
+            <HeaderInner router={router}>
                 <ul>
                     <li>
                         <Link href="/help">
@@ -76,7 +77,8 @@ const HeaderLayout = ({ children }) => {
                 </ul>
             </HeaderInner>
             {children}
-        </div>
+        </header>
+
     )
 }
 
@@ -94,7 +96,8 @@ const HeaderInner = styled.div`
         padding : 0 1rem;
     }
     a{
-        color : #fff !important;
+        
+        color : ${props => props.router.pathname === "/" ? `${props.theme.palette.$whitecolor}` : `${props.theme.palette.$darkcolor}`} !important;
         font-size : 16px;
         font-weight : 400;
     }

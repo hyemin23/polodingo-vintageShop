@@ -19,7 +19,7 @@ const index = () => {
                 <div className="showcase_img">
                     <img src="images/mainfirst.jpg"></img>
                 </div>
-                <div>
+                <div className="showcase_event">
                     <h1>NEW IN</h1>
                     <h3>모든 상품 90%세일</h3>
                 </div>
@@ -82,6 +82,10 @@ const SectionOne = styled.section`
       top: 0;
       left: 0;
       background: rgba(19, 18, 18, 0.5);
+    }
+
+    .showcase_event{
+        font-size : 90px;
     }
 }
 `;
