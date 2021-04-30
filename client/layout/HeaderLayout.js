@@ -83,18 +83,25 @@ const HeaderLayout = ({ children }) => {
 }
 
 const HeaderInner = styled.div`
-
     display : flex;
     justify-content: space-between;
-    z-index : 30;
+    paddding : 2rem 3rem;
+    width : 100%;
+    position : fixed;
+    z-index : 2;
+
+
     ul{  
         display : flex;
+        align-items : center;
         padding : 1rem 2rem;
     }
+
     li{
         
         padding : 0 1rem;
     }
+
     a{
         
         color : ${props => props.router.pathname === "/" ? `${props.theme.palette.$whitecolor}` : `${props.theme.palette.$darkcolor}`} !important;

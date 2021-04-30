@@ -9,49 +9,49 @@ import { ThemeProvider } from "styled-components";
 //페이지들의 공통적인 부분을 처리하는 곳
 //appjs는 indexjs의 부모인셈. 즉, index의 return이 들어옴
 const App = ({ Component }) => {
-    return (
-        <div>
-            <ThemeProvider
-                theme={{
-                    palette: {
-                        $darkcolor: "#000"
-                        , $whitecolor: "#fff"
-                        , $lightcolor: "#f4f4f4"
-                        , $primarycolor: "#b2b2b2"
-                        , $secondarycolor: "#666"
-                        , $hovercolor: "#555"
-                        , $emphasiscolor: "#f3885f"
-                        , $successcolor: "#3ba961"
-                        , $dangercolor: "#d23430"
-                        , $warningcolor: "#f0ae4d"
-                        , $infocolor: "#219bcf"
-                    }
-                }}
-            >
-                <DefaultLayout
-                    $darkcolor="#000"
-                    $whitecolor="#fff"
-                    $lightcolor="#f4f4f4"
-                    $primarycolor="#b2b2b2"
-                    $secondarycolor="#666"
-                    $hovercolor="#555"
-                    $emphasiscolor="#f3885f"
-                    $successcolor="#3ba961"
-                    $dangercolor="#d23430"
-                    $warningcolor="#f0ae4d"
-                    $infocolor="#219bcf"
-                />
-                <Head>
-                    <meta charSet="utf-8" />
-                    <title>폴로딩고</title>
-                    <link rel="preconnect" href="https://fonts.gstatic.com" />
-                    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
-                </Head>
-                <HeaderLayout />
-                <Component />
-            </ThemeProvider>
-        </div>
-    )
+  return (
+    <div>
+      <ThemeProvider
+        theme={{
+          palette: {
+            $darkcolor: "#000"
+            , $whitecolor: "#fff"
+            , $lightcolor: "#f4f4f4"
+            , $primarycolor: "#b2b2b2"
+            , $secondarycolor: "#666"
+            , $hovercolor: "#555"
+            , $emphasiscolor: "#f3885f"
+            , $successcolor: "#3ba961"
+            , $dangercolor: "#d23430"
+            , $warningcolor: "#f0ae4d"
+            , $infocolor: "#219bcf"
+          }
+        }}
+      >
+        <DefaultLayout
+          $darkcolor="#000"
+          $whitecolor="#fff"
+          $lightcolor="#f4f4f4"
+          $primarycolor="#b2b2b2"
+          $secondarycolor="#666"
+          $hovercolor="#555"
+          $emphasiscolor="#f3885f"
+          $successcolor="#3ba961"
+          $dangercolor="#d23430"
+          $warningcolor="#f0ae4d"
+          $infocolor="#219bcf"
+        />
+        <Head>
+          <meta charSet="utf-8" />
+          <title>폴로딩고</title>
+          <link rel="preconnect" href="https://fonts.gstatic.com" />
+          <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+        </Head>
+        <HeaderLayout />
+        <Component />
+      </ThemeProvider>
+    </div>
+  )
 }
 
 
@@ -137,7 +137,7 @@ select:focus {
 
 
 App.propTypes = {
-    Component: PropTypes.elementType.isRequired,
+  Component: PropTypes.elementType.isRequired,
 }
 
 export default App;
