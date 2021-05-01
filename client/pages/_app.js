@@ -4,6 +4,7 @@ import HeaderLayout from '../layout/HeaderLayout';
 import Head from "next/head";
 import { createGlobalStyle } from "styled-components";
 import { ThemeProvider } from "styled-components";
+import Footer from '../components/Footer';
 
 
 //페이지들의 공통적인 부분을 처리하는 곳
@@ -49,6 +50,7 @@ const App = ({ Component }) => {
         </Head>
         <HeaderLayout />
         <Component />
+        <Footer />
       </ThemeProvider>
     </div>
   )
