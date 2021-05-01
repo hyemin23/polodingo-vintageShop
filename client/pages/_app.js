@@ -45,7 +45,7 @@ const App = ({ Component }) => {
           <meta charSet="utf-8" />
           <title>폴로딩고</title>
           <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400&display=swap" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;700;800&display=swap" rel="stylesheet" />
         </Head>
         <HeaderLayout />
         <Component />

@@ -15,11 +15,11 @@ const MainSection = () => {
     const refSlide3 = useRef(null);
 
     const revealRef1 = useRef(null);
-
+    const revealRef2 = useRef(null);
 
 
     useEffect(() => {
-        const sections = [refSlide1].map((ref) => ref.current);
+        const sections = [refSlide1, refSlide2, refSlide3].map(ref => ref.current);
 
 
         gsap.from(refSlide1.current, {
@@ -30,19 +30,28 @@ const MainSection = () => {
         });
 
 
-        const triggers = sections.map((panel) => {
-            return ScrollTrigger.create({
-                trigger: panel
-                , start: 'top top'
-                , pin: true
-                , pinSpacing: false
-            });
-        });
+        // const triggers = sections.map((panel) => {
+        //     return ScrollTrigger.create({
+        //         trigger: panel
+        //         , start: 'top top'
+        //         , pin: true
+        //         , pinSpacing: false
+        //     });
+        // });
+        // const snap = ScrollTrigger.create({
+        //     snap: 1 / (sections.length - 1),
+        // });
+
+        // return function cleanup() {
+        //     triggers.map(trigger => trigger.kill());
+        //     snap.kill();
+        // };
+
 
     }, []);
 
     useEffect(() => {
-        const texts = [revealRef1].map((ref) => ref.current);
+        const texts = [revealRef1, revealRef2].map((ref) => ref.current);
 
 
         texts.forEach(el => {
@@ -128,16 +137,18 @@ const MainSection = () => {
                     </ul>
                 </div>
             </SectionTwo>
+
+
             <ProductStyle ref={refSlide3}>
-                <div className="container">
+                <div className="container" ref={revealRef2}>
                     <div>
                         <h2>PRODUCT</h2>
                         <p class="bar"></p>
                         <p className="ment">단 한장밖에 없는 당신만의 옷들입니다 :)</p>
                     </div>
-                    <div className="products">
+                    <ul className="products">
                         <Product />
-                    </div>
+                    </ul>
                 </div>
             </ProductStyle>
         </div>
