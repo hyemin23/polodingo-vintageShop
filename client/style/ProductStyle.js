@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const ProductStyle = styled.div`
+    background-color: ${prop => prop.theme.palette.$whitecolor};
     .container {
         padding : 60px 5%;
         text-align : center;
-        
 
     h2{
         font-size : 24px;

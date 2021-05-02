@@ -1,46 +1,26 @@
 import styled from "styled-components";
 
-export const SectionOne = styled.section`
+export const Section = styled.section`
+.showcase {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 
-    box-sizing : border-box;
-    margin:0;
-    padding : 0;
-    display : flex;
-    align-items : center;
-    justify-content : center;
-    height : 100vh;
-    overflow : hidden;
+  &__video {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 
-    .showcase_event{
-        text-align:center;  
-    }
+    position: absolute;
+    //overflow: hidden;
 
-    .showcase_event h1{
-        display : block;
-        font-size : 90px;
-        padding : 0 90px;
-        color : ${prop => prop.theme.palette.$whitecolor};
-    }
-    .showcase_event span{
-        padding : 0 90px;
-        font-size : 30px;
-        color : ${prop => prop.theme.palette.$whitecolor};
-    }
-
-    .showcase_img{
-        z-index:-1;
-       top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        position: absolute;
-    
-    img{
+    video {
       min-width: 100%;
       min-height: 100%;
       position: absolute;
-      top:50%;
-      left:50%;
+      top: 50%;
+      left: 50%;
       transform: translate(-50%, -50%);
       object-fit: cover;
     }
@@ -55,122 +35,114 @@ export const SectionOne = styled.section`
       left: 0;
       background: rgba(19, 18, 18, 0.5);
     }
+  }
+}
+
+.section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center center;
+
+    &--a {
+      background-image: url('../../images/showcase1.jpg');
+    }
+
+    &--b {
+      background-image: url('../../images/showcase2.jpg');
+    }
+
+    &--c {
+      background-color: $dark-color;
+    }
+  }
+
+  &__content {
+    position: relative;
+    align-items: center;
+    text-align: center;
+    color: $white-color;
+    z-index: 10;
+    margin-top: -5%;
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    a {
+      width: 100px;
+      color: $white-color;
+      padding: 10px 0;
+      margin-top: 1rem;
+      border: 2px solid $white-color;
+    }
+
+    @include atMobile {
+      &__title {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  input {
+    background-color: transparent;
+    color: $white-color;
+    outline: 0;
+    border-width: 0 0 2px;
+    margin-top: 1rem;
+    width: 300px;
+    height: 30px;
+  }
+
+  &__icon__container {
+    margin: 1rem 0;
+
+    a {
+      cursor: pointer;
+      outline: none;
+      border: none;
+      font-size: 1.6rem;
+      margin: 2rem 1rem;
+    }
+
+    a:hover {
+      color: $secondary-color;
+    }
+  }
+
+  .newsletter--btn {
+    margin-top: 1rem;
+    width: 200px;
+    background-color: transparent;
+    color: $white-color;
+    padding: 10px 0;
+    margin-top: 1rem;
+    border: 2px solid $white-color;
+    cursor: pointer;
+    outline: none;
+  }
+}
+
 
     
-}
+
 `;
 
 
 
 export const SectionTwo = styled.section`
-    background-color: rgb(239, 239, 239);
-    min-height : 1303px;
-    position :relative;
-
-    .main_notice{
-        background: #fff;
-        width: 98%;
-        height: 50px;
-        border: 1px solid #ececec;
-        margin : 0 1% ;
-
-        h2{
-
-            position: absolute;
-            line-height: 50px;
-            top: 0;
-            left: 30px;
-            color: #000;
-            font-size: 14px;
-            font-weight : normal;
-
-        }
-        
-        ul{
-            padding-left : 160px;
-            height: 50px;
-            overflow : hidden;
-        }
-
-        li{
-        height: 50px;
-        line-height: 50px;
-        text-align: left;
-    }
-
-    .data{
-        margin-right : 20px;
-    }
-
-
-    }
-
-
-    .showcase_contents{
-        position : absolute;
-        text-align :cetner;
-        width : 950px;
-        margin-left : -475px;
-        left : 50%;
-        top : 50%;
-        height : 625px;
-        margin-top : -313px;
-    }
-
-    .main_banner_lists{
-        text-align:center;
-
-        li{
-
-            display:inline-block;
-            width : 33.3333%;
-            padding : 1%;
-            box-sizing : border-box;
-            font-size : 12px;
-            text-align :cetner;
-
-        }
-        
-        img{
-            width :100%;
-            height: auto;
-        }
-
-        .title{
-            font-size: 18px;
-            font-weight:800;
-        }
-
-        & span {
-           position: relative;
-            display: inline-block;
-            line-height: 1.5;
-            font-size: 14px;
-            padding-bottom : 9px;
-            margin-bottom : 10px;
-            
-        }
-
-        & span ::after{
-            position :absolute;
-            content : '';
-            width : 100%;
-            height : 1px;
-            left : 0;
-            bottom : 0;
-            background : #aaa;
-        }
-
-        .summary{
-            font-size : 14px;
-            font-weight : 400;
-        }
-
-    }
-`;
-
-
-export const SectionThree = styled.section`
-
-
+   
 `;

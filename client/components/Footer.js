@@ -31,6 +31,7 @@ const Footer = () => {
                     <p>국민은행:244002-04-251093</p>
                     <p>예금주:박혜민</p>
                 </div>
+
             </div>
         </FooterStyle>
     )
@@ -38,10 +39,11 @@ const Footer = () => {
 
 const FooterStyle = styled.div`
     border-top : 1px solid #ececec;
+    margin-top : 10px;
     display : flex;
     justify-content : space-around;
     align-items : flex-start;
-    padding : 50px 0 50px 0;
+    padding : 10px 0 50px 0;
     text-align:center;
 
 `;

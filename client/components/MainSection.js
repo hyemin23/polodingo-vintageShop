@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { SectionOne, SectionThree, SectionTwo } from "../style/SectionStyle";
+import { Section, SectionTwo } from "../style/SectionStyle";
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { ProductStyle } from "../style/ProductStyle";
@@ -15,20 +15,9 @@ const MainSection = () => {
     const refSlide3 = useRef(null);
 
     const revealRef1 = useRef(null);
-    const revealRef2 = useRef(null);
-
 
     useEffect(() => {
-        const sections = [refSlide1, refSlide2, refSlide3].map(ref => ref.current);
-
-
-        gsap.from(refSlide1.current, {
-            duration: 1,
-            autoAlpha: 0,
-            ease: 'none',
-            delay: 0.1,
-        });
-
+        // const sections = [refSlide1, refSlide2, refSlide3].map(ref => ref.current);
 
         // const triggers = sections.map((panel) => {
         //     return ScrollTrigger.create({
@@ -51,44 +40,49 @@ const MainSection = () => {
     }, []);
 
     useEffect(() => {
-        const texts = [revealRef1, revealRef2].map((ref) => ref.current);
+        // const texts = [revealRef1].map((ref) => ref.current);
 
 
-        texts.forEach(el => {
-            gsap.fromTo(
-                el,
-                {
-                    autoAlpha: 0,
-                },
-                {
-                    duration: 1,
-                    autoAlpha: 1,
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: el,
-                        start: 'top center+=100',
-                        toggleActions: 'play none none reverse',
-                    },
-                }
-            );
-        });
+        // gsap.from(refSlide1.current, {
+        //     duration: 1,
+        //     autoAlpha: 0,
+        //     ease: 'none',
+        //     delay: 0.1,
+        // });
+
+        // texts.forEach(el => {
+        //     gsap.fromTo(
+        //         el,
+        //         {
+        //             autoAlpha: 0,
+        //         },
+        //         {
+        //             duration: 1,
+        //             autoAlpha: 1,
+        //             ease: 'none',
+        //             scrollTrigger: {
+        //                 trigger: el,
+        //                 start: 'top center+=100',
+        //                 toggleActions: 'play none none reverse',
+        //             },
+        //         }
+        //     );
+        // });
 
 
     }, []);
 
     return (
         <div>
-            <SectionOne ref={refSlide1}>
-                <div className="showcase_img">
-                    <img src="images/mainfirst.jpg"></img>
-                </div>
+            <Section ref={refSlide1} className="section showcase">
+                <div className='section__image section__image--a'></div>
                 <div className="showcase_contents">
                     <div className="showcase_event">
                         <h1>90% SALE</h1>
                         <span>세일 기간 중 교환 및 반품이 불가능합니다.</span>
                     </div>
                 </div>
-            </SectionOne>
+            </Section>
 
             <SectionTwo ref={refSlide2}>
                 <div className="showcase_contents" ref={revealRef1}>
@@ -105,6 +99,7 @@ const MainSection = () => {
                     </div>
                     <ul className="main_banner_lists">
                         <li>
+
                             <a href="#"><img src="images/main-banner-top-1.jpg"></img></a>
                             <p class="title"><span>TIE_DYE_TSHIRT</span></p>
                             <p class="summary">다양한 타이다이 티셔츠</p>
@@ -140,7 +135,7 @@ const MainSection = () => {
 
 
             <ProductStyle ref={refSlide3}>
-                <div className="container" ref={revealRef2}>
+                <div className="container">
                     <div>
                         <h2>PRODUCT</h2>
                         <p class="bar"></p>
