@@ -85,6 +85,10 @@ ul {
   list-style: none;
 }
 
+li::marker{
+  content:'';
+}
+
 .btn {
   display: inline-block;
   font-size: 0.8rem;
