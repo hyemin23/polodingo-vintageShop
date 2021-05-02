@@ -1,44 +1,7 @@
-import styled from "styled-components";
+import styled from "styled-components"
+import { isMobile } from "./theme"
 
-export const Section = styled.section`
-.showcase {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-
-  &__video {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    position: absolute;
-    //overflow: hidden;
-
-    video {
-      min-width: 100%;
-      min-height: 100%;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      object-fit: cover;
-    }
-
-    &:after {
-      content: '';
-      position: absolute;
-      z-index: 1;
-      height: 100%;
-      width: 100%;
-      top: 0;
-      left: 0;
-      background: rgba(19, 18, 18, 0.5);
-    }
-  }
-}
-
-.section {
+export const SectionOne = styled.section`
   position: relative;
   height: 100vh;
   overflow: hidden;
@@ -47,102 +10,137 @@ export const Section = styled.section`
   align-items: center;
   justify-content: center;
 
-  &__image {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-
-    background-size: cover;
-    background-position: center center;
-
-    &--a {
-      background-image: url('../../images/showcase1.jpg');
-    }
-
-    &--b {
-      background-image: url('../../images/showcase2.jpg');
-    }
-
-    &--c {
-      background-color: $dark-color;
-    }
-  }
-
-  &__content {
-    position: relative;
-    align-items: center;
+  .showcase_contents {
     text-align: center;
-    color: $white-color;
     z-index: 10;
-    margin-top: -5%;
-    display: flex;
-    flex-direction: column;
 
-    &__title {
-      font-size: 2rem;
+    & h1 {
+      display: block;
+      font-size: 90px;
+      paddding: 0 90px;
+      color: ${(prop) => prop.theme.palette.$whitecolor};
     }
 
-    a {
-      width: 100px;
-      color: $white-color;
-      padding: 10px 0;
-      margin-top: 1rem;
-      border: 2px solid $white-color;
+    & span {
+      padding: 0 90px;
+      font-size: 30px;
+      color: ${(prop) => prop.theme.palette.$whitecolor};
     }
 
-    @include atMobile {
-      &__title {
-        font-size: 1.6rem;
+    ${isMobile} {
+      h1 {
+        font-size: 3rem;
+      }
+      span {
+        padding: 0;
+        font-size: 1rem;
       }
     }
   }
 
-  input {
-    background-color: transparent;
-    color: $white-color;
-    outline: 0;
-    border-width: 0 0 2px;
-    margin-top: 1rem;
-    width: 300px;
-    height: 30px;
-  }
+  .section__image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
 
-  &__icon__container {
-    margin: 1rem 0;
-
-    a {
-      cursor: pointer;
-      outline: none;
-      border: none;
-      font-size: 1.6rem;
-      margin: 2rem 1rem;
+    &:after {
+      content: "";
+      position: absolute;
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(19, 18, 18, 0.5);
     }
 
-    a:hover {
-      color: $secondary-color;
+    &--a {
+      background-image: url("images/mainfirst.jpg");
     }
   }
-
-  .newsletter--btn {
-    margin-top: 1rem;
-    width: 200px;
-    background-color: transparent;
-    color: $white-color;
-    padding: 10px 0;
-    margin-top: 1rem;
-    border: 2px solid $white-color;
-    cursor: pointer;
-    outline: none;
-  }
-}
-
-
-    
-
-`;
-
-
+`
 
 export const SectionTwo = styled.section`
-   
-`;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .showcase_contents {
+    position: absolute;
+    width: 100%;
+    hegith: 100%;
+    background-color: rgb(239, 239, 239);
+  }
+
+  .main_banner_lists {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    align-content: center;
+    width: 100%;
+    padding: 10%;
+
+    li {
+      width: 33.3333%;
+      padding: 1%;
+      box-sizing: border-box;
+      font-size: 12px;
+      text-align: cetner;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .title {
+      margin-top: 10px;
+      color: #000;
+    }
+    span {
+      display: inline-block;
+      line-height: 1.5;
+      font-size: 14px;
+      padding-top: 10px;
+      padding-bottom: 15px;
+      margin-bottom: 10px;
+      position: relative;
+      font-family: "Libre Baskerville", "Georgia", Times, serif;
+
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        left: 0;
+        bottom: 0;
+        background: #aaa;
+      }
+    }
+  }
+
+  ${isMobile} {
+    .main_banner_lists {
+      height: 100vh;
+      li {
+        width: 49.9999%;
+        padding: 4px;
+        margin-bottom: 25px;
+      }
+      p {
+        font-size: 10px;
+      }
+      span {
+        font-size: 13px;
+      }
+    }
+  }
+`

@@ -12,5 +12,28 @@
     "es6": true
   },
   "extends": ["eslint:recommend", "plugin:react/recommended"],
-  "plugins": ["import", "react-hooks"]
+  "plugins": ["import", "react-hooks"],
+
+  "editor.formatOnSave": false,
+  "eslint.validate": [
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+
+    {
+      "language": "javascriptreact",
+      "autoFix": true
+    },
+
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ]
 }

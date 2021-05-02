@@ -1,34 +1,35 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import HeaderLayout from '../layout/HeaderLayout';
-import Head from "next/head";
-import { createGlobalStyle } from "styled-components";
-import { ThemeProvider } from "styled-components";
-import Footer from '../components/Footer';
-import devices from '../style/theme';
+import React from "react"
+import PropTypes from "prop-types"
+import HeaderLayout from "../layout/HeaderLayout"
+import Head from "next/head"
 
+import Footer from "../components/Footer"
+import devices from "../style/theme"
+import { createGlobalStyle, ThemeProvider } from "styled-components"
 
 //페이지들의 공통적인 부분을 처리하는 곳
 //appjs는 indexjs의 부모인셈. 즉, index의 return이 들어옴
 const App = ({ Component }) => {
   return (
     <ThemeProvider
-      theme={devices = { devices },
-      {
-        palette: {
-          $darkcolor: "#000"
-          , $whitecolor: "#fff"
-          , $lightcolor: "#f4f4f4"
-          , $primarycolor: "#b2b2b2"
-          , $secondarycolor: "#666"
-          , $hovercolor: "#555"
-          , $emphasiscolor: "#f3885f"
-          , $successcolor: "#3ba961"
-          , $dangercolor: "#d23430"
-          , $warningcolor: "#f0ae4d"
-          , $infocolor: "#219bcf"
-        }
-      }}
+      theme={
+        ((devices = { devices }),
+        {
+          palette: {
+            $darkcolor: "#000",
+            $whitecolor: "#fff",
+            $lightcolor: "#f4f4f4",
+            $primarycolor: "#b2b2b2",
+            $secondarycolor: "#666",
+            $hovercolor: "#555",
+            $emphasiscolor: "#f3885f",
+            $successcolor: "#3ba961",
+            $dangercolor: "#d23430",
+            $warningcolor: "#f0ae4d",
+            $infocolor: "#219bcf",
+          },
+        })
+      }
     >
       <DefaultLayout
         $darkcolor="#000"
@@ -46,8 +47,6 @@ const App = ({ Component }) => {
       <Head>
         <meta charSet="utf-8" />
         <title>폴로딩고</title>
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;700;800&display=swap" rel="stylesheet" />
       </Head>
       <HeaderLayout />
       <Component />
@@ -55,8 +54,6 @@ const App = ({ Component }) => {
     </ThemeProvider>
   )
 }
-
-
 
 const DefaultLayout = createGlobalStyle`
 
@@ -77,10 +74,10 @@ body {
 
 a {
   text-decoration: none;
-  color: ${props => props.$darkcolor};
+  color: ${(props) => props.$darkcolor};
 
   &:hover {
-    color:  ${props => props.$secondarycolor};
+    color:  ${(props) => props.$secondarycolor};
   }
 }
 
@@ -92,8 +89,8 @@ ul {
   display: inline-block;
   font-size: 0.8rem;
   padding: 12px;
-  color: ${props => props.$whitecolor};
-  background-color: ${props => props.$darkcolor};
+  color: ${(props) => props.$whitecolor};
+  background-color: ${(props) => props.$darkcolor};
   text-align: center;
   vertical-align: middle;
   user-select: none;
@@ -101,8 +98,8 @@ ul {
   outline: none;
 
   &:hover {
-    background-color: ${props => props.$primarycolor};
-    color: ${props => props.$lightcolor};
+    background-color: ${(props) => props.$primarycolor};
+    color: ${(props) => props.$lightcolor};
   }
 }
 
@@ -113,12 +110,12 @@ ul {
 }
 
 .error {
-  color:${props => props.$dangercolor};
+  color:${(props) => props.$dangercolor};
   font-size: 1rem;
 }
 
 .success {
-  color: ${props => props.$successcolor}
+  color: ${(props) => props.$successcolor}
   font-size: 1rem;
 }
 
@@ -126,7 +123,7 @@ ul {
   width: 40px;
   padding: 5px;
   outline: none;
-  border-color: ${props => props.$primarycolor};
+  border-color: ${(props) => props.$primarycolor};
   cursor: pointer;
 }
 
@@ -134,12 +131,10 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-}`;
-
-
+}`
 
 App.propTypes = {
   Component: PropTypes.elementType.isRequired,
 }
 
-export default App;
+export default App

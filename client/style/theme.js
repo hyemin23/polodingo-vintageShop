@@ -1,4 +1,3 @@
-import { defaultConfig } from "next/dist/next-server/server/config-shared";
 
 const deviceSize = {
     mobile: "500px",
