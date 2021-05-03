@@ -41,6 +41,11 @@ const HeaderLayout = ({ children }) => {
               <a>CONSIGNMENT SALES</a>
             </Link>
           </li>
+          <li>
+            <Link href="/shop">
+              <a>SHOP</a>
+            </Link>
+          </li>
         </ul>
 
         {/*로고*/}
