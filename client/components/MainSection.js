@@ -1,10 +1,9 @@
 import React, { useEffect, useRef } from "react"
-import { SectionOne, SectionTwo } from "../style/SectionStyle"
+import { SectionOne, SectionTwo, SectionThree } from "../style/SectionStyle"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
-import { ProductStyle } from "../style/ProductStyle"
 import Product from "./Product"
-import Footer from "./Footer"
+import { ProductLayout } from "../layout/ProductLayout"
 
 // register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger)
@@ -79,18 +78,6 @@ const MainSection = () => {
 
       <SectionTwo ref={refSlide2}>
         <div className="showcase_contents" ref={revealRef1}>
-          {/* <div class="main_notice">
-            <h2>UPDATE NEW</h2>
-            <ul>
-              <li>
-                <span className="date">2020-04-30</span>
-                <span className="title">
-                  <a href="#">업데이트 내용</a>
-                </span>
-              </li>
-            </ul>
-          </div> */}
-
           <ul className="main_banner_lists">
             <li>
               <a href="#">
@@ -150,18 +137,18 @@ const MainSection = () => {
         </div>
       </SectionTwo>
 
-      <ProductStyle>
+      <SectionThree>
         <div className="container" ref={refSlide3}>
           <div>
             <h2>PRODUCT</h2>
             <p class="bar"></p>
             <p className="ment">단 한장밖에 없는 당신만의 옷들입니다 :)</p>
           </div>
-          <div className="products">
-            <Product />
-          </div>
+          <ProductLayout column="5">
+            <Product id="new" />
+          </ProductLayout>
         </div>
-      </ProductStyle>
+      </SectionThree>
     </>
   )
 }

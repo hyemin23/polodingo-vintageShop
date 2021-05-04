@@ -10,10 +10,10 @@ const CategoryLayout = () => {
           <li>
             <ActiveLink
               href="/category/[id]"
-              as="/category/All"
-              activeClassName="All"
+              as="/category/all"
+              activeClassName="all"
             >
-              <a class="aTagActive">All</a>
+              <a>All</a>
             </ActiveLink>
           </li>
 
@@ -23,57 +23,37 @@ const CategoryLayout = () => {
               as="/category/outer"
               activeClassName="outer"
             >
-              <a>123</a>
+              <a>Outer</a>
             </ActiveLink>
           </li>
 
           <li>
-            <Link href="/category/[id]" as="/category/상의" passHref>
-              <a>상의</a>
-            </Link>
+            <ActiveLink
+              href="/category/[id]"
+              as="/category/top"
+              activeClassName="top"
+            >
+              <a>Top</a>
+            </ActiveLink>
           </li>
 
           <li>
-            <Link
-              href="#"
+            <ActiveLink
               href="/category/[id]"
-              as="/category/하의"
-              activeClass="active"
+              as="/category/pants"
+              activeClassName="pants"
             >
-              <a>하의</a>
-            </Link>
+              <a>Pants</a>
+            </ActiveLink>
           </li>
           <li>
-            <Link
-              href="#"
+            <ActiveLink
               href="/category/[id]"
-              as="/category/아우터"
-              activeClass="active"
+              as="/category/acc"
+              activeClassName="acc"
             >
-              <a>아우터</a>
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="#"
-              href="/category/[id]"
-              as="/category/악세사리"
-              activeClass="active"
-            >
-              <a>악세사리</a>
-            </Link>
-          </li>
-
-          <li>
-            <Link
-              href="#"
-              href="/category/[id]"
-              as="/category/신발"
-              activeClass="active"
-            >
-              <a>신발</a>
-            </Link>
+              <a>acc</a>
+            </ActiveLink>
           </li>
         </ul>
       </div>
@@ -82,14 +62,11 @@ const CategoryLayout = () => {
 }
 
 const Category = styled.div`
-  padding: 10rem 0;
+  padding: 10rem 0 1rem 0;
   width: 100%;
   margin: auto;
   text-align: center;
-
-  .aTagActive {
-    color: red !important;
-  }
+  font-size: 1rem;
 
   .productLanding_filter {
     display: flex;

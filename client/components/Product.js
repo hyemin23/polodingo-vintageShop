@@ -1,12 +1,16 @@
 import React from "react"
 
 //나중에 div -> Link로 수정하기
-const Product = () => {
+const Product = ({ id }) => {
+  console.log(id)
+
+  //useEffect로 id를 받아와서 분기
+
   return (
     <>
       <li>
         <a className="product">
-          <img src="images/product1.jpg" />
+          <img src="/images/product1.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -24,7 +28,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -34,7 +38,7 @@ const Product = () => {
 
       <li>
         <a className="product">
-          <img src="images/product2.jpg" />
+          <img src="/images/product2.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -52,7 +56,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -62,7 +66,7 @@ const Product = () => {
 
       <li>
         <a className="product">
-          <img src="images/product3.jpg" />
+          <img src="/images/product3.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -80,7 +84,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -90,7 +94,7 @@ const Product = () => {
 
       <li>
         <a className="product">
-          <img src="images/product4.jpg" />
+          <img src="/images/product4.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -108,7 +112,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -118,7 +122,7 @@ const Product = () => {
 
       <li>
         <a className="product">
-          <img src="images/product5.jpg" />
+          <img src="/images/product5.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -136,7 +140,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -146,7 +150,7 @@ const Product = () => {
 
       <li>
         <a className="product">
-          <img src="images/product6.jpg" />
+          <img src="/images/product6.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -164,7 +168,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -174,7 +178,7 @@ const Product = () => {
 
       <li>
         <a className="product">
-          <img src="images/product7.jpg" />
+          <img src="/images/product7.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -192,7 +196,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -201,7 +205,7 @@ const Product = () => {
       </li>
       <li>
         <a className="product">
-          <img src="images/product7.jpg" />
+          <img src="/images/product7.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -219,7 +223,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -228,7 +232,7 @@ const Product = () => {
       </li>
       <li>
         <a className="product">
-          <img src="images/product7.jpg" />
+          <img src="/images/product7.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -246,7 +250,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -255,7 +259,7 @@ const Product = () => {
       </li>
       <li>
         <a className="product">
-          <img src="images/product7.jpg" />
+          <img src="/images/product7.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -273,7 +277,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -282,7 +286,7 @@ const Product = () => {
       </li>
       <li>
         <a className="product">
-          <img src="images/product7.jpg" />
+          <img src="/images/product7.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -300,7 +304,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -309,7 +313,7 @@ const Product = () => {
       </li>
       <li>
         <a className="product">
-          <img src="images/product7.jpg" />
+          <img src="/images/product7.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -327,7 +331,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -337,7 +341,7 @@ const Product = () => {
 
       <li>
         <a className="product">
-          <img src="images/product7.jpg" />
+          <img src="/images/product7.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -355,7 +359,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -365,7 +369,7 @@ const Product = () => {
 
       <li>
         <a className="product">
-          <img src="images/product7.jpg" />
+          <img src="/images/product7.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -383,7 +387,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -393,7 +397,7 @@ const Product = () => {
 
       <li>
         <a className="product">
-          <img src="images/product7.jpg" />
+          <img src="/images/product7.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -411,7 +415,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -421,7 +425,7 @@ const Product = () => {
 
       <li>
         <a className="product">
-          <img src="images/product7.jpg" />
+          <img src="/images/product7.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -439,7 +443,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -449,7 +453,7 @@ const Product = () => {
 
       <li>
         <a className="product">
-          <img src="images/product7.jpg" />
+          <img src="/images/product7.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -467,7 +471,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -477,7 +481,7 @@ const Product = () => {
 
       <li>
         <a className="product">
-          <img src="images/product7.jpg" />
+          <img src="/images/product7.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -495,7 +499,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -505,7 +509,7 @@ const Product = () => {
 
       <li>
         <a className="product">
-          <img src="images/product7.jpg" />
+          <img src="/images/product7.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -523,7 +527,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />
@@ -533,7 +537,7 @@ const Product = () => {
 
       <li>
         <a className="product">
-          <img src="images/product7.jpg" />
+          <img src="/images/product7.jpg" />
         </a>
         <div class="inner">
           <strong class="name">
@@ -551,7 +555,7 @@ const Product = () => {
 
           <div class="promotion">
             <img
-              src="images/ico_product_soldout.gif"
+              src="/images/ico_product_soldout.gif"
               class="icon_img"
               alt="품절"
             />

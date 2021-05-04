@@ -39,9 +39,9 @@ ActiveLink.defaultProps = {
 
 const Active = styled.div`
   a {
-    color: red;
+    color: ${(prop) => prop.theme.palette.$primarycolor};
   }
-  font-size: 30px;
+  font-size: 1rem;
 `
 
 export default ActiveLink

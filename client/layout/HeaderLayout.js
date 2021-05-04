@@ -37,12 +37,12 @@ const HeaderLayout = ({ children }) => {
             </Link>
           </li>
           <li>
-            <Link href="/consignment">
-              <a>CONSIGNMENT SALES</a>
+            <Link href="/about">
+              <a>About Us</a>
             </Link>
           </li>
           <li>
-            <Link href="/shop">
+            <Link href="/category/[id]" as="/category/all">
               <a>SHOP</a>
             </Link>
           </li>

@@ -144,3 +144,35 @@ export const SectionTwo = styled.section`
     }
   }
 `
+
+export const SectionThree = styled.div`
+  background-color: ${(prop) => prop.theme.palette.$whitecolor};
+
+  .container {
+    padding: 60px 5%;
+    text-align: center;
+
+    h2 {
+      font-size: 24px;
+      letter-spacing: 0.1em;
+    }
+
+    .bar {
+      margin: 20px auto 15px;
+      height: 2px;
+      width: 35px;
+      display: block;
+      background: #111;
+    }
+
+    .ment {
+      display: block;
+      margin-top: 20px;
+      color: #aaa;
+      font-weight: 400;
+      padding: 10px 0 30px;
+      font-size: 16px;
+      letter-spacing: -0.03em;
+    }
+  }
+`

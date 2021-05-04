@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { isMobile } from "./theme"
 
-export const ProductStyle = styled.div`
+export const SectionThree = styled.div`
   background-color: ${(prop) => prop.theme.palette.$whitecolor};
 
   .container {
