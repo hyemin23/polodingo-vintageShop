@@ -15,6 +15,11 @@ const HeaderLayout = ({ children }) => {
   const router = useRouter()
   const [navToggleBtn, setNavToggleBtn] = useState(false)
 
+  const [SearchPopOpen, setSearchPopOpen] = useState(false)
+
+  const SearchPopClick = () => {
+    setSearchPopOpen((prev) => !prev)
+  }
   return (
     <header>
       <HeaderInner router={router}>
@@ -62,8 +67,27 @@ const HeaderLayout = ({ children }) => {
         <ul className={navToggleBtn ? "open_items" : "close_items"}>
           <li>
             <a href="#">
-              <SearchOutlined />
+              <SearchOutlined onClick={SearchPopClick} />
             </a>
+            {SearchPopOpen && (
+              <SearchForm SearchPopOpen={SearchPopOpen}>
+                <div className="Search_div">
+                  <form>
+                    <div>
+                      <fieldset>
+                        <input className="keyWord" />
+                        <button>
+                          <strong>SEARCH</strong>
+                        </button>
+                        <span href="#" onClick={SearchPopClick}>
+                          X
+                        </span>
+                      </fieldset>
+                    </div>
+                  </form>
+                </div>
+              </SearchForm>
+            )}
           </li>
 
           <li>
@@ -184,6 +208,60 @@ const Logo = styled.div`
 
     }
 
+`
+const SearchForm = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  z-index: -1;
+  padding: 10rem 0;
+  text-align: center;
+  box-shadow: 0 15px 15px 1px rgb(0 0 0 /30%);
+
+  input {
+    font-size: 1rem;
+    outlinle: 0;
+    border-width: 0 0 2px;
+    heigth: 2rem;
+    width: 800px;
+    margin-right: 1rem;
+  }
+
+  fieldset {
+    border: none;
+  }
+  button {
+    cursor: pointer;
+    background-color: transparent;
+    font-size: 1.2rem;
+    border: none;
+  }
+
+  a {
+    padding: 0 10px;
+    color: black !important;
+  }
+  span {
+    font-size: 20px !important;
+    padding: 0 10px;
+  }
+
+  ${isMobile} {
+    z-index: 2;
+    width: 100%;
+
+    input {
+      border-width: 0 0 2px;
+      width: 50%;
+      margin: 0;
+    }
+
+    button {
+      margin-left: 10px;
+    }
+  }
 `
 
 export default HeaderLayout

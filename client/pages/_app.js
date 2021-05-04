@@ -48,19 +48,27 @@ const App = ({ Component }) => {
         <meta charSet="utf-8" />
         <title>폴로딩고</title>
       </Head>
-      <HeaderLayout />
-      <main>
-        <Component />
-      </main>
+      <div class="wrapper">
+        <HeaderLayout />
+        <main>
+          <Component />
+        </main>
 
-      <footer>
-        <Footer />
-      </footer>
+        <footer>
+          <Footer />
+        </footer>
+      </div>
     </ThemeProvider>
   )
 }
 
 const DefaultLayout = createGlobalStyle`
+
+.wrapper{
+  min-height:100vh;
+  position:relative;
+}
+
 
 * {
   box-sizing: border-box;
@@ -95,6 +103,7 @@ li::marker{
 }
 
 .btn {
+  cursor :pointer;
   display: inline-block;
   font-size: 0.8rem;
   padding: 12px;
