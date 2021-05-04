@@ -36,6 +36,9 @@ const Footer = () => {
 }
 
 const FooterStyle = styled.div`
+  padding: 2rem;
+  width: 100%;
+
   border-top: 1px solid #ececec;
   margin-top: 10px;
   display: flex;

@@ -1,7 +1,7 @@
 import React from "react"
 import Product from "../../components/Product"
 import CategoryLayout from "../../layout/CategoryLayout"
-import { ProductLayout } from "../../layout/ProductLayout"
+import { ProductStyle } from "../../style/ProductStyle"
 const { useRouter } = require("next/router")
 
 const Category = () => {
@@ -12,9 +12,9 @@ const Category = () => {
     <div>
       <CategoryLayout />
       <div className="container" style={{ padding: "60px 5%" }}>
-        <ProductLayout column="4">
+        <ProductStyle column="4">
           <Product id={id} />
-        </ProductLayout>
+        </ProductStyle>
       </div>
     </div>
   )

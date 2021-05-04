@@ -3,7 +3,7 @@ import { SectionOne, SectionTwo, SectionThree } from "../style/SectionStyle"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger"
 import Product from "./Product"
-import { ProductLayout } from "../layout/ProductLayout"
+import { ProductStyle } from "../style/ProductStyle"
 
 // register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger)
@@ -144,9 +144,9 @@ const MainSection = () => {
             <p class="bar"></p>
             <p className="ment">단 한장밖에 없는 당신만의 옷들입니다 :)</p>
           </div>
-          <ProductLayout column="5">
+          <ProductStyle column="5">
             <Product id="new" />
-          </ProductLayout>
+          </ProductStyle>
         </div>
       </SectionThree>
     </>

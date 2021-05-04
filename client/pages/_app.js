@@ -5,7 +5,7 @@ import Head from "next/head"
 
 import Footer from "../components/Footer"
 import devices from "../style/theme"
-import { createGlobalStyle, ThemeProvider } from "styled-components"
+import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
 
 //페이지들의 공통적인 부분을 처리하는 곳
 //appjs는 indexjs의 부모인셈. 즉, index의 return이 들어옴
@@ -49,8 +49,13 @@ const App = ({ Component }) => {
         <title>폴로딩고</title>
       </Head>
       <HeaderLayout />
-      <Component />
-      <Footer />
+      <main>
+        <Component />
+      </main>
+
+      <footer>
+        <Footer />
+      </footer>
     </ThemeProvider>
   )
 }
@@ -113,16 +118,6 @@ li::marker{
   margin: auto;
 }
 
-.error {
-  color:${(props) => props.$dangercolor};
-  font-size: 1rem;
-}
-
-.success {
-  color: ${(props) => props.$successcolor}
-  font-size: 1rem;
-}
-
 .select {
   width: 40px;
   padding: 5px;
@@ -135,7 +130,12 @@ input:focus,
 textarea:focus,
 select:focus {
   outline: none;
-}`
+}
+`
+
+const Wrapper = styled.div`
+  position: relative;
+`
 
 App.propTypes = {
   Component: PropTypes.elementType.isRequired,

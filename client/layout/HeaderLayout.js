@@ -67,7 +67,7 @@ const HeaderLayout = ({ children }) => {
           </li>
 
           <li>
-            <Link href="/signup">
+            <Link href="/login">
               <a>LOGIN</a>
             </Link>
           </li>
