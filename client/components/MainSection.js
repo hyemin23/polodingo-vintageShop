@@ -83,55 +83,55 @@ const MainSection = () => {
               <a href="#">
                 <img src="images/main-banner-top-1.jpg"></img>
               </a>
-              <p class="title">
+              <p className="title">
                 <span>TIE_DYE_TSHIRT</span>
               </p>
-              <p class="summary">다양한 타이다이 티셔츠</p>
+              <p className="summary">다양한 타이다이 티셔츠</p>
             </li>
             <li>
               <a href="#">
                 <img src="images/main-banner-top-2.jpg"></img>
               </a>
-              <p class="title">
+              <p className="title">
                 <span>HAWAIAN SHIRT</span>
               </p>
-              <p class="summary">하와이안 셔츠</p>
+              <p className="summary">하와이안 셔츠</p>
             </li>
             <li>
               <a href="#">
                 <img src="images/main-banner-top-3.jpg"></img>
               </a>
-              <p class="title">
+              <p className="title">
                 <span>SWEATSHIRT</span>
               </p>
-              <p class="summary">스타일리쉬 트렌치 코트</p>
+              <p className="summary">스타일리쉬 트렌치 코트</p>
             </li>
             <li>
               <a href="#">
                 <img src="images/main-banner-1.jpg"></img>
               </a>
-              <p class="title">
+              <p className="title">
                 <span>NEW CUSTOMERS</span>
               </p>
-              <p class="summary">신규회원 5% 할인 쿠폰 발급!</p>
+              <p className="summary">신규회원 5% 할인 쿠폰 발급!</p>
             </li>
             <li>
               <a href="#">
                 <img src="images/main-banner-2.jpg"></img>
               </a>
-              <p class="title">
+              <p className="title">
                 <span>MEMBER LEVEL</span>
               </p>
-              <p class="summary">빈티지톡 회원등급 안내</p>
+              <p className="summary">빈티지톡 회원등급 안내</p>
             </li>
             <li>
               <a href="#">
                 <img src="images/main-banner-3.jpg"></img>
               </a>
-              <p class="title">
+              <p className="title">
                 <span>CONSIGNMENT SALES</span>
               </p>
-              <p class="summary">위탁판매 안내</p>
+              <p className="summary">위탁판매 안내</p>
             </li>
           </ul>
         </div>
@@ -141,7 +141,7 @@ const MainSection = () => {
         <div className="container" ref={refSlide3}>
           <div>
             <h2>PRODUCT</h2>
-            <p class="bar"></p>
+            <p className="bar"></p>
             <p className="ment">단 한장밖에 없는 당신만의 옷들입니다 :)</p>
           </div>
           <ProductStyle column="5">

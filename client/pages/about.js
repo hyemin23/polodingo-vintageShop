@@ -11,17 +11,17 @@ const consignment = () => {
       </Head>
 
       <About>
-        <div class="wrap">
-          <div class="container">
-            <div class="titleArea">
+        <div className="wrap">
+          <div className="container">
+            <div className="titleArea">
               <h2>STORY</h2>
             </div>
-            <div class="company">
+            <div className="company">
               <ul>
-                <li class="text">
-                  <h2 class="scroll-fade motion4">솔직한 빈티지 스토어</h2>
+                <li className="text">
+                  <h2 className="scroll-fade motion4">솔직한 빈티지 스토어</h2>
                   <h2 className="title">폴로딩고</h2>
-                  <p class="scroll-fade motion1">
+                  <p className="scroll-fade motion1">
                     우리에게 소중한 것은 돈을 버는 것이 아닙니다.
                   </p>
                   <p> 당신에게 행복함을 나눠드리고</p>
@@ -35,11 +35,11 @@ const consignment = () => {
                   <p> 당신을 위한 소비일뿐만 아니라</p>
                   <p>지구를 위한 소비입니다.</p>
                 </li>
-                <li class="img_zone">
+                <li className="img_zone">
                   <img src="/images/company_img.jpg" alt="이미지" />
                 </li>
-                <li class="text">
-                  <p class="scroll-fade motion2">
+                <li className="text">
+                  <p className="scroll-fade motion2">
                     당신과 지구를 위한 소비를 하고 싶다면,
                   </p>
                   <p> 지금 바로 폴로디움의 아이템들을 만나보세요.</p>

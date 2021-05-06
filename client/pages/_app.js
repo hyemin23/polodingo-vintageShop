@@ -46,9 +46,18 @@ const App = ({ Component }) => {
       />
       <Head>
         <meta charSet="utf-8" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1"
+        />
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;700;800&display=swap"
+          rel="stylesheet"
+        />
         <title>폴로딩고</title>
       </Head>
-      <div class="wrapper">
+      <div className="wrapper">
         <HeaderLayout />
         <main>
           <Component />
@@ -63,6 +72,7 @@ const App = ({ Component }) => {
 }
 
 const DefaultLayout = createGlobalStyle`
+
 
 .wrapper{
   min-height:100vh;

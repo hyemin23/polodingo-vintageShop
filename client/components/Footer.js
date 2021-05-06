@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <FooterStyle>
       <div>
-        <div class="title">
+        <div className="title">
           <h2>C/S</h2>
         </div>
         <div>
