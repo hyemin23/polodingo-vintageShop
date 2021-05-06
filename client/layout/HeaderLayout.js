@@ -32,8 +32,8 @@ const HeaderLayout = ({ children }) => {
 
         <ul className={navToggleBtn ? "open_items" : "close_items"}>
           <li>
-            <Link href="/help">
-              <a>HELP</a>
+            <Link href="/question">
+              <a>Q&A</a>
             </Link>
           </li>
           <li>
