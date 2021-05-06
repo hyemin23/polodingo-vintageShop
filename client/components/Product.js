@@ -13,19 +13,19 @@ const Product = ({ id }) => {
     <>
       <Link href="/product/[id]" as="/product/1">
         <a>
-          <li>
+          <div>
             <img src="/images/product1.jpg" />
             <div className="inner">
               <strong className="name">
                 <span>[ L ] Polo Ralph Lauren 90's Shirt (5051)</span>
               </strong>
 
-              <ul className="spec">
-                <li className="price_all">
+              <div className="spec">
+                <div className="price_all">
                   <span className="price">₩60,000</span>
                   <span className="sale ">$50,000</span>
-                </li>
-              </ul>
+                </div>
+              </div>
 
               <div className="promotion">
                 <img
@@ -35,11 +35,11 @@ const Product = ({ id }) => {
                 />
               </div>
             </div>
-          </li>
+          </div>
         </a>
       </Link>
 
-      <li>
+      <div>
         <a className="product">
           <img src="/images/product2.jpg" />
         </a>
@@ -50,12 +50,12 @@ const Product = ({ id }) => {
             </a>
           </strong>
 
-          <ul className="spec">
-            <li className="price_all">
+          <div className="spec">
+            <div className="price_all">
               <span className="price">₩60,000</span>
               <span className="sale "></span>
-            </li>
-          </ul>
+            </div>
+          </div>
 
           <div className="promotion">
             <img
@@ -65,9 +65,9 @@ const Product = ({ id }) => {
             />
           </div>
         </div>
-      </li>
+      </div>
 
-      <li>
+      <div>
         <a className="product">
           <img src="/images/product3.jpg" />
         </a>
@@ -78,12 +78,12 @@ const Product = ({ id }) => {
             </a>
           </strong>
 
-          <ul className="spec">
-            <li className="price_all">
+          <div className="spec">
+            <div className="price_all">
               <span className="price">₩60,000</span>
               <span className="sale "></span>
-            </li>
-          </ul>
+            </div>
+          </div>
 
           <div className="promotion">
             <img
@@ -93,9 +93,9 @@ const Product = ({ id }) => {
             />
           </div>
         </div>
-      </li>
+      </div>
 
-      <li>
+      <div>
         <a className="product">
           <img src="/images/product4.jpg" />
         </a>
@@ -106,12 +106,12 @@ const Product = ({ id }) => {
             </a>
           </strong>
 
-          <ul className="spec">
-            <li className="price_all">
+          <div className="spec">
+            <div className="price_all">
               <span className="price">₩60,000</span>
               <span className="sale "></span>
-            </li>
-          </ul>
+            </div>
+          </div>
 
           <div className="promotion">
             <img
@@ -121,9 +121,9 @@ const Product = ({ id }) => {
             />
           </div>
         </div>
-      </li>
+      </div>
 
-      <li>
+      <div>
         <a className="product">
           <img src="/images/product5.jpg" />
         </a>
@@ -134,12 +134,12 @@ const Product = ({ id }) => {
             </a>
           </strong>
 
-          <ul className="spec">
-            <li className="price_all">
+          <div className="spec">
+            <div className="price_all">
               <span className="price">₩60,000</span>
               <span className="sale "></span>
-            </li>
-          </ul>
+            </div>
+          </div>
 
           <div className="promotion">
             <img
@@ -149,9 +149,9 @@ const Product = ({ id }) => {
             />
           </div>
         </div>
-      </li>
+      </div>
 
-      <li>
+      <div>
         <a className="product">
           <img src="/images/product6.jpg" />
         </a>
@@ -162,12 +162,12 @@ const Product = ({ id }) => {
             </a>
           </strong>
 
-          <ul className="spec">
-            <li className="price_all">
+          <div className="spec">
+            <div className="price_all">
               <span className="price">₩60,000</span>
               <span className="sale "></span>
-            </li>
-          </ul>
+            </div>
+          </div>
 
           <div className="promotion">
             <img
@@ -177,9 +177,9 @@ const Product = ({ id }) => {
             />
           </div>
         </div>
-      </li>
+      </div>
 
-      <li>
+      <div>
         <a className="product">
           <img src="/images/product7.jpg" />
         </a>
@@ -190,12 +190,12 @@ const Product = ({ id }) => {
             </a>
           </strong>
 
-          <ul className="spec">
-            <li className="price_all">
+          <div className="spec">
+            <div className="price_all">
               <span className="price">₩60,000</span>
               <span className="sale "></span>
-            </li>
-          </ul>
+            </div>
+          </div>
 
           <div className="promotion">
             <img
@@ -205,366 +205,7 @@ const Product = ({ id }) => {
             />
           </div>
         </div>
-      </li>
-      <li>
-        <a className="product">
-          <img src="/images/product7.jpg" />
-        </a>
-        <div className="inner">
-          <strong className="name">
-            <a href="#">
-              <span>[ L ] Polo Ralph Lauren 90's Shirt (5051)</span>
-            </a>
-          </strong>
-
-          <ul className="spec">
-            <li className="price_all">
-              <span className="price">₩60,000</span>
-              <span className="sale "></span>
-            </li>
-          </ul>
-
-          <div className="promotion">
-            <img
-              src="/images/ico_product_soldout.gif"
-              className="icon_img"
-              alt="품절"
-            />
-          </div>
-        </div>
-      </li>
-      <li>
-        <a className="product">
-          <img src="/images/product7.jpg" />
-        </a>
-        <div className="inner">
-          <strong className="name">
-            <a href="#">
-              <span>[ L ] Polo Ralph Lauren 90's Shirt (5051)</span>
-            </a>
-          </strong>
-
-          <ul className="spec">
-            <li className="price_all">
-              <span className="price">₩60,000</span>
-              <span className="sale "></span>
-            </li>
-          </ul>
-
-          <div className="promotion">
-            <img
-              src="/images/ico_product_soldout.gif"
-              className="icon_img"
-              alt="품절"
-            />
-          </div>
-        </div>
-      </li>
-      <li>
-        <a className="product">
-          <img src="/images/product7.jpg" />
-        </a>
-        <div className="inner">
-          <strong className="name">
-            <a href="#">
-              <span>[ L ] Polo Ralph Lauren 90's Shirt (5051)</span>
-            </a>
-          </strong>
-
-          <ul className="spec">
-            <li className="price_all">
-              <span className="price">₩60,000</span>
-              <span className="sale "></span>
-            </li>
-          </ul>
-
-          <div className="promotion">
-            <img
-              src="/images/ico_product_soldout.gif"
-              className="icon_img"
-              alt="품절"
-            />
-          </div>
-        </div>
-      </li>
-      <li>
-        <a className="product">
-          <img src="/images/product7.jpg" />
-        </a>
-        <div className="inner">
-          <strong className="name">
-            <a href="#">
-              <span>[ L ] Polo Ralph Lauren 90's Shirt (5051)</span>
-            </a>
-          </strong>
-
-          <ul className="spec">
-            <li className="price_all">
-              <span className="price">₩60,000</span>
-              <span className="sale "></span>
-            </li>
-          </ul>
-
-          <div className="promotion">
-            <img
-              src="/images/ico_product_soldout.gif"
-              className="icon_img"
-              alt="품절"
-            />
-          </div>
-        </div>
-      </li>
-      <li>
-        <a className="product">
-          <img src="/images/product7.jpg" />
-        </a>
-        <div className="inner">
-          <strong className="name">
-            <a href="#">
-              <span>[ L ] Polo Ralph Lauren 90's Shirt (5051)</span>
-            </a>
-          </strong>
-
-          <ul className="spec">
-            <li className="price_all">
-              <span className="price">₩60,000</span>
-              <span className="sale "></span>
-            </li>
-          </ul>
-
-          <div className="promotion">
-            <img
-              src="/images/ico_product_soldout.gif"
-              className="icon_img"
-              alt="품절"
-            />
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <a className="product">
-          <img src="/images/product7.jpg" />
-        </a>
-        <div className="inner">
-          <strong className="name">
-            <a href="#">
-              <span>[ L ] Polo Ralph Lauren 90's Shirt (5051)</span>
-            </a>
-          </strong>
-
-          <ul className="spec">
-            <li className="price_all">
-              <span className="price">₩60,000</span>
-              <span className="sale "></span>
-            </li>
-          </ul>
-
-          <div className="promotion">
-            <img
-              src="/images/ico_product_soldout.gif"
-              className="icon_img"
-              alt="품절"
-            />
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <a className="product">
-          <img src="/images/product7.jpg" />
-        </a>
-        <div className="inner">
-          <strong className="name">
-            <a href="#">
-              <span>[ L ] Polo Ralph Lauren 90's Shirt (5051)</span>
-            </a>
-          </strong>
-
-          <ul className="spec">
-            <li className="price_all">
-              <span className="price">₩60,000</span>
-              <span className="sale "></span>
-            </li>
-          </ul>
-
-          <div className="promotion">
-            <img
-              src="/images/ico_product_soldout.gif"
-              className="icon_img"
-              alt="품절"
-            />
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <a className="product">
-          <img src="/images/product7.jpg" />
-        </a>
-        <div className="inner">
-          <strong className="name">
-            <a href="#">
-              <span>[ L ] Polo Ralph Lauren 90's Shirt (5051)</span>
-            </a>
-          </strong>
-
-          <ul className="spec">
-            <li className="price_all">
-              <span className="price">₩60,000</span>
-              <span className="sale "></span>
-            </li>
-          </ul>
-
-          <div className="promotion">
-            <img
-              src="/images/ico_product_soldout.gif"
-              className="icon_img"
-              alt="품절"
-            />
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <a className="product">
-          <img src="/images/product7.jpg" />
-        </a>
-        <div className="inner">
-          <strong className="name">
-            <a href="#">
-              <span>[ L ] Polo Ralph Lauren 90's Shirt (5051)</span>
-            </a>
-          </strong>
-
-          <ul className="spec">
-            <li className="price_all">
-              <span className="price">₩60,000</span>
-              <span className="sale "></span>
-            </li>
-          </ul>
-
-          <div className="promotion">
-            <img
-              src="/images/ico_product_soldout.gif"
-              className="icon_img"
-              alt="품절"
-            />
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <a className="product">
-          <img src="/images/product7.jpg" />
-        </a>
-        <div className="inner">
-          <strong className="name">
-            <a href="#">
-              <span>[ L ] Polo Ralph Lauren 90's Shirt (5051)</span>
-            </a>
-          </strong>
-
-          <ul className="spec">
-            <li className="price_all">
-              <span className="price">₩60,000</span>
-              <span className="sale "></span>
-            </li>
-          </ul>
-
-          <div className="promotion">
-            <img
-              src="/images/ico_product_soldout.gif"
-              className="icon_img"
-              alt="품절"
-            />
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <a className="product">
-          <img src="/images/product7.jpg" />
-        </a>
-        <div className="inner">
-          <strong className="name">
-            <a href="#">
-              <span>[ L ] Polo Ralph Lauren 90's Shirt (5051)</span>
-            </a>
-          </strong>
-
-          <ul className="spec">
-            <li className="price_all">
-              <span className="price">₩60,000</span>
-              <span className="sale "></span>
-            </li>
-          </ul>
-
-          <div className="promotion">
-            <img
-              src="/images/ico_product_soldout.gif"
-              className="icon_img"
-              alt="품절"
-            />
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <a className="product">
-          <img src="/images/product7.jpg" />
-        </a>
-        <div className="inner">
-          <strong className="name">
-            <a href="#">
-              <span>[ L ] Polo Ralph Lauren 90's Shirt (5051)</span>
-            </a>
-          </strong>
-
-          <ul className="spec">
-            <li className="price_all">
-              <span className="price">₩60,000</span>
-              <span className="sale "></span>
-            </li>
-          </ul>
-
-          <div className="promotion">
-            <img
-              src="/images/ico_product_soldout.gif"
-              className="icon_img"
-              alt="품절"
-            />
-          </div>
-        </div>
-      </li>
-
-      <li>
-        <a className="product">
-          <img src="/images/product7.jpg" />
-        </a>
-        <div className="inner">
-          <strong className="name">
-            <a href="#">
-              <span>[ L ] Polo Ralph Lauren 90's Shirt (5051)</span>
-            </a>
-          </strong>
-
-          <ul className="spec">
-            <li className="price_all">
-              <span className="price">₩60,000</span>
-              <span className="sale "></span>
-            </li>
-          </ul>
-
-          <div className="promotion">
-            <img
-              src="/images/ico_product_soldout.gif"
-              className="icon_img"
-              alt="품절"
-            />
-          </div>
-        </div>
-      </li>
+      </div>
     </>
   )
 }
