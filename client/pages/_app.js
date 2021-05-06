@@ -72,8 +72,6 @@ const App = ({ Component }) => {
 }
 
 const DefaultLayout = createGlobalStyle`
-
-
 .wrapper{
   min-height:100vh;
   position:relative;
