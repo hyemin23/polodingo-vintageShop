@@ -1,0 +1,13 @@
+폴로딩고 구제 쇼핑몰
+
+
+상품 테이블
+
+- color (제품 색상)
+- Logo-color (로고 컬러)
+- material (재질)
+- size (실제 사이즈)
+- recommend-size (추천 사이즈)
+
+
+

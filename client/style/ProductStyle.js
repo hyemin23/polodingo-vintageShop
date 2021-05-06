@@ -71,5 +71,3 @@ export const ProductStyle = styled.div`
     column-gap: 10px;
   }
 `
-
-export const asd = () => {}
