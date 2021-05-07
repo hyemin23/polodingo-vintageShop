@@ -32,9 +32,6 @@ export const StockStyle = styled.div`
       flex-grow : 2;
     }
 
-
-
-
   .title {
     padding: 0 0 5rem 0;
 
@@ -55,6 +52,21 @@ export const StockStyle = styled.div`
       padding 10px 0;
       color : #f27a7a;
       
+    }
+  }
+
+  .cart_finall{
+    margin-top : 40px;
+    margin-bottom : 4rem;
+
+    .cart_total{
+      margin-top : 10px;
+      font-size : 1rem;
+      color : red;
+    }
+    .btn{
+      width:200px;
+      margin-top : 20px;
     }
   }
 `

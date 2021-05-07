@@ -64,14 +64,10 @@ const myshop = () => {
           </div>
 
           <div className="cart_finall">
-            <div>
-              <p>주문수량 : 개</p>
-              <p>배송비 : 3000원</p>
-              <p>총 구매 합산 금액:₩34,000원</p>
-            </div>
-            <div>
-              <button className="btn">주문하기</button>
-            </div>
+            <p>주문수량 : 개</p>
+            <p>배송비 : 3000원</p>
+            <p className="cart_total">총 구매 금액:₩34,000원</p>
+            <button className="btn">주문하기</button>
           </div>
         </div>
       ) : (
