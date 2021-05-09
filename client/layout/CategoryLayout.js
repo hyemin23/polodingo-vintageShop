@@ -1,10 +1,9 @@
-import Link from "next/link"
-import styled from "styled-components"
 import ActiveLink from "../components/ActiveLink"
+import CategoryStyle from "../style/CategoryStyle"
 
 const CategoryLayout = () => {
   return (
-    <Category>
+    <CategoryStyle>
       <div>
         <ul className="productLanding_filter">
           <li>
@@ -57,26 +56,8 @@ const CategoryLayout = () => {
           </li>
         </ul>
       </div>
-    </Category>
+    </CategoryStyle>
   )
 }
-
-const Category = styled.div`
-  padding: 10rem 0 1rem 0;
-  width: 100%;
-  margin: auto;
-  text-align: center;
-  font-size: 1rem;
-
-  .productLanding_filter {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-
-    li {
-      margin-right: 1rem;
-    }
-  }
-`
 
 export default CategoryLayout
