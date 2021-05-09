@@ -20,9 +20,9 @@ const orderStep = () => {
             {/* 1단계를 완료했을 경우 2단계에 주문번호 매개변수 전달 */}
             {shipping && shipping === true ? (
               <ActiveLink
-                href="/order/[id]"
-                as={`/order/${123}`}
-                activeClassName="shipping"
+                href="/order/shippingStep/[id]"
+                as={`/order/shippingStep/${123}`}
+                activeClassName="shippingStep"
               >
                 <a>Shipping</a>
               </ActiveLink>

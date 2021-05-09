@@ -67,7 +67,9 @@ const myshop = () => {
             <p>주문수량 : 개</p>
             <p>배송비 : 3000원</p>
             <p className="cart_total">총 구매 금액:₩34,000원</p>
-            <Link href="/orderScreen">
+
+            {/* 매개변수로 주문번호 Or 회원아이디 */}
+            <Link href={`/order/shippingStep/${12}`}>
               <a>
                 <button className="btn">주문하기</button>
               </a>
