@@ -18,7 +18,10 @@ const paymentScreen = () => {
                 <input type="radio" id="PayPal" name="paymentMethod" value="" />
                 <label htmlFor="PayPal"> 신용카드</label>
               </div>
-              <Link href="/order/[id]/" as={`/order/${123}`}>
+              <Link
+                href="/order/orderSheet/[id]/"
+                as={`/order/orderSheet/${123}`}
+              >
                 <a href="/order">
                   <button className="btn">주문</button>
                 </a>
