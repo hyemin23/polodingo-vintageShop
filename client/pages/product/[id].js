@@ -1,16 +1,17 @@
+import React from "react";
 import {
   ProductDetailContnets,
   ProductDetailMainStyle,
-} from "../../style/ProductDetailStyles"
+} from "../../style/ProductDetailStyles";
 
-const { useRouter } = require("next/router")
+const { useRouter } = require("next/router");
 
 const ProductDetail = () => {
-  const router = useRouter()
+  const router = useRouter();
 
   return (
     <ProductDetailMainStyle>
-      {/*상품 기본정보 */}
+      {/* 상품 기본정보 */}
       <div className="productDetail">
         <div className="thumbnailImg">
           <img src="/images/product1.jpg" alt="WOOL MIX BELTED COAT" />
@@ -77,7 +78,7 @@ const ProductDetail = () => {
         </div>
       </ProductDetailContnets>
     </ProductDetailMainStyle>
-  )
-}
+  );
+};
 
-export default ProductDetail
+export default ProductDetail;

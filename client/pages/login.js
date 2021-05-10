@@ -1,5 +1,5 @@
-import Link from "next/link"
-import { LoginformStyle } from "../style/FormStyle"
+import Link from "next/link";
+import { LoginformStyle } from "../style/FormStyle";
 
 const login = () => {
   return (
@@ -23,7 +23,7 @@ const login = () => {
         </Link>
       </div>
     </LoginformStyle>
-  )
-}
+  );
+};
 
-export default login
+export default login;

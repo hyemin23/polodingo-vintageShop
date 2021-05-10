@@ -1,16 +1,16 @@
-import React from "react"
-import { useState } from "react/cjs/react.development"
-import ActiveLink from "../components/ActiveLink"
-import CategoryStyle from "../style/CategoryStyle"
+import React from "react";
+import { useState } from "react/cjs/react.development";
+import ActiveLink from "../components/ActiveLink";
+import CategoryStyle from "../style/CategoryStyle";
 
 const orderStep = () => {
-  //store에 저장 후 useSelector로 뽑아와서 각 단계 판단 및 컴포넌트 활성화 나누기
-  const [shipping, setShipping] = useState(true)
-  const [payment, setPayment] = useState(true)
-  const [placeOrder, setPlaceOrder] = useState(true)
+  // store에 저장 후 useSelector로 뽑아와서 각 단계 판단 및 컴포넌트 활성화 나누기
+  const [shipping, setShipping] = useState(true);
+  const [payment, setPayment] = useState(true);
+  const [placeOrder, setPlaceOrder] = useState(true);
 
-  //clientId값으로 shipping보내기
-  //즉, 주문번호로 판별
+  // clientId값으로 shipping보내기
+  // 즉, 주문번호로 판별
 
   return (
     <CategoryStyle>
@@ -55,7 +55,7 @@ const orderStep = () => {
         </ul>
       </div>
     </CategoryStyle>
-  )
-}
+  );
+};
 
-export default orderStep
+export default orderStep;

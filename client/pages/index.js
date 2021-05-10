@@ -1,6 +1,6 @@
-import Head from "next/head"
-import React from "react"
-import MainSection from "../components/MainSection"
+import Head from "next/head";
+import React from "react";
+import MainSection from "../components/MainSection";
 
 const index = () => {
   return (
@@ -12,7 +12,7 @@ const index = () => {
       <MainSection />
       {/* 상품페이지 */}
     </>
-  )
-}
+  );
+};
 
-export default index
+export default index;

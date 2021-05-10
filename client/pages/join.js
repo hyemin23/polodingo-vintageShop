@@ -1,4 +1,4 @@
-import { SignFormStyle } from "../style/FormStyle"
+import { SignFormStyle } from "../style/FormStyle";
 
 const join = () => {
   return (
@@ -28,7 +28,7 @@ const join = () => {
         </form>
       </div>
     </SignFormStyle>
-  )
-}
+  );
+};
 
-export default join
+export default join;

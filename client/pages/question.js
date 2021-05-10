@@ -1,5 +1,5 @@
-import Head from "next/head"
-import React from "react"
+import Head from "next/head";
+import React from "react";
 
 const question = () => {
   return (
@@ -9,7 +9,7 @@ const question = () => {
       </Head>
       <div>Q & A</div>
     </>
-  )
-}
+  );
+};
 
-export default question
+export default question;

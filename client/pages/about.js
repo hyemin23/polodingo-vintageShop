@@ -1,6 +1,6 @@
-import Head from "next/head"
-import React from "react"
-import { AboutStyle } from "../style/AboutStyle"
+import Head from "next/head";
+import React from "react";
+import { AboutStyle } from "../style/AboutStyle";
 
 const consignment = () => {
   return (
@@ -49,7 +49,7 @@ const consignment = () => {
         </div>
       </AboutStyle>
     </>
-  )
-}
+  );
+};
 
-export default consignment
+export default consignment;

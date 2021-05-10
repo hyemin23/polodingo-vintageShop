@@ -1,35 +1,30 @@
-import React from "react"
-import PropTypes from "prop-types"
-import HeaderLayout from "../layout/HeaderLayout"
-import Head from "next/head"
+import React from "react";
+import PropTypes from "prop-types";
+import Head from "next/head";
+import { createGlobalStyle, ThemeProvider } from "styled-components";
+import HeaderLayout from "../layout/HeaderLayout";
+import Footer from "../components/Footer";
 
-import Footer from "../components/Footer"
-import devices from "../style/theme"
-import styled, { createGlobalStyle, ThemeProvider } from "styled-components"
-
-//페이지들의 공통적인 부분을 처리하는 곳
-//appjs는 indexjs의 부모인셈. 즉, index의 return이 들어옴
+// 페이지들의 공통적인 부분을 처리하는 곳
+// appjs는 indexjs의 부모인셈. 즉, index의 return이 들어옴
 const App = ({ Component }) => {
   return (
     <ThemeProvider
-      theme={
-        ((devices = { devices }),
-        {
-          palette: {
-            $darkcolor: "#000",
-            $whitecolor: "#fff",
-            $lightcolor: "#f4f4f4",
-            $primarycolor: "#b2b2b2",
-            $secondarycolor: "#666",
-            $hovercolor: "#555",
-            $emphasiscolor: "#f3885f",
-            $successcolor: "#3ba961",
-            $dangercolor: "#d23430",
-            $warningcolor: "#f0ae4d",
-            $infocolor: "#219bcf",
-          },
-        })
-      }
+      theme={{
+        palette: {
+          $darkcolor: "#000",
+          $whitecolor: "#fff",
+          $lightcolor: "#f4f4f4",
+          $primarycolor: "#b2b2b2",
+          $secondarycolor: "#666",
+          $hovercolor: "#555",
+          $emphasiscolor: "#f3885f",
+          $successcolor: "#3ba961",
+          $dangercolor: "#d23430",
+          $warningcolor: "#f0ae4d",
+          $infocolor: "#219bcf",
+        },
+      }}
     >
       <DefaultLayout
         $darkcolor="#000"
@@ -62,14 +57,13 @@ const App = ({ Component }) => {
         <main>
           <Component />
         </main>
-
         <footer>
           <Footer />
         </footer>
       </div>
     </ThemeProvider>
-  )
-}
+  );
+};
 
 const DefaultLayout = createGlobalStyle`
 .wrapper{
@@ -148,14 +142,10 @@ textarea:focus,
 select:focus {
   outline: none;
 }
-`
-
-const Wrapper = styled.div`
-  position: relative;
-`
+`;
 
 App.propTypes = {
   Component: PropTypes.elementType.isRequired,
-}
+};
 
-export default App
+export default App;

@@ -1,8 +1,8 @@
-import Head from "next/head"
-import Link from "next/link"
-import React from "react"
-import { ReviewStyle } from "../style/ReviewStyle"
-import { StarFilled } from "@ant-design/icons"
+import Head from "next/head";
+import Link from "next/link";
+import React from "react";
+import { ReviewStyle } from "../style/ReviewStyle";
+import { StarFilled } from "@ant-design/icons";
 const review = () => {
   return (
     <ReviewStyle>
@@ -228,6 +228,6 @@ const review = () => {
         </div>
       </div>
     </ReviewStyle>
-  )
-}
-export default review
+  );
+};
+export default review;
