@@ -24,7 +24,7 @@ const orderStep = () => {
                 as={`/order/shippingStep/${123}`}
                 activeClassName="shippingStep"
               >
-                <a>Shipping</a>
+                <a>배송지 입력</a>
               </ActiveLink>
             ) : (
               <ActiveLink href="/" as="" activeClassName="">
@@ -34,14 +34,22 @@ const orderStep = () => {
           </li>
 
           <li>
-            <ActiveLink href="/" as="" activeClassName="payment">
-              <a>Payment</a>
+            <ActiveLink
+              href="/order/paymentStep/[id]"
+              as={`/order/paymentStep/${123}`}
+              activeClassName="paymentStep"
+            >
+              <a>지불방법</a>
             </ActiveLink>
           </li>
 
           <li>
-            <ActiveLink href="/" as="" activeClassName="placeorder">
-              <a>Place Order</a>
+            <ActiveLink
+              href="/order/orderSheet/[id]"
+              as={`/order/orderSheet/${123}`}
+              activeClassName="orderSheet"
+            >
+              <a>주문서 확인</a>
             </ActiveLink>
           </li>
         </ul>

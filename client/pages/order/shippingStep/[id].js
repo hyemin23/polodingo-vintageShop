@@ -1,3 +1,4 @@
+import Link from "next/link"
 import styled from "styled-components"
 import { isMobile } from "../../../style/theme"
 import OrderStep from "../../orderStep"
@@ -25,7 +26,14 @@ const shippingScreen = () => {
                 <p>전화번호</p>
                 <input type="text" />
               </div>
-              <button className="btn">결제하기</button>
+              <Link
+                href="/order/paymentStep/[id]"
+                as={`/order/paymentStep/${123}`}
+              >
+                <a href="/order/paymentStep/">
+                  <button className="btn">결제하기</button>
+                </a>
+              </Link>
             </div>
           </div>
         </form>
@@ -35,7 +43,7 @@ const shippingScreen = () => {
 }
 
 const ShippingStyle = styled.div`
-  padding: 10rem 0;
+  padding: 5rem 0;
   display: flex;
   justify-content: center;
   margin: auto;
