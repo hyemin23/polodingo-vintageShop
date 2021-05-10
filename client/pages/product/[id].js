@@ -8,7 +8,6 @@ const { useRouter } = require("next/router")
 const ProductDetail = () => {
   const router = useRouter()
 
-  console.log(router.query)
   return (
     <ProductDetailMainStyle>
       {/*상품 기본정보 */}

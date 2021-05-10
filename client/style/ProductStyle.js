@@ -5,7 +5,6 @@ export const ProductStyle = styled.div`
   display: grid;
   text-align: center;
 
-  //홈,shop,모바일 조건처리
   ${(props) =>
     props.column === `4`
       ? `grid-template-columns: repeat(${props.column}, 1fr);

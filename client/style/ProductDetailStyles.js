@@ -140,4 +140,12 @@ export const ProductDetailContnets = styled.div`
       padding: 5rem 0;
     }
   }
+
+  ${isMobile} {
+    .product_detail_content {
+      img {
+        width: 350px;
+      }
+    }
+  }
 `
