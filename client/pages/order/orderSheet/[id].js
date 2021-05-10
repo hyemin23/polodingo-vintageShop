@@ -1,4 +1,4 @@
-import OrderSheetStyle from "../../../style/OrderSheetStyle"
+import { OrderSheetStyle } from "../../../style/OrderSheetStyle"
 import OrderStep from "../../orderStep"
 
 const orderSheetScreen = () => {

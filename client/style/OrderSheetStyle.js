@@ -1,7 +1,81 @@
 import styled from "styled-components"
 import { isMobile } from "./theme"
 
-const orderSheetStyle = styled.div`
+export const ShippingStyle = styled.div`
+  padding: 5rem 0;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+
+  .shipping_title h2 {
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 1rem;
+  }
+  .shipping_info {
+    .shipping_content {
+      width: 100%;
+
+      input {
+        width: 500px;
+        height: 30px;
+        padding: 10px;
+        outline: none;
+        border: 1px solid #b2b2b2;
+      }
+
+      p {
+        font-size: 16px;
+        padding: 10px 0;
+      }
+
+      button {
+        margin-top: 20px;
+      }
+    }
+  }
+
+  ${isMobile} {
+    padding: 5rem 0;
+    .shipping_info {
+      input {
+        width: 280px !important;
+      }
+    }
+  }
+`
+
+export const PaymentStyle = styled.div`
+  padding: 5rem 0;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+  text-align: center;
+
+  .payment_title {
+    h2 {
+      font-size: 18px;
+      font-wight: 400;
+      margin-bottom: 4rem;
+    }
+  }
+
+  .form__checkout__content {
+    padding: 2rem 0;
+  }
+
+  .btn {
+    width: 100%;
+  }
+
+  ${isMobile} {
+  }
+`
+
+export const OrderSheetStyle = styled.div`
   max-width: 1500px;
   margin: auto;
   padding: 5rem 1rem;
@@ -100,5 +174,3 @@ const orderSheetStyle = styled.div`
     }
   }
 `
-
-export default orderSheetStyle

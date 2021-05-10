@@ -1,6 +1,5 @@
 import Link from "next/link"
-import styled from "styled-components"
-import { isMobile } from "../../../style/theme"
+import { PaymentStyle } from "../../../style/OrderSheetStyle"
 import OrderStep from "../../orderStep"
 
 const paymentScreen = () => {
@@ -33,33 +32,5 @@ const paymentScreen = () => {
     </div>
   )
 }
-
-const PaymentStyle = styled.div`
-  padding: 5rem 0;
-  display: flex;
-  justify-content: center;
-  margin: auto;
-  width: 100%;
-  text-align: center;
-
-  .payment_title {
-    h2 {
-      font-size: 18px;
-      font-wight: 400;
-      margin-bottom: 4rem;
-    }
-  }
-
-  .form__checkout__content {
-    padding: 2rem 0;
-  }
-
-  .btn {
-    width: 100%;
-  }
-
-  ${isMobile} {
-  }
-`
 
 export default paymentScreen
