@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { SignFormStyle } from '../style/FormStyle';
+import Swal from 'sweetalert2';
 
 const join = () => {
   const { register, handleSubmit, errors } = useForm({ mode: 'onChange' });
@@ -18,8 +19,21 @@ const join = () => {
   };
 
   const onError = (e) => {
+    msg('error', e.userId.message, 2000);
     console.log('onError 함수의 에러 내용');
     console.log(e);
+  };
+
+  const msg = (_icon, _title, _timeSpeed) => {
+    Swal.fire({
+      icon: _icon,
+      titleText: _title,
+      customClass: {
+        popup: 'alrtForm',
+      },
+      timer: _timeSpeed,
+      timerProgressBar: true,
+    });
   };
 
   return (
