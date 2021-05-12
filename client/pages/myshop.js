@@ -37,7 +37,9 @@ const myshop = () => {
               </select>
             </div>
             <div>
-              <button className="btn">REMOVE</button>
+              <button type="button" className="btn">
+                REMOVE
+              </button>
             </div>
           </div>
 
@@ -59,7 +61,9 @@ const myshop = () => {
               </select>
             </div>
             <div>
-              <button className="btn">REMOVE</button>
+              <button type="button" className="btn">
+                REMOVE
+              </button>
             </div>
           </div>
 
@@ -71,7 +75,9 @@ const myshop = () => {
             {/* 매개변수로 주문번호 Or 회원아이디 */}
             <Link href={`/order/shippingStep/${12}`}>
               <a>
-                <button className="btn">주문하기</button>
+                <button type="button" className="btn">
+                  주문하기
+                </button>
               </a>
             </Link>
           </div>

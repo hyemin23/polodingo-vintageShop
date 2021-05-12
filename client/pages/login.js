@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import { LoginformStyle } from "../style/FormStyle";
 
@@ -14,7 +15,9 @@ const login = () => {
           <div>Password</div>
           <input type="password" placeholder="Enter password" />
         </div>
-        <button className="btn">SIGN IN</button>
+        <button type="button" className="btn">
+          SIGN IN
+        </button>
       </form>
       <div className="form__content__subtitle">
         New Customer?

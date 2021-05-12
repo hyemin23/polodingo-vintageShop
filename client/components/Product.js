@@ -1,13 +1,13 @@
-import Link from "next/link"
-import React from "react"
+import Link from "next/link";
+import React from "react";
 
-//나중에 div -> Link로 수정하기
+// 나중에 div -> Link로 수정하기
 const Product = ({ id }) => {
-  console.log(id)
+  console.log(id);
 
-  //useEffect로 id를 받아와서 분기
+  // useEffect로 id를 받아와서 분기
 
-  //id값으로 product 페이지에 뿌려주기
+  // id값으로 product 페이지에 뿌려주기
 
   return (
     <>
@@ -53,7 +53,7 @@ const Product = ({ id }) => {
           <div className="spec">
             <div className="price_all">
               <span className="price">₩60,000</span>
-              <span className="sale "></span>
+              <span className="sale " />
             </div>
           </div>
 
@@ -81,7 +81,7 @@ const Product = ({ id }) => {
           <div className="spec">
             <div className="price_all">
               <span className="price">₩60,000</span>
-              <span className="sale "></span>
+              <span className="sale " />
             </div>
           </div>
 
@@ -109,7 +109,7 @@ const Product = ({ id }) => {
           <div className="spec">
             <div className="price_all">
               <span className="price">₩60,000</span>
-              <span className="sale "></span>
+              <span className="sale " />
             </div>
           </div>
 
@@ -137,7 +137,7 @@ const Product = ({ id }) => {
           <div className="spec">
             <div className="price_all">
               <span className="price">₩60,000</span>
-              <span className="sale "></span>
+              <span className="sale " />
             </div>
           </div>
 
@@ -165,7 +165,7 @@ const Product = ({ id }) => {
           <div className="spec">
             <div className="price_all">
               <span className="price">₩60,000</span>
-              <span className="sale "></span>
+              <span className="sale " />
             </div>
           </div>
 
@@ -193,7 +193,7 @@ const Product = ({ id }) => {
           <div className="spec">
             <div className="price_all">
               <span className="price">₩60,000</span>
-              <span className="sale "></span>
+              <span className="sale " />
             </div>
           </div>
 
@@ -207,7 +207,7 @@ const Product = ({ id }) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Product
+export default Product;

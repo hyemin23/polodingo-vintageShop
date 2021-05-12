@@ -1,3 +1,5 @@
+import React from "react";
+
 import { SignFormStyle } from "../style/FormStyle";
 
 const join = () => {
@@ -23,7 +25,9 @@ const join = () => {
             <input type="password" placeholder="Confirm password" />
           </div>
           <div className="register_btn">
-            <button className="btn">REGISTER</button>
+            <button type="button" className="btn">
+              REGISTER
+            </button>
           </div>
         </form>
       </div>

@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
-import { ReviewStyle } from "../style/ReviewStyle";
 import { StarFilled } from "@ant-design/icons";
+import { ReviewStyle } from "../style/ReviewStyle";
+
 const review = () => {
   return (
     <ReviewStyle>

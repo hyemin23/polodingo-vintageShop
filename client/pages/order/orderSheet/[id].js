@@ -1,5 +1,6 @@
-import { OrderSheetStyle } from "../../../style/OrderSheetStyle"
-import OrderStep from "../../orderStep"
+import React from "react";
+import { OrderSheetStyle } from "../../../style/OrderSheetStyle";
+import OrderStep from "../../orderStep";
 
 const orderSheetScreen = () => {
   return (
@@ -57,12 +58,14 @@ const orderSheetScreen = () => {
               <p>수수료 : 10% </p>
               <p>총 주문가격 : 원</p>
             </div>
-            <button className="btn">결제하기</button>
+            <button type="button" className="btn">
+              결제하기
+            </button>
           </div>
         </div>
       </OrderSheetStyle>
     </div>
-  )
-}
+  );
+};
 
-export default orderSheetScreen
+export default orderSheetScreen;

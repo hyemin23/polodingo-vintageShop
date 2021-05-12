@@ -1,6 +1,7 @@
-import Link from "next/link"
-import { ShippingStyle } from "../../../style/OrderSheetStyle"
-import OrderStep from "../../orderStep"
+import React from "react";
+import Link from "next/link";
+import { ShippingStyle } from "../../../style/OrderSheetStyle";
+import OrderStep from "../../orderStep";
 
 const shippingScreen = () => {
   return (
@@ -30,7 +31,9 @@ const shippingScreen = () => {
                 as={`/order/paymentStep/${123}`}
               >
                 <a href="/order/paymentStep/">
-                  <button className="btn">결제하기</button>
+                  <button type="button" className="btn">
+                    결제하기
+                  </button>
                 </a>
               </Link>
             </div>
@@ -38,7 +41,7 @@ const shippingScreen = () => {
         </form>
       </ShippingStyle>
     </div>
-  )
-}
+  );
+};
 
-export default shippingScreen
+export default shippingScreen;

@@ -1,6 +1,7 @@
-import Link from "next/link"
-import { PaymentStyle } from "../../../style/OrderSheetStyle"
-import OrderStep from "../../orderStep"
+import React from "react";
+import Link from "next/link";
+import { PaymentStyle } from "../../../style/OrderSheetStyle";
+import OrderStep from "../../orderStep";
 
 const paymentScreen = () => {
   return (
@@ -22,7 +23,9 @@ const paymentScreen = () => {
                 as={`/order/orderSheet/${123}`}
               >
                 <a href="/order">
-                  <button className="btn">주문</button>
+                  <button type="button" className="btn">
+                    주문
+                  </button>
                 </a>
               </Link>
             </div>
@@ -30,7 +33,7 @@ const paymentScreen = () => {
         </form>
       </PaymentStyle>
     </div>
-  )
-}
+  );
+};
 
-export default paymentScreen
+export default paymentScreen;

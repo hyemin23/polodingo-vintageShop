@@ -1,12 +1,13 @@
-import React from "react"
-import Product from "../../components/Product"
-import CategoryLayout from "../../layout/CategoryLayout"
-import { ProductStyle } from "../../style/ProductStyle"
-const { useRouter } = require("next/router")
+import React from "react";
+import Product from "../../components/Product";
+import CategoryLayout from "../../layout/CategoryLayout";
+import { ProductStyle } from "../../style/ProductStyle";
+
+const { useRouter } = require("next/router");
 
 const Category = () => {
-  const router = useRouter()
-  const { id } = router.query
+  const router = useRouter();
+  const { id } = router.query;
 
   return (
     <div>
@@ -17,6 +18,6 @@ const Category = () => {
         </ProductStyle>
       </div>
     </div>
-  )
-}
-export default Category
+  );
+};
+export default Category;
