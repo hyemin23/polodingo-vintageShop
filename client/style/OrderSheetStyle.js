@@ -10,6 +10,7 @@ export const ShippingStyle = styled.div`
   text-align: center;
 
   #lottie {
+    min-width: 20rem;
     width: 28rem;
     margin-left: 3.5rem;
   }
