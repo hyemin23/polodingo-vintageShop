@@ -1,8 +1,8 @@
-import Head from "next/head";
-import React from "react";
-import Link from "next/link";
-import { useState } from "react/cjs/react.development";
-import { StockStyle } from "../style/StockStyle";
+import Head from 'next/head';
+import React from 'react';
+import Link from 'next/link';
+import { useState } from 'react';
+import { StockStyle } from '../style/StockStyle';
 
 const myshop = () => {
   const [stock, setStock] = useState(true);
