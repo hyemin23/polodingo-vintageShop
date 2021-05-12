@@ -1,7 +1,7 @@
-import React from "react";
-import { useState } from "react/cjs/react.development";
-import ActiveLink from "../components/ActiveLink";
-import CategoryStyle from "../style/CategoryStyle";
+import React from 'react';
+import { useState } from 'react';
+import ActiveLink from '../components/ActiveLink';
+import CategoryStyle from '../style/CategoryStyle';
 
 const orderStep = () => {
   // store에 저장 후 useSelector로 뽑아와서 각 단계 판단 및 컴포넌트 활성화 나누기
