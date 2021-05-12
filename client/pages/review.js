@@ -1,8 +1,8 @@
-import Head from "next/head";
-import Link from "next/link";
-import React from "react";
-import { StarFilled } from "@ant-design/icons";
-import { ReviewStyle } from "../style/ReviewStyle";
+import Head from 'next/head';
+import Link from 'next/link';
+import React from 'react';
+import { StarFilled } from '@ant-design/icons';
+import { ReviewStyle } from '../style/ReviewStyle';
 
 const review = () => {
   return (
@@ -34,12 +34,12 @@ const review = () => {
             </div>
             <div>
               <StarFilled
-                style={{ color: "orangered", padding: "0 0 10px 0" }}
+                style={{ color: 'orangered', padding: '0 0 10px 0' }}
               />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
             </div>
           </div>
         </div>
@@ -62,12 +62,12 @@ const review = () => {
             </div>
             <div>
               <StarFilled
-                style={{ color: "orangered", padding: "0 0 10px 0" }}
+                style={{ color: 'orangered', padding: '0 0 10px 0' }}
               />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
             </div>
           </div>
         </div>
@@ -90,12 +90,12 @@ const review = () => {
             </div>
             <div>
               <StarFilled
-                style={{ color: "orangered", padding: "0 0 10px 0" }}
+                style={{ color: 'orangered', padding: '0 0 10px 0' }}
               />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
             </div>
           </div>
         </div>
@@ -140,12 +140,12 @@ const review = () => {
             </div>
             <div>
               <StarFilled
-                style={{ color: "orangered", padding: "0 0 10px 0" }}
+                style={{ color: 'orangered', padding: '0 0 10px 0' }}
               />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
             </div>
           </div>
         </div>
@@ -168,12 +168,12 @@ const review = () => {
             </div>
             <div>
               <StarFilled
-                style={{ color: "orangered", padding: "0 0 10px 0" }}
+                style={{ color: 'orangered', padding: '0 0 10px 0' }}
               />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
             </div>
           </div>
         </div>
@@ -207,12 +207,12 @@ const review = () => {
             </div>
             <div>
               <StarFilled
-                style={{ color: "orangered", padding: "0 0 10px 0" }}
+                style={{ color: 'orangered', padding: '0 0 10px 0' }}
               />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
-              <StarFilled style={{ color: "orangered" }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
+              <StarFilled style={{ color: 'orangered' }} />
             </div>
           </div>
         </div>

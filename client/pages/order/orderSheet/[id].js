@@ -1,6 +1,6 @@
-import React from "react";
-import { OrderSheetStyle } from "../../../style/OrderSheetStyle";
-import OrderStep from "../../orderStep";
+import React from 'react';
+import { OrderSheetStyle } from '../../../style/OrderSheetStyle';
+import OrderStep from '../../orderStep';
 
 const orderSheetScreen = () => {
   return (

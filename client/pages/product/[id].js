@@ -1,10 +1,10 @@
-import React from "react";
+import React from 'react';
 import {
   ProductDetailContnets,
   ProductDetailMainStyle,
-} from "../../style/ProductDetailStyles";
+} from '../../style/ProductDetailStyles';
 
-const { useRouter } = require("next/router");
+const { useRouter } = require('next/router');
 
 const ProductDetail = () => {
   const router = useRouter();

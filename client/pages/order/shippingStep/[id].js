@@ -1,7 +1,7 @@
-import React from "react";
-import Link from "next/link";
-import { ShippingStyle } from "../../../style/OrderSheetStyle";
-import OrderStep from "../../orderStep";
+import React from 'react';
+import Link from 'next/link';
+import { ShippingStyle } from '../../../style/OrderSheetStyle';
+import OrderStep from '../../orderStep';
 
 const shippingScreen = () => {
   return (

@@ -3,8 +3,6 @@ import React from "react";
 
 // 나중에 div -> Link로 수정하기
 const Product = ({ id }) => {
-  console.log(id);
-
   // useEffect로 id를 받아와서 분기
 
   // id값으로 product 페이지에 뿌려주기

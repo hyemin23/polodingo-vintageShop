@@ -1,8 +1,8 @@
-import React from "react";
-import Link from "next/link";
-import PropTypes from "prop-types";
-import { useRouter } from "next/router";
-import styled from "styled-components";
+import React from 'react';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
+import { useRouter } from 'next/router';
+import styled from 'styled-components';
 
 const ActiveLink = ({ href, activeClassName, children, as }) => {
   const router = useRouter();
@@ -10,7 +10,7 @@ const ActiveLink = ({ href, activeClassName, children, as }) => {
   const child = React.Children.only(children);
 
   const className = activeClassName;
-  const classPath = router.asPath.split("/")[2];
+  const classPath = router.asPath.split('/')[2];
 
   if (classPath === activeClassName) {
     return (
@@ -32,8 +32,8 @@ ActiveLink.propTypes = {
   children: PropTypes.node.isRequired,
 };
 ActiveLink.defaultProps = {
-  href: "",
-  activeClassName: "",
+  href: '',
+  activeClassName: '',
 };
 
 const Active = styled.div`
