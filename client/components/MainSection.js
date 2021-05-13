@@ -1,20 +1,28 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { useDispatch, useSelector } from 'react-redux';
 import { SectionOne, SectionTwo, SectionThree } from '../style/SectionStyle';
 import Product from './Product';
 import { ProductStyle } from '../style/ProductStyle';
+import { addPost } from '../reducers/product/productAction';
 
 // register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
 
 const MainSection = () => {
+  const dispatch = useDispatch();
+  const { products } = useSelector((state) => state.product);
+
   const refSlide1 = useRef(null);
   const refSlide2 = useRef(null);
   const refSlide3 = useRef(null);
 
   const revealRef1 = useRef(null);
 
+  const onClick = () => {
+    dispatch(addPost);
+  };
   useEffect(() => {
     // const sections = [refSlide1, refSlide2, refSlide3].map(
     //   (ref) => ref.current
@@ -144,6 +152,9 @@ const MainSection = () => {
             <p className="bar" />
             <p className="ment">단 한장밖에 없는 당신만의 옷들입니다 :)</p>
           </div>
+          <a href="#" onClick={onClick}>
+            상품올리기
+          </a>
           <ProductStyle column="5">
             <Product id="new" />
           </ProductStyle>
