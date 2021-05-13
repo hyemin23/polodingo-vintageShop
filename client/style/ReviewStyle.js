@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { isMobile } from "./theme"
+import styled from 'styled-components';
+import { isMobile } from './theme';
 
 export const ReviewStyle = styled.div`
   padding: 10rem 10rem;
@@ -63,4 +63,22 @@ export const ReviewStyle = styled.div`
       }
     }
   }
-`
+`;
+
+export const ReviewDetailStyles = styled.div`
+  padding: 10rem 0.4rem;
+  display: flex;
+  justify-content: center;
+
+  h2 {
+    text-align: center;
+  }
+
+  .writer_container {
+    padding: 0 10rem 10rem 10rem;
+    border: 1px solid #ececec;
+
+    & .writer_content {
+    }
+  }
+`;
