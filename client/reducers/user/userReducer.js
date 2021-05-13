@@ -6,6 +6,14 @@ export const init = {
   userId: 'test',
   userPw: '1234',
   userEmail: 'test@test.com',
+  products: [
+    {
+      productId: 1,
+    },
+    {
+      productId: 2,
+    },
+  ],
 };
 
 // 인자 : (이전상태, 액션) => return : 다음상태 만들어줌

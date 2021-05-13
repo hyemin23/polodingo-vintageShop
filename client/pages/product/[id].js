@@ -1,14 +1,30 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import {
   ProductDetailContnets,
   ProductDetailMainStyle,
 } from '../../style/ProductDetailStyles';
 
-const { useRouter } = require('next/router');
-
 const ProductDetail = () => {
+  const dispatch = useDispatch();
   const router = useRouter();
 
+  const { products } = useSelector((state) => state.user);
+  const productPathId = parseInt(router.query.id, 10);
+  console.log(productPathId);
+  // async await
+  const addCart = useCallback(() => {
+    console.log(productPathId);
+
+    // 배열에서 contain으로
+    // const addWishId = products.filter((p) => console.log(router.query.id));
+    // console.log(addWishId);
+
+    // if (addWishId && addWishId.length > 1) {
+    //   alert('장바구니에 상품이 존재합니다');
+    // }
+  }, []);
   return (
     <ProductDetailMainStyle>
       {/* 상품 기본정보 */}
@@ -39,11 +55,13 @@ const ProductDetail = () => {
           </div>
           <div className="shop_btn">
             <div className="shop_btn_save">
-              <button className="btn">장바구니 담기</button>
+              <button type="button" className="btn" onClick={addCart}>
+                장바구니 담기
+              </button>
             </div>
             <div className="btn_info">
-              <button>바로결제</button>
-              <button>관심상품</button>
+              <button type="button">바로결제</button>
+              <button type="button">관심상품</button>
             </div>
           </div>
         </div>
