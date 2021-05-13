@@ -1,7 +1,7 @@
 import Head from 'next/head';
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
-import { useState } from 'react';
+
 import { StockStyle } from '../style/StockStyle';
 
 const myshop = () => {

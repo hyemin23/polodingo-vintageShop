@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { SectionOne, SectionTwo, SectionThree } from "../style/SectionStyle";
-import Product from "./Product";
-import { ProductStyle } from "../style/ProductStyle";
+import React, { useEffect, useRef } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { SectionOne, SectionTwo, SectionThree } from '../style/SectionStyle';
+import Product from './Product';
+import { ProductStyle } from '../style/ProductStyle';
 
 // register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -43,7 +43,7 @@ const MainSection = () => {
     gsap.from(refSlide1.current, {
       duration: 1,
       autoAlpha: 0,
-      ease: "none",
+      ease: 'none',
       delay: 0.1,
     });
     texts.forEach((el) => {
@@ -55,11 +55,11 @@ const MainSection = () => {
         {
           duration: 1,
           autoAlpha: 1,
-          ease: "none",
+          ease: 'none',
           scrollTrigger: {
             trigger: el,
-            start: "top center+=100",
-            toggleActions: "play none none reverse",
+            start: 'top center+=100',
+            toggleActions: 'play none none reverse',
           },
         }
       );

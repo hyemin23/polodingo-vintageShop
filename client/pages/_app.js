@@ -1,9 +1,10 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Head from "next/head";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-import HeaderLayout from "../layout/HeaderLayout";
-import Footer from "../components/Footer";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Head from 'next/head';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import HeaderLayout from '../layout/HeaderLayout';
+import Footer from '../components/Footer';
+import wrapper from '../store/configureStore';
 
 // 페이지들의 공통적인 부분을 처리하는 곳
 // appjs는 indexjs의 부모인셈. 즉, index의 return이 들어옴
@@ -12,17 +13,17 @@ const App = ({ Component }) => {
     <ThemeProvider
       theme={{
         palette: {
-          $darkcolor: "#000",
-          $whitecolor: "#fff",
-          $lightcolor: "#f4f4f4",
-          $primarycolor: "#b2b2b2",
-          $secondarycolor: "#666",
-          $hovercolor: "#555",
-          $emphasiscolor: "#f3885f",
-          $successcolor: "#3ba961",
-          $dangercolor: "#d23430",
-          $warningcolor: "#f0ae4d",
-          $infocolor: "#219bcf",
+          $darkcolor: '#000',
+          $whitecolor: '#fff',
+          $lightcolor: '#f4f4f4',
+          $primarycolor: '#b2b2b2',
+          $secondarycolor: '#666',
+          $hovercolor: '#555',
+          $emphasiscolor: '#f3885f',
+          $successcolor: '#3ba961',
+          $dangercolor: '#d23430',
+          $warningcolor: '#f0ae4d',
+          $infocolor: '#219bcf',
         },
       }}
     >
@@ -148,4 +149,5 @@ App.propTypes = {
   Component: PropTypes.elementType.isRequired,
 };
 
-export default App;
+// Provider로 알아서 감싸줌 (nextjs6버전 부터)
+export default wrapper.withRedux(App);

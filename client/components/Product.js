@@ -1,5 +1,5 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link';
+import React from 'react';
 
 // 나중에 div -> Link로 수정하기
 const Product = ({ id }) => {
