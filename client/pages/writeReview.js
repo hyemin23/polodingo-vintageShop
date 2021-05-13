@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addReview } from '../reducers/review/reviewAction';
 import { ReviewDetailStyles } from '../style/ReviewStyle';
 
