@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-
-import { SignFormStyle } from '../style/FormStyle';
+// eslint-disable-next-line import/no-extraneous-dependencies
 import Swal from 'sweetalert2';
+import { SignFormStyle } from '../style/FormStyle';
 
 const join = () => {
   const { register, handleSubmit, errors } = useForm({ mode: 'onChange' });
@@ -18,12 +18,6 @@ const join = () => {
     console.log(data);
   };
 
-  const onError = (e) => {
-    msg('error', e.userId.message, 2000);
-    console.log('onError 함수의 에러 내용');
-    console.log(e);
-  };
-
   const msg = (_icon, _title, _timeSpeed) => {
     Swal.fire({
       icon: _icon,
@@ -36,6 +30,11 @@ const join = () => {
     });
   };
 
+  const onError = (e) => {
+    msg('error', e.userId.message, 2000);
+    console.log('onError 함수의 에러 내용');
+    console.log(e);
+  };
   return (
     <SignFormStyle>
       <div className="signForm_div">
