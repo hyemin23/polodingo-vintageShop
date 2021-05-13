@@ -7,16 +7,25 @@ import {
   SearchOutlined,
 } from '@ant-design/icons';
 import { useRouter } from 'next/router';
+import { useDispatch, useSelector } from 'react-redux';
 import { HeaderInner, Logo, SearchForm } from '../style/HeaderStyle';
+import { logoutAction } from '../reducers/user/userAction';
 
 // children : 레이아웃으로 감싸진 당한 태그들 모두
 const HeaderLayout = ({ children }) => {
+  const dispatch = useDispatch();
+  const { isLoggedIn } = useSelector((state) => state.user);
+
   const router = useRouter();
   const [navToggleBtn, setNavToggleBtn] = useState(false);
   const [SearchPopOpen, setSearchPopOpen] = useState(false);
 
   const SearchPopClick = () => {
     setSearchPopOpen((prev) => !prev);
+  };
+
+  const logout = () => {
+    dispatch(logoutAction());
   };
   return (
     <header>
@@ -89,11 +98,22 @@ const HeaderLayout = ({ children }) => {
             )}
           </li>
 
-          <li>
-            <Link href="/login">
-              <a>LOGIN</a>
-            </Link>
-          </li>
+          {isLoggedIn ? (
+            <li>
+              <span>
+                <a href="#" onClick={logout}>
+                  LOGOUT
+                </a>
+              </span>
+            </li>
+          ) : (
+            <li>
+              <Link href="/login">
+                <a>LOGIN</a>
+              </Link>
+            </li>
+          )}
+
           <li>
             <Link href="/myshop">
               <a>MYSHOP</a>

@@ -12,8 +12,6 @@ const join = () => {
     message: '필수항목입니다.',
   });
 
-  console.log('에러 변수: ', errors);
-  console.log(handleSubmit());
   const onSubmit = (data) => {
     console.log(data);
   };
