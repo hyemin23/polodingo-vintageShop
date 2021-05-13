@@ -13,9 +13,15 @@ const review = () => {
       <Head>
         <title>REVIEW - 폴로딩고</title>
       </Head>
-      <Link href="writeReview">
-        <a>글쓰기</a>
-      </Link>
+      <div className="writebtn">
+        <Link href="writeReview">
+          <a>
+            <button type="button" className="btn">
+              글쓰기
+            </button>
+          </a>
+        </Link>
+      </div>
       <div className="review_contents">
         <div className="review_section">
           <div>

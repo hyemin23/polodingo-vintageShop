@@ -5,6 +5,11 @@ export const ReviewStyle = styled.div`
   padding: 10rem 10rem;
   width: 100%;
 
+  .writebtn {
+    text-align: right;
+    margin: 10px 0;
+  }
+
   .review_main_title {
     font-size: 20px;
     text-align: center;
@@ -70,15 +75,34 @@ export const ReviewDetailStyles = styled.div`
   display: flex;
   justify-content: center;
 
-  h2 {
+  .writer_title {
     text-align: center;
+    margin-bottom: 5rem;
   }
 
   .writer_container {
+    width: 100%;
     padding: 0 10rem 10rem 10rem;
-    border: 1px solid #ececec;
 
-    & .writer_content {
+    .writer_content {
+      display: flex;
+      justify-content: center;
+
+      p {
+        padding: 10px 0;
+      }
+      input,
+      textarea {
+        padding: 10px;
+        width: 100%;
+      }
+
+      textarea {
+        height: 300px;
+      }
+      .button_div {
+        text-align: center;
+      }
     }
   }
 `;
