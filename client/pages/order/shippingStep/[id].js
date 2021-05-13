@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Link from 'next/link';
 import { ShippingStyle } from '../../../style/OrderSheetStyle';
 import OrderStep from '../../orderStep';
+import lottie from 'lottie-web';
 
 const shippingScreen = () => {
+  useEffect(() => {
+    loadLottie();
+  }, []);
+
+  const loadLottie = () => {
+    const scrollAnimation = lottie.loadAnimation({
+      container: document.getElementById('lottie'), // Required
+      path: 'https://assets1.lottiefiles.com/packages/lf20_yr6zz3wv.json', // Required
+      renderer: 'svg', // Required
+      loop: true, // Optional
+      autoplay: true, // Optional
+    });
+  };
+
   return (
     <div>
       <OrderStep />
@@ -39,6 +54,7 @@ const shippingScreen = () => {
             </div>
           </div>
         </form>
+        <div id="lottie" />
       </ShippingStyle>
     </div>
   );

@@ -1,13 +1,20 @@
-import styled from "styled-components"
-import { isMobile } from "./theme"
+import styled from 'styled-components';
+import { isMobile } from './theme';
 
 export const ShippingStyle = styled.div`
-  padding: 5rem 0;
+  padding: 5rem 20rem;
   display: flex;
   justify-content: center;
   margin: auto;
   width: 100%;
   text-align: center;
+
+  #lottie {
+    min-width: 20rem;
+    width: 28rem;
+    margin-left: 3.5rem;
+  }
+  //브라우저 가로크기에 따라 로티이미지가 사라지는 문제
 
   .shipping_title h2 {
     font-size: 18px;
@@ -45,7 +52,7 @@ export const ShippingStyle = styled.div`
       }
     }
   }
-`
+`;
 
 export const PaymentStyle = styled.div`
   padding: 5rem 0;
@@ -73,7 +80,7 @@ export const PaymentStyle = styled.div`
 
   ${isMobile} {
   }
-`
+`;
 
 export const OrderSheetStyle = styled.div`
   max-width: 1500px;
@@ -173,4 +180,4 @@ export const OrderSheetStyle = styled.div`
       }
     }
   }
-`
+`;
