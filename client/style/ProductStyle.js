@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { isMobile } from "./theme"
+import styled from 'styled-components';
+import { isMobile } from './theme';
 
 export const ProductStyle = styled.div`
   display: grid;
@@ -69,4 +69,4 @@ export const ProductStyle = styled.div`
     grid-template-columns: repeat(auto-fill, minmax(40%, auto));
     column-gap: 10px;
   }
-`
+`;
