@@ -11,6 +11,7 @@ const ProductDetail = () => {
   const router = useRouter();
   const productPathId = parseInt(router.query.id, 10);
 
+  const { products } = useSelector((state) => state.product);
   const { wishList } = useSelector((state) => state.user);
 
   const addWishId = wishList.filter((wish) => wish.productId === productPathId);
@@ -34,72 +35,77 @@ const ProductDetail = () => {
   return (
     <ProductDetailMainStyle>
       {/* 상품 기본정보 */}
-      <div className="productDetail">
-        <div className="thumbnailImg">
-          <img src="/images/product1.jpg" alt="WOOL MIX BELTED COAT" />
-        </div>
+      {products.map((p) => (
+        <div className="productDetail">
+          <div className="thumbnailImg">
+            <img src={p.Thumbnail[0].src} alt="WOOL MIX BELTED COAT" />
+          </div>
 
-        <div className="infoArea">
-          <div className="infoTitle">
-            <span>[ L ] Polo Ralph Lauren Sweater (5119)</span>
-          </div>
-          <div className="information">
-            <p>연두 컬러 </p>
-            <p>블루로고</p>
-            <p>100%피마코튼</p>
-            <p>표기사이즈L</p>
-            <p>추천사이즈 100</p>
-          </div>
-          <div className="total_price">
-            <span>₩34,000</span>
-          </div>
-          <div className="total_product">
-            <span>[ L ] Polo Ralph Lauren Sweater (5119)</span>
-          </div>
-          <div className="final_price">
-            <span>TOTAL : ₩34,000(원)</span>
-          </div>
-          <div className="shop_btn">
-            <div className="shop_btn_save">
-              <button type="button" className="btn" onClick={addCart}>
-                장바구니 담기
-              </button>
+          <div className="infoArea">
+            <div className="infoTitle">
+              <span>{p.productName}</span>
             </div>
-            <div className="btn_info">
-              <button type="button">바로결제</button>
-              <button type="button">관심상품</button>
+            <div className="information">
+              <p>상품 색상:{p.productColor} </p>
+              <p>로고색상 : {p.productLogoColor}</p>
+              <p>상품 재질 : {p.productMaterial}</p>
+              <p>상품 사이즈 :{p.productSize}</p>
+              <p>추천 사이즈 :{p.productRsize}</p>
+            </div>
+            <div className="total_price">
+              <span>₩{p.productPrice}</span>
+            </div>
+            <div className="total_product">
+              <span>{p.productName}</span>
+            </div>
+            <div className="final_price">
+              <span>TOTAL : ₩{p.productPrice}(원)</span>
+            </div>
+            <div className="shop_btn">
+              <div className="shop_btn_save">
+                <button type="button" className="btn" onClick={addCart}>
+                  장바구니 담기
+                </button>
+              </div>
+              <div className="btn_info">
+                <button type="button">바로결제</button>
+                <button type="button">관심상품</button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      ))}
 
       {/* 상품 상세 정보 */}
       <ProductDetailContnets>
-        <div className="product_detail_content">
-          <div className="detail_content_title">
-            <p>DETAIL</p>
-          </div>
+        {products.map((p) => (
+          <div className="product_detail_content">
+            <div className="detail_content_title">
+              <p>DETAIL</p>
+            </div>
 
-          <div className="product_detail_main_img">
-            <p>
-              <img src="/images/productdetail_content.jpg" />
-            </p>
+            <div className="product_detail_main_img">
+              <p>
+                <img src="/images/productdetail_content.jpg" />
+              </p>
+            </div>
+            <div className="product_detail_main_content">
+              <p>총기장 및 사이즈 </p>
+              <p>{p.productMsize}</p>
+              {/* 제품 관련 이미지 */}
+              <p>
+                <img src={p.Images[0].src} />
+                <img src={p.Images[1].src} />
+                <img src={p.Images[2].src} />
+              </p>
+            </div>
+            <div className="product_detail_bottom_img">
+              <p>
+                <img src="/images/productdetail_content2.jpg" />
+              </p>
+            </div>
           </div>
-          <div className="product_detail_main_content">
-            <p>총기장 및 사이즈 </p>
-            {/* 제품 관련 이미지 */}
-            <p>
-              <img src="/images/product_content1.jpg" />
-              <img src="/images/product_content2.jpg" />
-              <img src="/images/product_content3.jpg" />
-            </p>
-          </div>
-          <div className="product_detail_bottom_img">
-            <p>
-              <img src="/images/productdetail_content2.jpg" />
-            </p>
-          </div>
-        </div>
+        ))}
       </ProductDetailContnets>
     </ProductDetailMainStyle>
   );
