@@ -15,7 +15,7 @@ const Product = ({ id }) => {
         <Link href={`/product/${product.id}`} key={product.id}>
           <a>
             <div>
-              <img src={`${product.Thumbnail[0]?.src}`} />
+              <img src={`${product.Thumbnail[0].src || ''}`} />
               <div className="inner">
                 <strong className="name">
                   <span>{product.productName}</span>

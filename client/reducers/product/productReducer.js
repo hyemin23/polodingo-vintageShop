@@ -19,9 +19,20 @@ const dummyData = {
     id: 1,
     userId: 'admin',
   },
-  Images: [
+  Thumbnail: [
     {
       src: '/images/product2.jpg',
+    },
+  ],
+  Images: [
+    {
+      src: '/images/product_content1.jpg',
+    },
+    {
+      src: '/images/product_content2.jpg',
+    },
+    {
+      src: '/images/product_content3.jpg',
     },
   ],
 };
