@@ -9,21 +9,27 @@ import {
 const ProductDetail = () => {
   const dispatch = useDispatch();
   const router = useRouter();
-
-  const { products } = useSelector((state) => state.user);
   const productPathId = parseInt(router.query.id, 10);
-  console.log(productPathId);
+
+  const { wishList } = useSelector((state) => state.user);
+
+  const addWishId = wishList.filter((wish) => wish.productId === productPathId);
+
   // async await
   const addCart = useCallback(() => {
-    console.log(productPathId);
+    console.log('addWishId ', addWishId);
 
-    // 배열에서 contain으로
-    // const addWishId = products.filter((p) => console.log(router.query.id));
-    // console.log(addWishId);
+    // 길이가 0개 : 보고있는 상품이 장바구니에 없음
+    if (addWishId.length === 0) {
+      alert('추가되었습니다!');
 
-    // if (addWishId && addWishId.length > 1) {
-    //   alert('장바구니에 상품이 존재합니다');
-    // }
+      // 장바구니 추가
+      // dispatch();
+    }
+    // 길이가 1개 : 보고있는 상품이 장바구니에 있음
+    else {
+      alert('장바구니에 상품이 존재합니다');
+    }
   }, []);
   return (
     <ProductDetailMainStyle>

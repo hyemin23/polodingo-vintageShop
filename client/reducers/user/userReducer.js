@@ -6,9 +6,9 @@ export const init = {
   userId: 'test',
   userPw: '1234',
   userEmail: 'test@test.com',
-  products: [
+  wishList: [
     {
-      productId: 1,
+      productId: 3,
     },
     {
       productId: 2,
