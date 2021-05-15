@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { USER_REGISTER_REQUEST } from '../reducers/action';
 // eslint-disable-next-line import/no-extraneous-dependencies
 // import Swal from 'sweetalert2';
 import { SignFormStyle } from '../style/FormStyle';
@@ -23,11 +24,17 @@ const join = () => {
     message: '필수항목입니다.',
   });
 
-  console.log(errors);
-
   const onSubmit = (data) => {
     console.log(data);
     console.log('서브밋');
+
+    dispatch({
+      type: USER_REGISTER_REQUEST,
+      userEmail: 'asd@asd',
+      userId: 'asdf',
+      userPw: 'asdf',
+      roleType: '1',
+    });
   };
 
   return (
