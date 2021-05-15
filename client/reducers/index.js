@@ -1,6 +1,9 @@
 import { HYDRATE } from 'next-redux-wrapper';
 import { combineReducers } from 'redux';
-import user from './user/userReducer';
+import {
+  userReducer as user,
+  userRegisterReducer as join,
+} from './user/userReducer';
 import product from './product/productReducer';
 import review from './review/reviewReducer';
 // 인자 : (이전상태, 액션) => return : 다음상태 만들어줌
@@ -15,6 +18,7 @@ const rootReducer = combineReducers({
         return state;
     }
   },
+  join,
   user,
   product,
   review,
