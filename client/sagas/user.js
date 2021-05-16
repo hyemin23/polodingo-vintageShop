@@ -38,13 +38,13 @@ function* signUp(action) {
 }
 
 function loginUpAPI(data) {
-  return axios.post('/login', data);
+  return axios.post('/auth/sign-in', data);
 }
 function* login(action) {
   try {
     console.log('로그인 사가 들어옴');
     const result = yield call(loginUpAPI, action.data);
-    console.log('result', result);
+    console.log('로그인 결과 : ', result);
     yield put({
       type: LOG_IN_SUCCES,
       data: result.data,

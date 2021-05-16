@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { USER_REGISTER_REQUEST } from '../reducers/action';
@@ -9,7 +9,7 @@ import { SignFormStyle } from '../style/FormStyle';
 
 const join = () => {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.user);
+  const { userInfo } = useSelector((state) => state.user);
   const password = useRef();
 
   const {
@@ -39,6 +39,8 @@ const join = () => {
       data: result,
     });
   };
+
+  useEffect(() => {}, []);
 
   return (
     <SignFormStyle>
