@@ -5,7 +5,7 @@ import Router from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { LoginformStyle } from '../style/FormStyle';
-import { loginAction } from '../reducers/user/userAction';
+import { LOG_IN_REQUEST } from '../reducers/action';
 
 const login = () => {
   const dispatch = useDispatch();
@@ -19,12 +19,10 @@ const login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    dispatch(
-      loginAction({
-        userId: data.userId,
-        userPw: data.userPw,
-      })
-    );
+    dispatch({
+      type: LOG_IN_REQUEST,
+      data,
+    });
   };
 
   useEffect(() => {

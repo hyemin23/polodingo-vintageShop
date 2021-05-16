@@ -30,9 +30,9 @@ const join = () => {
 
     dispatch({
       type: USER_REGISTER_REQUEST,
-      userEmail: 'asd@asd',
-      userId: 'asdf',
-      userPw: 'asdf',
+      userEmail: data.userEmail,
+      userId: data.userId,
+      userPw: data.userPw,
       roleType: '1',
     });
   };

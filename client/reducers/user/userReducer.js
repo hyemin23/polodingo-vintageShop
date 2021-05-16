@@ -1,6 +1,10 @@
 import {
-  LOG_IN,
-  LOG_OUT,
+  LOG_IN_FAILURE,
+  LOG_IN_REQUEST,
+  LOG_IN_SUCCES,
+  LOG_OUT_FAILURE,
+  LOG_OUT_REQUEST,
+  LOG_OUT_SUCCESS,
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
@@ -8,7 +12,7 @@ import {
 
 export const init = {
   isLoggedIn: false,
-  user: null,
+  me: null,
   userId: 'test',
   userPw: '1234',
   userEmail: 'test@test.com',
@@ -47,17 +51,31 @@ export const userRegisterReducer = (state = {}, action) => {
 // 인자 : (이전상태, 액션) => return : 다음상태 만들어줌
 export const userReducer = (state = init, action) => {
   switch (action.type) {
-    case LOG_IN:
+    case LOG_IN_REQUEST:
       return {
         ...state,
-        isLoggedIn: true,
-        user: action.data,
+        isLoading: true,
+        isLoginError: null,
+        isLoginDone: false,
       };
-    case LOG_OUT:
+    case LOG_IN_SUCCES:
       return {
+        isLoading: false,
+        isLoginDone: true,
         ...state,
-        isLoggedIn: false,
+        me: action.data,
       };
+    case LOG_IN_FAILURE:
+      return {
+        isLoading: false,
+        isLoginError: action.error,
+      };
+    case LOG_OUT_REQUEST:
+      return {};
+    case LOG_OUT_SUCCESS:
+      return {};
+    case LOG_OUT_FAILURE:
+      return {};
 
     default:
       return state;

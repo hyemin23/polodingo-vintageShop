@@ -9,7 +9,7 @@ import {
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
 import { HeaderInner, Logo, SearchForm } from '../style/HeaderStyle';
-import { logoutAction } from '../reducers/user/userAction';
+import { LOG_OUT_REQUEST } from '../reducers/action';
 
 // children : 레이아웃으로 감싸진 당한 태그들 모두
 const HeaderLayout = ({ children }) => {
@@ -25,7 +25,9 @@ const HeaderLayout = ({ children }) => {
   };
 
   const logout = () => {
-    dispatch(logoutAction());
+    dispatch({
+      type: LOG_OUT_REQUEST,
+    });
   };
   return (
     <header>
