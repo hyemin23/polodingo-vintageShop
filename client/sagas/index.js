@@ -6,7 +6,7 @@ import { backUrl } from '../config/config';
 axios.defaults.baseURL = backUrl;
 
 // 쿠기 공유를 위해서 설장
-axios.defaults.withCredentials = true;
+// axios.defaults.withCredentials = true;
 export default function* rootSaga() {
   yield all([fork(userSaga)]);
 }
