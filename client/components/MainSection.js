@@ -2,11 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useDispatch, useSelector } from 'react-redux';
+import axios from 'axios'; // 임시, 확인후 삭제
 import { SectionOne, SectionTwo, SectionThree } from '../style/SectionStyle';
 import Product from './Product';
 import { ProductStyle } from '../style/ProductStyle';
 import { addPost } from '../reducers/product/productAction';
-import axios from 'axios'; //임시, 확인후 삭제
 
 // register ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -25,11 +25,10 @@ const MainSection = () => {
     dispatch(addPost);
   };
   useEffect(() => {
-    //임시, 확인후 삭제  => 인증키가 없어서 401뜨면 cors 문제 해결된거 맞음
-    axios.get('2/tweets/search/recent').then(function (response) {
-      console.log('응답결과', response);
-    });
-
+    // 임시, 확인후 삭제  => 인증키가 없어서 401뜨면 cors 문제 해결된거 맞음
+    // axios.get('2/tweets/search/recent').then(function (response) {
+    //   console.log('응답결과', response);
+    // });
     // const sections = [refSlide1, refSlide2, refSlide3].map(
     //   (ref) => ref.current
     // );

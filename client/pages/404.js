@@ -1,5 +1,7 @@
+import React from 'react';
 import Head from 'next/head';
 import { StockStyle } from '../style/StockStyle';
+
 export default function Error404() {
   return (
     <>

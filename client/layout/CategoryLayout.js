@@ -1,5 +1,6 @@
-import ActiveLink from "../components/ActiveLink"
-import CategoryStyle from "../style/CategoryStyle"
+import React from 'react';
+import ActiveLink from '../components/ActiveLink';
+import CategoryStyle from '../style/CategoryStyle';
 
 const CategoryLayout = () => {
   return (
@@ -57,7 +58,7 @@ const CategoryLayout = () => {
         </ul>
       </div>
     </CategoryStyle>
-  )
-}
+  );
+};
 
-export default CategoryLayout
+export default CategoryLayout;

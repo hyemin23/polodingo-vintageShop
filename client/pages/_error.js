@@ -1,3 +1,4 @@
+import React from 'react';
 // npm build -> npm start로 실행해서 확인해야함
 // 404이외의 모든 에러 처리
 
