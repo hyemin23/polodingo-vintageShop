@@ -1,11 +1,9 @@
 import { HYDRATE } from 'next-redux-wrapper';
 import { combineReducers } from 'redux';
-import {
-  userReducer as user,
-  userRegisterReducer as join,
-} from './user/userReducer';
+import { userReducer as user } from './user/userReducer';
 import product from './product/productReducer';
 import review from './review/reviewReducer';
+import cart from './cart/cartReducer';
 // 인자 : (이전상태, 액션) => return : 다음상태 만들어줌
 // 서버사이드 렌더링을 위해  HYDRATE에 index reducer 추가
 const rootReducer = combineReducers({
@@ -18,9 +16,9 @@ const rootReducer = combineReducers({
         return state;
     }
   },
-  join,
   user,
   product,
+  cart,
   review,
 });
 export default rootReducer;

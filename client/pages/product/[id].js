@@ -5,6 +5,7 @@ import {
   ProductDetailContnets,
   ProductDetailMainStyle,
 } from '../../style/ProductDetailStyles';
+import { ADD_WISH_SUCCESS } from '../../reducers/action';
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
@@ -12,24 +13,23 @@ const ProductDetail = () => {
   const productPathId = parseInt(router.query.id, 10);
 
   const { products } = useSelector((state) => state.product);
-  const wishList = useSelector((state) => state.me?.wishList);
+  const { me } = useSelector((state) => state.user);
+  const wishList = useSelector((state) => state.cart?.wishList);
 
-  console.log(wishList);
   // async await
   const addCart = useCallback(() => {
-    // 상품이 장바구니에 존재하지 않으면
-    if (wishList) {
-      if (!wishList.includes(productPathId)) {
-        dispatch({
-          type: 'ADD_WISH_LIST',
-          data: productPathId,
-        });
-        alert('장바구니에 추가되었습니다.');
-      }
-      // 상품이 장바구니에 있다면
-      else {
-        alert('장바구니에 존재합니다');
-      }
+    // 장바구니에 상품이 없을 경우
+    if (!wishList.includes(productPathId)) {
+      dispatch({
+        type: ADD_WISH_SUCCESS,
+        productId: productPathId,
+        user: me,
+      });
+      alert('장바구니에 추가되었습니다.');
+    }
+    // 장바구니에 상품이 있을 경우
+    else {
+      alert('장바구니에 이미 상품이 존재합니다!');
     }
   }, [wishList]);
 
@@ -38,7 +38,7 @@ const ProductDetail = () => {
       {/* 상품 기본정보 */}
       {products.map((p) =>
         p.id === productPathId ? (
-          <div className="productDetail">
+          <div className="productDetail" key={p.id}>
             <div className="thumbnailImg">
               <img src={p.Thumbnail[0].src} alt="WOOL MIX BELTED COAT" />
             </div>
@@ -85,7 +85,7 @@ const ProductDetail = () => {
       <ProductDetailContnets>
         {products.map((p) =>
           p.id === productPathId ? (
-            <div className="product_detail_content">
+            <div className="product_detail_content" key={p.id}>
               <div className="detail_content_title">
                 <p>DETAIL</p>
               </div>

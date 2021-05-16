@@ -12,13 +12,17 @@ import {
 
 export const init = {
   isLoading: false,
-  isLoginError: false,
+  isLoginError: null,
   isLoginDone: false,
+
+  isJoinLoading: false,
+  isJoinError: null,
+  isJoinDone: false,
   me: null,
+  userInfo: null,
 };
 
 export const loginAction = (data) => {
-  console.log('loginAction들어옴');
   return {
     type: 'LOG_IN_TEST_SUCCESS',
     data,
@@ -32,31 +36,26 @@ export const wishAddAction = (data) => {
   };
 };
 
-export const userRegisterReducer = (state = {}, action) => {
+// 인자 : (이전상태, 액션) => return : 다음상태 만들어줌
+export const userReducer = (state = init, action) => {
   switch (action.type) {
     case USER_REGISTER_REQUEST:
       return {
-        isLoading: true,
+        isJoinLoading: true,
       };
     case USER_REGISTER_SUCCESS:
       return {
-        isLoading: false,
+        ...state,
+        isJoinLoading: false,
+        isJoinDone: true,
         userInfo: action.data,
       };
     case USER_REGISTER_FAIL:
       return {
-        isLoading: false,
-        error: action.error,
+        ...state,
+        isJoinError: action.error,
+        isJoinLoading: false,
       };
-
-    default:
-      return state;
-  }
-};
-
-// 인자 : (이전상태, 액션) => return : 다음상태 만들어줌
-export const userReducer = (state = init, action) => {
-  switch (action.type) {
     case 'LOG_IN_TEST_SUCCESS':
       return {
         ...state,
@@ -64,15 +63,7 @@ export const userReducer = (state = init, action) => {
         isLoginDone: true,
         me: action.data,
       };
-    case 'ADD_WISH_LIST':
-      console.log(action.data);
-      return {
-        ...state,
-        me: {
-          ...state.me,
-          wishList: [...state.me.wishList, action.data],
-        },
-      };
+
     case LOG_IN_REQUEST:
       return {
         ...state,
