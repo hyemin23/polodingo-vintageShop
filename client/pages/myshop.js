@@ -1,11 +1,23 @@
 import Head from 'next/head';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
+import { useDispatch, useSelector } from 'react-redux';
 import { StockStyle } from '../style/StockStyle';
 
 const myshop = () => {
+  const dispatch = useDispatch();
   const [stock, setStock] = useState(true);
+  const { wishList, me } = useSelector((state) => state.user);
+  const { products } = useSelector((state) => state.product);
+
+  // 장바구니 data 미리 가져오기
+  useEffect(() => {
+    dispatch({
+      type: 'LOAD_WISHLIST',
+      name: me.name,
+    });
+  }, []);
 
   return (
     <StockStyle>
@@ -17,7 +29,7 @@ const myshop = () => {
         <h2>CART</h2>
       </div>
 
-      {stock && stock ? (
+      {wishList && wishList ? (
         <div>
           <div className="cart_container">
             <Link href="#">

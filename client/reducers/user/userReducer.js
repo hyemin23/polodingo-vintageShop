@@ -15,10 +15,6 @@ export const init = {
   isLoginError: false,
   isLoginDone: false,
   me: null,
-  userId: 'test',
-  userPw: '1234',
-  userEmail: 'test@test.com',
-  wishList: [2],
 };
 
 export const loginAction = (data) => {
@@ -72,7 +68,10 @@ export const userReducer = (state = init, action) => {
       console.log(action.data);
       return {
         ...state,
-        wishList: [...state.wishList, action.data],
+        me: {
+          ...state.me,
+          wishList: [...state.me.wishList, action.data],
+        },
       };
     case LOG_IN_REQUEST:
       return {

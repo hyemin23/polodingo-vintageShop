@@ -20,10 +20,10 @@ module.exports = withBundleAnalyzer({
   async rewrites() {
     return [
       {
-        source: '/2/:path*', //axios에서 호출할때 시작값 넣어주면 됨
+        source: '/2/:path*', // axios에서 호출할때 시작값 넣어주면 됨
         destination: 'https://api.twitter.com/2/:path*', // 실제 요청할 api
       },
-      //요청 uri가 추가되면 아래에 객체로 source, destination 추가
+      // 요청 uri가 추가되면 아래에 객체로 source, destination 추가
     ];
   },
 });

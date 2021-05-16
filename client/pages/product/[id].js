@@ -12,23 +12,24 @@ const ProductDetail = () => {
   const productPathId = parseInt(router.query.id, 10);
 
   const { products } = useSelector((state) => state.product);
-  const { wishList } = useSelector((state) => state.user);
+  const wishList = useSelector((state) => state.me?.wishList);
 
+  console.log(wishList);
   // async await
   const addCart = useCallback(() => {
-    // 상품이 장바구니에 없다면
-    console.log(wishList);
-    console.log(wishList.includes(productPathId));
-    if (!wishList.includes(productPathId)) {
-      dispatch({
-        type: 'ADD_WISH_LIST',
-        data: productPathId,
-      });
-      alert('장바구니에 추가되었습니다.');
-    }
-    // 상품이 장바구니에 있다면
-    else {
-      alert('장바구니에 존재합니다');
+    // 상품이 장바구니에 존재하지 않으면
+    if (wishList) {
+      if (!wishList.includes(productPathId)) {
+        dispatch({
+          type: 'ADD_WISH_LIST',
+          data: productPathId,
+        });
+        alert('장바구니에 추가되었습니다.');
+      }
+      // 상품이 장바구니에 있다면
+      else {
+        alert('장바구니에 존재합니다');
+      }
     }
   }, [wishList]);
 
