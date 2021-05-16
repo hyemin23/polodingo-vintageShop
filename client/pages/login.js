@@ -6,11 +6,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { LoginformStyle } from '../style/FormStyle';
 import { LOG_IN_REQUEST } from '../reducers/action';
+import { loginAction } from '../reducers/user/userReducer';
 
 const login = () => {
   const dispatch = useDispatch();
-  const { isLoggedIn } = useSelector((state) => state.user);
-  console.log(isLoggedIn);
+  const { isLoginDone } = useSelector((state) => state.user);
 
   const {
     register,
@@ -19,17 +19,18 @@ const login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    dispatch({
-      type: LOG_IN_REQUEST,
-      data,
-    });
+    dispatch(loginAction(data));
+    // dispatch({
+    //   type: LOG_IN_REQUEST,
+    //   data,
+    // });
   };
 
   useEffect(() => {
-    if (isLoggedIn === true) {
+    if (isLoginDone === true) {
       Router.push('/');
     }
-  }, [isLoggedIn]);
+  }, [isLoginDone]);
 
   return (
     <LoginformStyle>
