@@ -14,25 +14,24 @@ export const init = {
   isLoading: false,
   isLoginError: false,
   isLoginDone: false,
-  isLoggedIn: false,
   me: null,
   userId: 'test',
   userPw: '1234',
   userEmail: 'test@test.com',
-  wishList: [
-    {
-      productId: 3,
-    },
-    {
-      productId: 2,
-    },
-  ],
+  wishList: [2],
 };
 
 export const loginAction = (data) => {
   console.log('loginAction들어옴');
   return {
     type: 'LOG_IN_TEST_SUCCESS',
+    data,
+  };
+};
+
+export const wishAddAction = (data) => {
+  return {
+    type: 'ADD_WISH_LIST',
     data,
   };
 };
@@ -69,7 +68,12 @@ export const userReducer = (state = init, action) => {
         isLoginDone: true,
         me: action.data,
       };
-
+    case 'ADD_WISH_LIST':
+      console.log(action.data);
+      return {
+        ...state,
+        wishList: [...state.wishList, action.data],
+      };
     case LOG_IN_REQUEST:
       return {
         ...state,

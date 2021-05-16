@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import {
@@ -14,24 +14,24 @@ const ProductDetail = () => {
   const { products } = useSelector((state) => state.product);
   const { wishList } = useSelector((state) => state.user);
 
-  const addWishId = wishList.filter((wish) => wish.productId === productPathId);
-
   // async await
   const addCart = useCallback(() => {
-    console.log('addWishId ', addWishId);
-
-    // 길이가 0개 : 보고있는 상품이 장바구니에 없음
-    if (addWishId.length === 0) {
-      alert('추가되었습니다!');
-
-      // 장바구니 추가
-      // dispatch();
+    // 상품이 장바구니에 없다면
+    console.log(wishList);
+    console.log(wishList.includes(productPathId));
+    if (!wishList.includes(productPathId)) {
+      dispatch({
+        type: 'ADD_WISH_LIST',
+        data: productPathId,
+      });
+      alert('장바구니에 추가되었습니다.');
     }
-    // 길이가 1개 : 보고있는 상품이 장바구니에 있음
+    // 상품이 장바구니에 있다면
     else {
-      alert('장바구니에 상품이 존재합니다');
+      alert('장바구니에 존재합니다');
     }
-  }, []);
+  }, [wishList]);
+
   return (
     <ProductDetailMainStyle>
       {/* 상품 기본정보 */}
