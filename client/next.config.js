@@ -20,7 +20,7 @@ module.exports = withBundleAnalyzer({
   async rewrites() {
     return [
       {
-        source: '/:path*', // axios에서 호출할때 시작값 넣어주면 됨
+        source: '/auth/:path*', // axios에서 호출할때 시작값 넣어주면 됨
 
         // 실제 요청할 api
         destination:

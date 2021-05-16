@@ -14,7 +14,7 @@ import {
 
 function signUpAPI(data) {
   console.log('회원가입 axios 들어옴');
-  console.log(data);
+
   return axios.post('/auth/sign-up', data);
 }
 function* signUp(action) {

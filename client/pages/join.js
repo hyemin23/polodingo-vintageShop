@@ -27,8 +27,10 @@ const join = () => {
 
   const onSubmit = (data) => {
     const result = {
+      // id값 추가로 전달해야함
       roleType: 'ROLE_USER',
     };
+
     Object.assign(result, data);
     delete result.userRpw;
 
@@ -47,9 +49,8 @@ const join = () => {
             <p>아이디</p>
             <input
               type="name"
-              name="name"
-              placeholder="Enter name"
-              {...register('name', {
+              placeholder="아이디를 입력해주세요."
+              {...register('id', {
                 required: validation,
                 minLength: {
                   value: 4,
@@ -58,12 +59,30 @@ const join = () => {
               })}
             />
           </div>
-          {errors.userId && errors.userId.type === 'required' && (
-            <p>{errors.userId.message}</p>
+          {errors.id && errors.id.type === 'required' && (
+            <p>{errors.id.message}</p>
           )}
-          {errors.userId && errors.userId.type === 'minLength' && (
-            <p>{errors.userId.message}</p>
+          {errors.id && errors.id.type === 'minLength' && (
+            <p>{errors.id.message}</p>
           )}
+          <div className="form__content">
+            <p>이름</p>
+            <input
+              type="text"
+              placeholder="이름을 입력해주세요."
+              {...register('name', {
+                required: true,
+                maxLength: 5,
+              })}
+            />
+            {errors.name && errors.name.type === 'required' && (
+              <p>필수항목입니다</p>
+            )}
+            {errors.name && errors.name.type === 'maxLength' && (
+              <p>5자 내외로 입력해주세요.</p>
+            )}
+          </div>
+
           <div className="form__content">
             <p>이메일</p>
             <input
