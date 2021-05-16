@@ -13,13 +13,14 @@ import {
 } from '../reducers/action';
 
 function signUpAPI(data) {
-  return axios.post('/auth/sing-in', data);
+  console.log('회원가입 axios 들어옴');
+  console.log(data);
+  return axios.post('/auth/sign-up', data);
 }
 function* signUp(action) {
   try {
     console.log('signUp 사가 들어옴');
     const result = yield call(signUpAPI, action.data);
-    console.log(result);
     yield put({
       type: USER_REGISTER_SUCCESS,
       data: result.data,
@@ -28,6 +29,7 @@ function* signUp(action) {
     // console.error 꼭 적어주세요 !
     // error를 전달할 때 error.response 로 접근해야합니다!
     console.error(error);
+    console.log(error.response.data);
     yield put({
       type: USER_REGISTER_FAIL,
       error: error.response.data,

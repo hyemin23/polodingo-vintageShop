@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -18,22 +19,22 @@ const join = () => {
     watch,
   } = useForm();
 
-  password.current = watch('userPw');
+  password.current = watch('password');
   const [validation, setValidation] = useState({
     value: true,
     message: '필수항목입니다.',
   });
 
   const onSubmit = (data) => {
-    console.log(data);
-    console.log('서브밋');
+    const result = {
+      roleType: 'ROLE_USER',
+    };
+    Object.assign(result, data);
+    delete result.userRpw;
 
     dispatch({
       type: USER_REGISTER_REQUEST,
-      userEmail: data.userEmail,
-      userId: data.userId,
-      userPw: data.userPw,
-      roleType: '1',
+      data: result,
     });
   };
 
@@ -46,9 +47,9 @@ const join = () => {
             <p>아이디</p>
             <input
               type="name"
-              name="userId"
+              name="name"
               placeholder="Enter name"
-              {...register('userId', {
+              {...register('name', {
                 required: validation,
                 minLength: {
                   value: 4,
@@ -68,16 +69,16 @@ const join = () => {
             <input
               type="email"
               placeholder="Enter email"
-              {...register('userEmail', {
+              {...register('email', {
                 required: true,
                 maxLength: 30,
               })}
             />
             <p>
-              {errors.userEmail && errors.userEmail.type === 'required' && (
+              {errors.email && errors.email.type === 'required' && (
                 <p>필수항목입니다</p>
               )}
-              {errors.userEmail && errors.userEmail.type === 'maxLength' && (
+              {errors.email && errors.email.type === 'maxLength' && (
                 <p>30자 내외로 입력해주세요.</p>
               )}
             </p>
@@ -87,7 +88,7 @@ const join = () => {
             <input
               type="password"
               placeholder="Enter password"
-              {...register('userPw', {
+              {...register('password', {
                 required: validation,
                 minLength: {
                   value: 4,
@@ -95,8 +96,8 @@ const join = () => {
                 },
               })}
             />
-            {errors.userPw && errors.userPw.type === 'minLength' && (
-              <p>{errors.userPw.message}</p>
+            {errors.password && errors.password.type === 'minLength' && (
+              <p>{errors.password.message}</p>
             )}
           </div>
           <div className="form__content">

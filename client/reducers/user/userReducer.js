@@ -11,6 +11,9 @@ import {
 } from '../action';
 
 export const init = {
+  isLoading: false,
+  isLoginError: false,
+  isLoginDone: false,
   isLoggedIn: false,
   me: null,
   userId: 'test',
@@ -26,8 +29,15 @@ export const init = {
   ],
 };
 
+export const loginAction = (data) => {
+  console.log('loginAction들어옴');
+  return {
+    type: 'LOG_IN_TEST_SUCCESS',
+    data,
+  };
+};
+
 export const userRegisterReducer = (state = {}, action) => {
-  console.log('userRegisterReducer들어옴');
   switch (action.type) {
     case USER_REGISTER_REQUEST:
       return {
@@ -43,6 +53,7 @@ export const userRegisterReducer = (state = {}, action) => {
         isLoading: false,
         error: action.error,
       };
+
     default:
       return state;
   }
@@ -51,6 +62,14 @@ export const userRegisterReducer = (state = {}, action) => {
 // 인자 : (이전상태, 액션) => return : 다음상태 만들어줌
 export const userReducer = (state = init, action) => {
   switch (action.type) {
+    case 'LOG_IN_TEST_SUCCESS':
+      return {
+        ...state,
+        isLoading: false,
+        isLoginDone: true,
+        me: action.data,
+      };
+
     case LOG_IN_REQUEST:
       return {
         ...state,
@@ -60,9 +79,9 @@ export const userReducer = (state = init, action) => {
       };
     case LOG_IN_SUCCES:
       return {
+        ...state,
         isLoading: false,
         isLoginDone: true,
-        ...state,
         me: action.data,
       };
     case LOG_IN_FAILURE:
