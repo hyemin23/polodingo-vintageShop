@@ -1,4 +1,4 @@
-import axios from 'axios';
+import { useRouter } from 'next/router';
 import React, { useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,9 +9,10 @@ import { SignFormStyle } from '../style/FormStyle';
 
 const join = () => {
   const dispatch = useDispatch();
-  const { userInfo } = useSelector((state) => state.user);
+  const { isJoinDone, userInfo } = useSelector((state) => state.user);
+  console.log(isJoinDone, userInfo);
   const password = useRef();
-
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -40,7 +41,12 @@ const join = () => {
     });
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (isJoinDone) {
+      alert('회원가입 되었습니다!');
+      router.push('/');
+    }
+  }, [isJoinDone === true && userInfo]);
 
   return (
     <SignFormStyle>

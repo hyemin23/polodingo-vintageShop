@@ -18,10 +18,7 @@ function signUpAPI(data) {
 }
 function* signUp(action) {
   try {
-    console.log('signUp 사가 들어옴');
     const result = yield call(signUpAPI, action.data);
-
-    console.log('front user create result ', result);
 
     yield put({
       type: USER_REGISTER_SUCCESS,

@@ -14,7 +14,7 @@ import { LOG_OUT_REQUEST } from '../reducers/action';
 // children : 레이아웃으로 감싸진 당한 태그들 모두
 const HeaderLayout = ({ children }) => {
   const dispatch = useDispatch();
-  const { isLoggedIn } = useSelector((state) => state.user);
+  const { isJoinDone, userInfo } = useSelector((state) => state.user);
 
   const router = useRouter();
   const [navToggleBtn, setNavToggleBtn] = useState(false);
@@ -100,7 +100,7 @@ const HeaderLayout = ({ children }) => {
             )}
           </li>
 
-          {isLoggedIn ? (
+          {isJoinDone && userInfo ? (
             <li>
               <span>
                 <a href="#" onClick={logout}>
