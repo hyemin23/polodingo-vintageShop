@@ -52,7 +52,7 @@ const join = () => {
             <input
               type="name"
               placeholder="아이디를 입력해주세요."
-              {...register('id', {
+              {...register('userId', {
                 required: validation,
                 minLength: {
                   value: 4,
