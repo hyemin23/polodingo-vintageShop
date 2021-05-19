@@ -18,9 +18,21 @@ const ProductDetail = () => {
 
   // async await
   const addCart = useCallback(() => {
+    // 장바구니에 아무것도 없는 경우
+    if (me && wishList === undefined) {
+      alert('장바구니에 추가되었습니다');
+      dispatch({
+        type: ADD_WISH_SUCCESS,
+        productId: productPathId,
+        user: me,
+      });
+    }
     // 장바구니에 상품이 없을 경우
-
-    if (me && !wishList.includes(productPathId)) {
+    else if (
+      me &&
+      wishList !== undefined &&
+      !wishList.includes(productPathId)
+    ) {
       dispatch({
         type: ADD_WISH_SUCCESS,
         productId: productPathId,

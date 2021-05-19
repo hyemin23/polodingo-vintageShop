@@ -1,6 +1,7 @@
 import { all, fork } from 'redux-saga/effects';
 import axios from 'axios';
 import userSaga from './user';
+import cartSaga from './cart';
 import { backUrl } from '../config/config';
 
 axios.defaults.baseURL = backUrl;
@@ -9,5 +10,5 @@ axios.defaults.baseURL = backUrl;
 // 이 옵션은 서버쪽에서도 명시해줘야함
 // axios.defaults.withCredentials = true;
 export default function* rootSaga() {
-  yield all([fork(userSaga)]);
+  yield all([fork(userSaga), fork(cartSaga)]);
 }

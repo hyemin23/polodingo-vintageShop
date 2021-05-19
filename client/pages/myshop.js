@@ -4,21 +4,24 @@ import Link from 'next/link';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { StockStyle } from '../style/StockStyle';
-import { LOAD_WISH_REQUEST, LOAD_WISH_SUCCESS } from '../reducers/action';
+import { LOAD_WISH_REQUEST } from '../reducers/action';
 
 const myshop = () => {
   const dispatch = useDispatch();
   const [stock, setStock] = useState(true);
 
   // wishInfo 에서 상품 정보들 가져와서 뿌려주기
-  const { wishList, userInfo, wishInfo } = useSelector((state) => state.cart);
+  const { me } = useSelector((state) => state.user);
+  const { wishList } = useSelector((state) => state.cart);
 
   useEffect(() => {
-    // 해당 유저의 장바구니 리스트 가져오기
-    dispatch({
-      type: LOAD_WISH_REQUEST,
-      data: userInfo.id,
-    });
+    if (me && me.id) {
+      // 해당 유저의 장바구니 리스트 가져오기
+      dispatch({
+        type: LOAD_WISH_REQUEST,
+        data: me.id,
+      });
+    }
   }, []);
 
   return (
