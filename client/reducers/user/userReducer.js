@@ -76,7 +76,7 @@ export const userReducer = (state = init, action) => {
         ...state,
         isLoading: false,
         isLoginDone: true,
-        me: action.data,
+        me: action.data.userInfo,
       };
     case LOG_IN_FAILURE:
       return {

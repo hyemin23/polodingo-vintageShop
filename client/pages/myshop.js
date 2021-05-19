@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { StockStyle } from '../style/StockStyle';
-import { LOAD_WISH_SUCCESS } from '../reducers/action';
+import { LOAD_WISH_REQUEST, LOAD_WISH_SUCCESS } from '../reducers/action';
 
 const myshop = () => {
   const dispatch = useDispatch();
@@ -16,8 +16,8 @@ const myshop = () => {
   useEffect(() => {
     // 해당 유저의 장바구니 리스트 가져오기
     dispatch({
-      type: LOAD_WISH_SUCCESS,
-      data: userInfo.name,
+      type: LOAD_WISH_REQUEST,
+      data: userInfo.id,
     });
   }, []);
 

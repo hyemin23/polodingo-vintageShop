@@ -35,14 +35,13 @@ function* signUp(action) {
   }
 }
 
-function loginUpAPI(data) {
-  return axios.post('/auth/sign-in', data);
+function loginAPI(data) {
+  return axios.post('/auth/login', data);
 }
 function* login(action) {
   try {
-    console.log('로그인 사가 들어옴');
-    const result = yield call(loginUpAPI, action.data);
-    console.log('로그인 결과 : ', result);
+    const result = yield call(loginAPI, action.data);
+    console.log('result', result.data);
     yield put({
       type: LOG_IN_SUCCES,
       data: result.data,
