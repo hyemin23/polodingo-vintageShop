@@ -19,11 +19,11 @@ const login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    dispatch(loginAction(data));
-    // dispatch({
-    //   type: LOG_IN_REQUEST,
-    //   data,
-    // });
+    // dispatch(loginAction(data));
+    dispatch({
+      type: LOG_IN_REQUEST,
+      data,
+    });
   };
 
   useEffect(() => {
@@ -56,7 +56,7 @@ const login = () => {
           <input
             type="password"
             placeholder="Enter password"
-            {...register('userPw', {
+            {...register('password', {
               required: {
                 value: true,
                 message: '비밀번호를 입력해주세요.',

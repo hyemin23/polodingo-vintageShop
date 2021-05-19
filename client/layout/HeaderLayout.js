@@ -14,8 +14,7 @@ import { LOG_OUT_REQUEST } from '../reducers/action';
 // children : 레이아웃으로 감싸진 당한 태그들 모두
 const HeaderLayout = ({ children }) => {
   const dispatch = useDispatch();
-  const { isJoinDone, userInfo } = useSelector((state) => state.user);
-
+  const { me } = useSelector((state) => state.user);
   const router = useRouter();
   const [navToggleBtn, setNavToggleBtn] = useState(false);
   const [SearchPopOpen, setSearchPopOpen] = useState(false);
@@ -100,7 +99,7 @@ const HeaderLayout = ({ children }) => {
             )}
           </li>
 
-          {isJoinDone && userInfo ? (
+          {me && me ? (
             <li>
               <span>
                 <a href="#" onClick={logout}>
