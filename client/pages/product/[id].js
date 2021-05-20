@@ -5,7 +5,11 @@ import {
   ProductDetailContnets,
   ProductDetailMainStyle,
 } from '../../style/ProductDetailStyles';
-import { ADD_WISH_SUCCESS } from '../../reducers/action';
+import {
+  ADD_WISH_REQUEST,
+  ADD_WISH_SUCCESS,
+  LOAD_WISH_REQUEST,
+} from '../../reducers/action';
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
@@ -14,31 +18,49 @@ const ProductDetail = () => {
 
   const { products } = useSelector((state) => state.product);
   const { me } = useSelector((state) => state.user);
-  const wishList = useSelector((state) => state.cart?.wishList);
-
+  const { wishList } = useSelector((state) => state.cart);
+  // 장바구니 불러오기
+  useEffect(async () => {
+    if (me && me !== undefined) {
+      await dispatch({
+        type: LOAD_WISH_REQUEST,
+        data: me.id,
+      });
+    }
+  }, []);
   // async await
   const addCart = useCallback(() => {
+    const data = {
+      productId: productPathId,
+      userId: me?.id,
+    };
     // 장바구니에 아무것도 없는 경우
-    if (me && wishList === undefined) {
-      alert('장바구니에 추가되었습니다');
+    if (me && wishList && wishList.length === 0) {
+      alert('장바구니에 추가되었습니다1');
       dispatch({
-        type: ADD_WISH_SUCCESS,
-        productId: productPathId,
-        user: me,
+        type: ADD_WISH_REQUEST,
+        data,
       });
     }
     // 장바구니에 상품이 없을 경우
     else if (
       me &&
-      wishList !== undefined &&
+      wishList &&
+      wishList.length > 0 &&
       !wishList.includes(productPathId)
     ) {
-      dispatch({
-        type: ADD_WISH_SUCCESS,
-        productId: productPathId,
-        user: me,
-      });
-      alert('장바구니에 추가되었습니다.');
+      const exist = wishList.filter((wish) => wish.id === productPathId);
+
+      // 이미 id 값이 존재하면
+      if (exist && exist.length > 0) {
+        alert('장바구니에 상품이 존재합니다.');
+      } else {
+        dispatch({
+          type: ADD_WISH_REQUEST,
+          data,
+        });
+        alert('장바구니에 추가되었습니다.2');
+      }
     } else if (!me) {
       alert('로그인이 필요합니다.');
     }

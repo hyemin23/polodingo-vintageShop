@@ -31,9 +31,7 @@ export const cartReducer = (state = init, action) => {
       return {
         ...state,
         isWishLoading: false,
-        isWishDone: true,
-        userInfo: { ...action.user },
-        wishList: [...state.wishList, action.productId],
+        isWishDone: action.data,
       };
     case ADD_WISH_FAILURE:
       return {
@@ -49,10 +47,12 @@ export const cartReducer = (state = init, action) => {
         isCartDone: false,
       };
     case LOAD_WISH_SUCCESS:
+      console.log('reducer : , ', action);
       return {
         ...state,
         isCartLoading: false,
         isCartDone: true,
+        wishList: (action.data && action.data.map((p) => p.product)) || null,
       };
     case LOAD_WISH_FAILURE:
       return {
