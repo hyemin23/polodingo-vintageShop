@@ -5,15 +5,24 @@ import {
   LOAD_WISH_FAILURE,
   LOAD_WISH_REQUEST,
   LOAD_WISH_SUCCESS,
+  REMOVE_WISH_FAILURE,
+  REMOVE_WISH_REQUSET,
+  REMOVE_WISH_SUCCESS,
 } from '../action';
 
 const init = {
+  isWishRemoveLoading: false,
+  isWishRemoveSuccess: false,
+  isWishRemoveError: null,
+
   isWishLoading: false,
   isWishDone: false,
   isWishError: null,
+
   isCartLoading: false,
   isCartError: null,
   isCartDone: false,
+
   userInfo: null,
   wishList: [],
   wishInfo: {},
@@ -58,6 +67,24 @@ export const cartReducer = (state = init, action) => {
       return {
         isCartLoading: false,
         isCartError: action.error,
+      };
+
+    case REMOVE_WISH_REQUSET:
+      return {
+        isWishRemoveLoading: true,
+        isWishRemoveSuccess: false,
+        isWishRemoveError: null,
+      };
+    case REMOVE_WISH_SUCCESS:
+      return {
+        isWishRemoveLoading: false,
+        isWishRemoveSuccess: action.data,
+      };
+    case REMOVE_WISH_FAILURE:
+      return {
+        isWishRemoveLoading: false,
+        isWishRemoveSuccess: false,
+        isWishRemoveError: action.data,
       };
     default:
       return state;

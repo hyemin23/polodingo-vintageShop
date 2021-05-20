@@ -10,7 +10,6 @@ import { SignFormStyle } from '../style/FormStyle';
 const join = () => {
   const dispatch = useDispatch();
   const { isJoinDone, userInfo } = useSelector((state) => state.user);
-  console.log(isJoinDone, userInfo);
   const password = useRef();
   const router = useRouter();
   const {

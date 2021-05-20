@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { StockStyle } from '../style/StockStyle';
-import { LOAD_WISH_REQUEST } from '../reducers/action';
+import { LOAD_WISH_REQUEST, REMOVE_WISH_REQUSET } from '../reducers/action';
 
 const myshop = () => {
   const dispatch = useDispatch();
@@ -12,6 +12,8 @@ const myshop = () => {
   // wishInfo 에서 상품 정보들 가져와서 뿌려주기
   const { me } = useSelector((state) => state.user);
   const { wishList } = useSelector((state) => state.cart);
+
+  console.log(wishList);
 
   useEffect(() => {
     if (me && me.id) {
@@ -22,6 +24,21 @@ const myshop = () => {
       });
     }
   }, []);
+
+  // 사용자 id와
+  // 상품 id 를 전달받음
+  const onRemove = (userId, productId) => {
+    const data = {
+      userId,
+      productId,
+    };
+    dispatch({
+      type: REMOVE_WISH_REQUSET,
+      data,
+    });
+
+    alert('삭제되었습니다!');
+  };
 
   return (
     <StockStyle>
@@ -53,7 +70,11 @@ const myshop = () => {
                   </select>
                 </div>
                 <div>
-                  <button type="button" className="btn">
+                  <button
+                    type="button"
+                    className="btn"
+                    onClick={() => onRemove(me.id, wish.id)}
+                  >
                     REMOVE
                   </button>
                 </div>
@@ -82,7 +103,8 @@ const myshop = () => {
           </>
         )}
       </div>
-      {wishList && wishList.length === 0 && (
+
+      {(wishList === undefined || (wishList && wishList.length === 0)) && (
         <div className="contents">
           <h3>장바구니가 비어있습니다.</h3>
           <div>
