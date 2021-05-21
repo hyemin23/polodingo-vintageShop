@@ -1,12 +1,13 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { UPLOAD_IMG_REQUEST } from '../reducers/action';
 import { addReview } from '../reducers/review/reviewAction';
 import { ReviewDetailStyles } from '../style/ReviewStyle';
 
 const writeReview = () => {
   const dispatch = useDispatch();
-
+  const { me } = useSelector((state) => state.user);
   const {
     register,
     handleSubmit,
@@ -23,6 +24,24 @@ const writeReview = () => {
         data,
       })
     );
+  };
+
+  const onChange = (e) => {
+    const img = e.target.files[0];
+    console.log(img);
+
+    const formData = new FormData();
+    formData.append('file', img);
+    formData.append('userId', me.id);
+
+    // formData.forEach((asd) => {
+    //   console.log(asd);
+    // });
+
+    dispatch({
+      type: UPLOAD_IMG_REQUEST,
+      data: formData,
+    });
   };
   return (
     <ReviewDetailStyles>
@@ -64,7 +83,7 @@ const writeReview = () => {
               )}
             </div>
             <div className="file_input">
-              <input type="file" />
+              <input type="file" onChange={onChange} />
             </div>
             <div className="button_div">
               <button type="submit" className="btn">
