@@ -1,12 +1,17 @@
 import { all, call, fork, put, takeLatest } from 'redux-saga/effects';
 import axios from 'axios';
 import {
+  ADD_REVIEW_REQUEST,
+  ADD_REVIEW_SUCCESS,
   LOG_IN_FAILURE,
   LOG_IN_REQUEST,
   LOG_IN_SUCCES,
   LOG_OUT_FAILURE,
   LOG_OUT_REQUEST,
   LOG_OUT_SUCCESS,
+  UPLOAD_IMG_FAILURE,
+  UPLOAD_IMG_REQUEST,
+  UPLOAD_IMG_SUCCESS,
   USER_REGISTER_FAIL,
   USER_REGISTER_REQUEST,
   USER_REGISTER_SUCCESS,
@@ -60,9 +65,7 @@ function logOutAPI() {
 }
 function* logOut() {
   try {
-    console.log('로그아웃 사가 들어옴');
     const result = yield call(logOutAPI);
-    console.log('retult', result);
     yield put({
       type: LOG_OUT_SUCCESS,
     });
@@ -75,6 +78,45 @@ function* logOut() {
   }
 }
 
+function imgUploadAPI(data) {
+  // 객체형식으로 보내야하나 ??
+  console.log(data);
+  return axios.post('review/upload', data);
+}
+function* imgUpload(action) {
+  try {
+    const result = yield call(imgUploadAPI, action.data);
+    yield put({
+      type: UPLOAD_IMG_SUCCESS,
+      data: result.data,
+    });
+  } catch (error) {
+    console.error(error);
+    yield put({
+      type: UPLOAD_IMG_FAILURE,
+      data: error.response.data,
+    });
+  }
+}
+
+function reviewAPI(data) {
+  return axios.post('review', data);
+}
+function* review(action) {
+  try {
+    const result = yield call(reviewAPI, action.data);
+    yield put({
+      type: ADD_REVIEW_SUCCESS,
+      data: result.data,
+    });
+  } catch (error) {
+    console.error(error);
+    yield put({
+      type: ADD_REVIEW_SUCCESS,
+      data: error.response.data,
+    });
+  }
+}
 function* watchLogIn() {
   yield takeLatest(LOG_IN_REQUEST, login);
 }
@@ -85,7 +127,20 @@ function* watchLogOut() {
 function* watchSignUp() {
   yield takeLatest(USER_REGISTER_REQUEST, signUp);
 }
+function* watchImgAdded() {
+  yield takeLatest(UPLOAD_IMG_REQUEST, imgUpload);
+}
+
+function* watchReview() {
+  yield takeLatest(ADD_REVIEW_REQUEST, review);
+}
 
 export default function* userSaga() {
-  yield all([fork(watchSignUp), fork(watchLogIn), fork(watchLogOut)]);
+  yield all([
+    fork(watchSignUp),
+    fork(watchLogIn),
+    fork(watchLogOut),
+    fork(watchImgAdded),
+    fork(watchReview),
+  ]);
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { UPLOAD_IMG_REQUEST } from '../reducers/action';
+import { ADD_REVIEW_REQUEST, UPLOAD_IMG_REQUEST } from '../reducers/action';
 import { addReview } from '../reducers/review/reviewAction';
 import { ReviewDetailStyles } from '../style/ReviewStyle';
 
@@ -19,24 +19,30 @@ const writeReview = () => {
   });
 
   const onSubmit = (data) => {
-    dispatch(
-      addReview({
-        data,
-      })
-    );
+    const formData = {
+      reviewTitle: data.reviewTitle,
+      reviewContent: data.reviewContent,
+      userId: me.id,
+    };
+
+    dispatch({
+      type: ADD_REVIEW_REQUEST,
+      data: formData,
+    });
+
+    // dispatch(
+    //   addReview({
+    //     data,
+    //   })
+    // );
   };
 
   const onChange = (e) => {
     const img = e.target.files[0];
-    console.log(img);
 
     const formData = new FormData();
-    formData.append('file', img);
+    formData.append('images', img);
     formData.append('userId', me.id);
-
-    // formData.forEach((asd) => {
-    //   console.log(asd);
-    // });
 
     dispatch({
       type: UPLOAD_IMG_REQUEST,
