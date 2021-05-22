@@ -3,6 +3,9 @@ import axios from 'axios';
 import {
   ADD_REVIEW_REQUEST,
   ADD_REVIEW_SUCCESS,
+  LOAD_REVIEW_LIST_FAILURE,
+  LOAD_REVIEW_LIST_REQUEST,
+  LOAD_REVIEW_LIST_SUCCESS,
   LOG_IN_FAILURE,
   LOG_IN_REQUEST,
   LOG_IN_SUCCES,
@@ -117,6 +120,26 @@ function* review(action) {
     });
   }
 }
+
+function reviewLoadAPI() {
+  return axios.get('review');
+}
+
+function* reviewLoad(action) {
+  try {
+    const result = yield call(reviewLoadAPI);
+    yield put({
+      type: LOAD_REVIEW_LIST_SUCCESS,
+      data: result.data,
+    });
+  } catch (error) {
+    console.error(error);
+    yield put({
+      type: LOAD_REVIEW_LIST_FAILURE,
+      data: error.response.data,
+    });
+  }
+}
 function* watchLogIn() {
   yield takeLatest(LOG_IN_REQUEST, login);
 }
@@ -134,6 +157,9 @@ function* watchImgAdded() {
 function* watchReview() {
   yield takeLatest(ADD_REVIEW_REQUEST, review);
 }
+function* watchReviewAllLoad() {
+  yield takeLatest(LOAD_REVIEW_LIST_REQUEST, reviewLoad);
+}
 
 export default function* userSaga() {
   yield all([
@@ -142,5 +168,6 @@ export default function* userSaga() {
     fork(watchLogOut),
     fork(watchImgAdded),
     fork(watchReview),
+    fork(watchReviewAllLoad),
   ]);
 }

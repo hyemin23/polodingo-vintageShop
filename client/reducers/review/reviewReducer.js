@@ -2,6 +2,9 @@ import {
   ADD_REVIEW_FAILURE,
   ADD_REVIEW_REQUEST,
   ADD_REVIEW_SUCCESS,
+  LOAD_REVIEW_LIST_FAILURE,
+  LOAD_REVIEW_LIST_REQUEST,
+  LOAD_REVIEW_LIST_SUCCESS,
   UPLOAD_IMG_FAILURE,
   UPLOAD_IMG_REQUEST,
   UPLOAD_IMG_SUCCESS,
@@ -15,16 +18,10 @@ const init = {
   isAddedLoading: false,
   isAddedDone: false,
   isAddedError: null,
-  reviews: [
-    {
-      reviewId: 1,
-      userId: 1,
-      reviewTitle: '리뷰제목 테스트',
-      reviewContent: '리뷰테스트',
-      reviewImage: '/images/review1.jpg',
-      reviewState: true,
-    },
-  ],
+  isReviewLoading: false,
+  isReviewDone: false,
+  isReviewError: null,
+  reviews: [],
 };
 
 const dummy = {
@@ -76,6 +73,25 @@ const reviewReducer = (state = init, action) => {
         isAddedLoading: false,
         isAddedDone: false,
         isAddedError: action.data,
+      };
+    case LOAD_REVIEW_LIST_REQUEST:
+      return {
+        isReviewLoading: true,
+        isReviewDone: false,
+        isReviewError: null,
+      };
+    case LOAD_REVIEW_LIST_SUCCESS:
+      return {
+        ...state,
+        isReviewLoading: false,
+        isReviewDone: true,
+        reviews: [...action.data],
+      };
+    case LOAD_REVIEW_LIST_FAILURE:
+      return {
+        isReviewLoading: false,
+        isReviewDone: false,
+        isReviewError: action.data,
       };
 
     default:
