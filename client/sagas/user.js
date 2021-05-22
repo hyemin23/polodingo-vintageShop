@@ -6,6 +6,9 @@ import {
   LOAD_REVIEW_LIST_FAILURE,
   LOAD_REVIEW_LIST_REQUEST,
   LOAD_REVIEW_LIST_SUCCESS,
+  LOAD_USER_INFO_FAILURE,
+  LOAD_USER_INFO_REQUEST,
+  LOAD_USER_INFO_SUCCESS,
   LOG_IN_FAILURE,
   LOG_IN_REQUEST,
   LOG_IN_SUCCES,
@@ -49,7 +52,7 @@ function loginAPI(data) {
 function* login(action) {
   try {
     const result = yield call(loginAPI, action.data);
-    console.log('result', result.data);
+
     yield put({
       type: LOG_IN_SUCCES,
       data: result.data,
@@ -140,6 +143,32 @@ function* reviewLoad(action) {
     });
   }
 }
+
+// 토큰을 넣어줘야함
+function loadUserInfoAPI(data) {
+  console.log(data);
+
+  return axios.get('auth/loadUserInfo', {
+    headers: {
+      'vintage-auth-cookie': data,
+    },
+  });
+}
+function* loadUserInfo(action) {
+  try {
+    const result = yield call(loadUserInfoAPI, action.data);
+    yield put({
+      type: LOAD_USER_INFO_SUCCESS,
+      data: result.data,
+    });
+  } catch (error) {
+    console.error(error);
+    // yield put({
+    //   type: LOAD_USER_INFO_FAILURE,
+    //   data: error.response,
+    // });
+  }
+}
 function* watchLogIn() {
   yield takeLatest(LOG_IN_REQUEST, login);
 }
@@ -161,6 +190,9 @@ function* watchReviewAllLoad() {
   yield takeLatest(LOAD_REVIEW_LIST_REQUEST, reviewLoad);
 }
 
+function* watchLoadUserInfo() {
+  yield takeLatest(LOAD_USER_INFO_REQUEST, loadUserInfo);
+}
 export default function* userSaga() {
   yield all([
     fork(watchSignUp),
@@ -169,5 +201,6 @@ export default function* userSaga() {
     fork(watchImgAdded),
     fork(watchReview),
     fork(watchReviewAllLoad),
+    fork(watchLoadUserInfo),
   ]);
 }

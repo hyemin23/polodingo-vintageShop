@@ -1,4 +1,7 @@
 import {
+  LOAD_USER_INFO_FAILURE,
+  LOAD_USER_INFO_REQUEST,
+  LOAD_USER_INFO_SUCCESS,
   LOG_IN_FAILURE,
   LOG_IN_REQUEST,
   LOG_IN_SUCCES,
@@ -18,6 +21,10 @@ export const init = {
   isJoinLoading: false,
   isJoinError: null,
   isJoinDone: false,
+
+  isLoadUserInfoLoading: false,
+  isLoadUSerDone: false,
+  isLoadUserError: null,
   me: null,
   userInfo: null,
 };
@@ -39,6 +46,25 @@ export const wishAddAction = (data) => {
 // 인자 : (이전상태, 액션) => return : 다음상태 만들어줌
 export const userReducer = (state = init, action) => {
   switch (action.type) {
+    case LOAD_USER_INFO_REQUEST:
+      return {
+        isLoadUserInfoLoading: true,
+        isLoadUSerDone: false,
+        isLoadUserError: null,
+      };
+    case LOAD_USER_INFO_SUCCESS:
+      return {
+        isLoadUserInfoLoading: false,
+        isLoadUSerDone: true,
+        ...state,
+        me: action.data,
+      };
+    case LOAD_USER_INFO_FAILURE:
+      return {
+        isLoadUserInfoLoading: false,
+        isLoadUSerDone: false,
+        isLoadUserError: action.data,
+      };
     case USER_REGISTER_REQUEST:
       return {
         isJoinLoading: true,
@@ -76,7 +102,7 @@ export const userReducer = (state = init, action) => {
         ...state,
         isLoading: false,
         isLoginDone: true,
-        me: action.data.userInfo,
+        me: action.data,
       };
     case LOG_IN_FAILURE:
       return {

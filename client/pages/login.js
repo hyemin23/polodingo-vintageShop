@@ -6,11 +6,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
 import { LoginformStyle } from '../style/FormStyle';
 import { LOG_IN_REQUEST } from '../reducers/action';
-import { loginAction } from '../reducers/user/userReducer';
 
 const login = () => {
   const dispatch = useDispatch();
-  const { isLoginDone } = useSelector((state) => state.user);
+  const { isLoginDone, me } = useSelector((state) => state.user);
+  const token = me?.accessToken || null;
 
   const {
     register,
@@ -26,8 +26,15 @@ const login = () => {
     });
   };
 
+  // 로그인 성공시 쿠키에 저장하도록 해야함
   useEffect(() => {
     if (isLoginDone === true) {
+      localStorage.setItem(
+        'vintage-info-user',
+        JSON.stringify({
+          token,
+        })
+      );
       Router.push('/');
     }
   }, [isLoginDone]);
