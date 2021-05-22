@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
+import router from 'next/router';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { ADD_REVIEW_REQUEST, UPLOAD_IMG_REQUEST } from '../reducers/action';
-import { addReview } from '../reducers/review/reviewAction';
+import { useEffect } from 'react/cjs/react.development';
+import { UPLOAD_IMG_REQUEST } from '../reducers/action';
 import { ReviewDetailStyles } from '../style/ReviewStyle';
 
 const writeReview = () => {
   const dispatch = useDispatch();
+
   const { me } = useSelector((state) => state.user);
+  const { isImgDone } = useSelector((state) => state.review);
   const {
     register,
     handleSubmit,
@@ -17,38 +20,39 @@ const writeReview = () => {
     reValidateMode: 'onChange',
     shouldFocusError: true,
   });
+  const [imgPath, setImgPath] = useState();
 
   const onSubmit = (data) => {
-    const formData = {
-      reviewTitle: data.reviewTitle,
-      reviewContent: data.reviewContent,
-      userId: me.id,
-    };
-
-    dispatch({
-      type: ADD_REVIEW_REQUEST,
-      data: formData,
-    });
-
-    // dispatch(
-    //   addReview({
-    //     data,
-    //   })
-    // );
-  };
-
-  const onChange = (e) => {
-    const img = e.target.files[0];
-
     const formData = new FormData();
-    formData.append('images', img);
+
+    formData.append('images', imgPath);
+    formData.append('reviewTitle', data.reviewTitle);
+    formData.append('reviewContent', data.reviewContent);
     formData.append('userId', me.id);
 
     dispatch({
       type: UPLOAD_IMG_REQUEST,
       data: formData,
     });
+
+    setImgPath('');
   };
+
+  const onChange = (e) => {
+    setImgPath(e.target.files[0]);
+
+    // dispatch({
+    //   type: UPLOAD_IMG_REQUEST,
+    //   data: formData,
+    // });
+  };
+
+  useEffect(() => {
+    if (isImgDone) {
+      alert('등록되었습니다!');
+      router.push('/review');
+    }
+  }, [isImgDone]);
   return (
     <ReviewDetailStyles>
       <div className="writer_container">
