@@ -41,11 +41,11 @@ export class Product extends BaseEntity {
   //product에 관련한 Img 테이블이 필요 여러가지 이미지를 가질 수 있기 때문에
   // image[] 배열로 연관관계 처리해아 하지만 현재는 간략하게 가기 위해서
   // 컬럼 여러개로 생성
-  @Column()
+  @Column({nullable : true,})
   imgPath1: string;
-  @Column()
+  @Column({nullable : true,})
   imgPath2: string;
-  @Column()
+  @Column({nullable : true,})
   imgPath3: string;
 
   //기본값설정

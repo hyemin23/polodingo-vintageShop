@@ -14,11 +14,7 @@ export class ProductService {
     console.log(productType);
     // all일 경우에는 날짜가 제일 최신인애들 기준으로 보여줘야함
     if (productType === 'all') {
-      const result = await this.productRepository.find({
-        where: {
-          productType: 1,
-        },
-      });
+      const result = await this.productRepository.find();
       return result;
     } else if (productType === 'outer') {
       const result = await this.productRepository.find({
@@ -41,8 +37,27 @@ export class ProductService {
         },
       });
       return result;
-    } else {
+    }
+      else if (productType === 'acc') {
+      const result = await this.productRepository.find({
+        where: {
+          productType: 1,
+        },
+      });
+      return result;
+    }
+    else {
       return new HttpException('존재하지 않는 상품코드입니다.', 400);
     }
   }
 }
+
+
+
+
+
+
+
+
+
+ 

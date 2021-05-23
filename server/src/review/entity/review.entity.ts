@@ -26,6 +26,6 @@ export class Review extends BaseEntity {
   @Column()
   reviewContent: string;
 
-  @Column()
+  @Column({nullable : true,})
   src: string;
 }
