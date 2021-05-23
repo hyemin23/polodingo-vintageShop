@@ -5,16 +5,17 @@ import { ProductStyle } from '../../style/ProductStyle';
 
 const { useRouter } = require('next/router');
 
+// 카테고리별로 상품을 뿌려주는곳
 const Category = () => {
   const router = useRouter();
-  const { id } = router.query;
+  const productType = router.query.id;
 
   return (
     <div>
       <CategoryLayout />
       <div className="container" style={{ padding: '60px 5%' }}>
         <ProductStyle column="4">
-          <Product id={id} />
+          <Product productType={productType} />
         </ProductStyle>
       </div>
     </div>

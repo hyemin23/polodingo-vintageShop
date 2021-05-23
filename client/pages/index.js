@@ -3,7 +3,10 @@ import Head from 'next/head';
 import React, { useEffect } from 'react';
 import { END } from 'redux-saga';
 import MainSection from '../components/MainSection';
-import { LOAD_USER_INFO_REQUEST } from '../reducers/action';
+import {
+  LOAD_PRODUCT_TYPE_REQUEST,
+  LOAD_USER_INFO_REQUEST,
+} from '../reducers/action';
 import wrapper from '../store/configureStore';
 
 const index = () => {
@@ -44,6 +47,12 @@ export const getServerSideProps = wrapper.getServerSideProps(
       type: LOAD_USER_INFO_REQUEST,
     });
 
+    // 첫 파에지 랜딩에는  최근 등록된 상품 기준으로 보여주거나 업로드 날짜가 가장 최근인 애들을 보여줘야함
+    context.store.dispatch({
+      type: LOAD_PRODUCT_TYPE_REQUEST,
+      data: 'all',
+    });
+
     // 위에 REQUEST가 SUCCESS로 바뀔 때 까지 기다려주는 장치임
     // 공식문서에 나옴
     context.store.dispatch(END);
@@ -51,5 +60,4 @@ export const getServerSideProps = wrapper.getServerSideProps(
     /// /////////////////////////////////////////////////
   }
 );
-
 export default index;

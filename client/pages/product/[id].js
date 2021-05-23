@@ -80,7 +80,7 @@ const ProductDetail = () => {
         p.id === productPathId ? (
           <div className="productDetail" key={p.id}>
             <div className="thumbnailImg">
-              <img src={p.Thumbnail[0].src} alt="WOOL MIX BELTED COAT" />
+              <img src={p.thumbnailPath} alt="WOOL MIX BELTED COAT" />
             </div>
 
             <div className="infoArea">
@@ -140,9 +140,9 @@ const ProductDetail = () => {
                 <p>{p.productMsize}</p>
                 {/* 제품 관련 이미지 */}
                 <p>
-                  <img src={p.Images[0].src} />
-                  <img src={p.Images[1].src} />
-                  <img src={p.Images[2].src} />
+                  <img src={p.imgPath1} />
+                  <img src={p.imgPath2} />
+                  <img src={p.imgPath3} />
                 </p>
               </div>
               <div className="product_detail_bottom_img">

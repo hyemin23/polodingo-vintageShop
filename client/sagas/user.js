@@ -147,8 +147,6 @@ function* reviewLoad(action) {
 
 // 토큰을 넣어줘야함
 function loadUserInfoAPI(data) {
-  console.log('axis 디폴트 헤더');
-  console.log(axios.defaults.headers);
   return axios.get('auth/loadUserInfo');
 }
 function* loadUserInfo(action) {
@@ -159,11 +157,12 @@ function* loadUserInfo(action) {
       data: result.data,
     });
   } catch (error) {
-    console.error(error);
-    yield put({
-      type: LOAD_USER_INFO_FAILURE,
-      data: error.response.data,
-    });
+    // console.log('에러', error.response);
+    // console.error(error);
+    // yield put({
+    //   type: LOAD_USER_INFO_FAILURE,
+    //   data: error.response,
+    // });
   }
 }
 function* watchLogIn() {
@@ -190,6 +189,7 @@ function* watchReviewAllLoad() {
 function* watchLoadUserInfo() {
   yield takeLatest(LOAD_USER_INFO_REQUEST, loadUserInfo);
 }
+
 export default function* userSaga() {
   yield all([
     fork(watchSignUp),

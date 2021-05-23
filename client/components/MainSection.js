@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios'; // 임시, 확인후 삭제
+import { useDispatch } from 'react-redux';
 import { SectionOne, SectionTwo, SectionThree } from '../style/SectionStyle';
 import Product from './Product';
 import { ProductStyle } from '../style/ProductStyle';
@@ -13,7 +12,6 @@ gsap.registerPlugin(ScrollTrigger);
 
 const MainSection = () => {
   const dispatch = useDispatch();
-  const { products } = useSelector((state) => state.product);
 
   const refSlide1 = useRef(null);
   const refSlide2 = useRef(null);
@@ -161,7 +159,7 @@ const MainSection = () => {
             상품올리기
           </a>
           <ProductStyle column="5">
-            <Product id="new" />
+            <Product productType="all" />
           </ProductStyle>
         </div>
       </SectionThree>
