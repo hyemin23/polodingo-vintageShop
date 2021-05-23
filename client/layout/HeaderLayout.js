@@ -13,6 +13,7 @@ import { LOG_OUT_REQUEST } from '../reducers/action';
 
 // children : 레이아웃으로 감싸진 당한 태그들 모두
 const HeaderLayout = ({ children }) => {
+  console.log('header');
   const dispatch = useDispatch();
   const { me } = useSelector((state) => state.user);
   const router = useRouter();
@@ -31,6 +32,8 @@ const HeaderLayout = ({ children }) => {
     dispatch({
       type: LOG_OUT_REQUEST,
     });
+
+    alert('로그아웃 되었습니다!');
   };
   return (
     <header>

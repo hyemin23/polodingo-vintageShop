@@ -67,6 +67,7 @@ function* login(action) {
 }
 
 function logOutAPI() {
+  axios.defaults.headers.Cookie = '';
   return axios.post('/auth/logout');
 }
 function* logOut() {

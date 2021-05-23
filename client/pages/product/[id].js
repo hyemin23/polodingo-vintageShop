@@ -5,11 +5,7 @@ import {
   ProductDetailContnets,
   ProductDetailMainStyle,
 } from '../../style/ProductDetailStyles';
-import {
-  ADD_WISH_REQUEST,
-  ADD_WISH_SUCCESS,
-  LOAD_WISH_REQUEST,
-} from '../../reducers/action';
+import { ADD_WISH_REQUEST, LOAD_WISH_REQUEST } from '../../reducers/action';
 
 const ProductDetail = () => {
   const dispatch = useDispatch();
@@ -17,58 +13,65 @@ const ProductDetail = () => {
   const productPathId = parseInt(router.query.id, 10);
 
   const { products } = useSelector((state) => state.product);
-  const { me } = useSelector((state) => state.user);
+  const { me, isLoginDone } = useSelector((state) => state.user);
   const { wishList } = useSelector((state) => state.cart);
-  // 장바구니 불러오기
+
+  // 로그인 했을 경우에만 장바구니 불러오기
   useEffect(async () => {
-    if (me && me !== undefined) {
+    if (me && me !== undefined && isLoginDone === true) {
       await dispatch({
         type: LOAD_WISH_REQUEST,
         data: me.id,
       });
     }
-  }, []);
+  }, [isLoginDone]);
   // async await
   const addCart = useCallback(() => {
     const data = {
       productId: productPathId,
       userId: me?.id,
     };
-    // 장바구니에 아무것도 없는 경우
-    if (me && wishList && wishList.length === 0) {
-      alert('장바구니에 추가되었습니다1');
-      dispatch({
-        type: ADD_WISH_REQUEST,
-        data,
-      });
-    }
-    // 장바구니에 상품이 없을 경우
-    else if (
-      me &&
-      wishList &&
-      wishList.length > 0 &&
-      !wishList.includes(productPathId)
-    ) {
-      const exist = wishList.filter((wish) => wish.id === productPathId);
 
-      // 이미 id 값이 존재하면
-      if (exist && exist.length > 0) {
-        alert('장바구니에 상품이 존재합니다.');
-      } else {
+    // 로그인한 사용자인 경우에만
+    if (isLoginDone) {
+      // 장바구니에 아무것도 없는 경우
+      if (me && wishList && wishList.length === 0) {
+        alert('장바구니에 추가되었습니다1');
         dispatch({
           type: ADD_WISH_REQUEST,
           data,
         });
-        alert('장바구니에 추가되었습니다.2');
       }
-    } else if (!me) {
-      alert('로그인이 필요합니다.');
+      // 장바구니에 상품이 없을 경우
+      else if (
+        me &&
+        wishList &&
+        wishList.length > 0 &&
+        !wishList.includes(productPathId)
+      ) {
+        const exist = wishList.filter((wish) => wish.id === productPathId);
+
+        // 이미 id 값이 존재하면
+        if (exist && exist.length > 0) {
+          alert('장바구니에 상품이 존재합니다.');
+        } else {
+          dispatch({
+            type: ADD_WISH_REQUEST,
+            data,
+          });
+          alert('장바구니에 추가되었습니다.2');
+        }
+      } else if (!me) {
+        alert('로그인이 필요합니다.');
+      }
+      // 장바구니에 상품이 있을 경우
+      else {
+        alert('장바구니에 이미 상품이 존재합니다!');
+      }
+    } else {
+      alert('로그인이 필요한 서비스입니다!');
     }
-    // 장바구니에 상품이 있을 경우
-    else {
-      alert('장바구니에 이미 상품이 존재합니다!');
-    }
-  }, [wishList]);
+  }, [wishList, isLoginDone]);
 
   return (
     <ProductDetailMainStyle>
