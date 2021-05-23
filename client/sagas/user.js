@@ -67,7 +67,7 @@ function* login(action) {
 }
 
 function logOutAPI() {
-  return axios.get('/logout');
+  return axios.post('/auth/logout');
 }
 function* logOut() {
   try {
@@ -146,13 +146,9 @@ function* reviewLoad(action) {
 
 // 토큰을 넣어줘야함
 function loadUserInfoAPI(data) {
-  console.log(data);
-
-  return axios.get('auth/loadUserInfo', {
-    headers: {
-      'vintage-auth-cookie': data,
-    },
-  });
+  console.log('axis 디폴트 헤더');
+  console.log(axios.defaults.headers);
+  return axios.get('auth/loadUserInfo');
 }
 function* loadUserInfo(action) {
   try {
@@ -163,10 +159,10 @@ function* loadUserInfo(action) {
     });
   } catch (error) {
     console.error(error);
-    // yield put({
-    //   type: LOAD_USER_INFO_FAILURE,
-    //   data: error.response,
-    // });
+    yield put({
+      type: LOAD_USER_INFO_FAILURE,
+      data: error.response.data,
+    });
   }
 }
 function* watchLogIn() {

@@ -14,6 +14,10 @@ import {
 } from '../action';
 
 export const init = {
+  isLogOutLoading: false,
+  isLogOutDone: false,
+  isLogOutError: null,
+
   isLoading: false,
   isLoginError: null,
   isLoginDone: false,
@@ -109,12 +113,26 @@ export const userReducer = (state = init, action) => {
         isLoading: false,
         isLoginError: action.error,
       };
+
     case LOG_OUT_REQUEST:
-      return {};
+      return {
+        isLogOutLoading: true,
+        isLogOutDone: false,
+        isLogOutError: null,
+      };
     case LOG_OUT_SUCCESS:
-      return {};
+      return {
+        isLogOutLoading: false,
+        isLogOutDone: true,
+        me: null,
+        userInfo: null,
+      };
     case LOG_OUT_FAILURE:
-      return {};
+      return {
+        isLogOutLoading: false,
+        isLogOutDone: false,
+        isLogOutError: action.data,
+      };
 
     default:
       return state;

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import Head from 'next/head';
 import React, { useEffect } from 'react';
 import { END } from 'redux-saga';
@@ -28,14 +29,19 @@ export const getServerSideProps = wrapper.getServerSideProps(
   async (context) => {
     // 1.index js의 리듀서 구조를 바꿔야함 중첩되게 끔
 
-    const { req } = context;
-    const { cookie } = req.headers;
+    // 로그인을 공유하는 상황을 막기 위해서
+    axios.defaults.headers.Cookie = '';
 
-    // console.log('쿠ㅋㅣ ', cookie.split('=')[1]);
+    const cookie = context.req ? context.req.headers.cookie : '';
+
+    console.log('쿠키 : ', cookie);
+    // defaults 쿠기 설정 (로그인 했을 경우에만)
+    if (context.req && cookie) {
+      axios.defaults.headers.Cookie = cookie;
+    }
 
     context.store.dispatch({
       type: LOAD_USER_INFO_REQUEST,
-      data: cookie,
     });
 
     // 위에 REQUEST가 SUCCESS로 바뀔 때 까지 기다려주는 장치임
