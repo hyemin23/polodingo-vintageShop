@@ -4,3 +4,6 @@
 /client/node_modules/
 /server/vintage-shop/node_modules
 /client/components/.next/
+/server/dist/
+/server/node_modules/
+/server/public
