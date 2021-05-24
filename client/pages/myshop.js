@@ -55,7 +55,7 @@ const myshop = () => {
               <div className="cart_container">
                 <Link href="#">
                   <a>
-                    <img src="/images/product1.jpg" />
+                    <img src={`${wish.thumbnailPath}`} />
                   </a>
                 </Link>
                 <div className="cart_product_title">

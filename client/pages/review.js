@@ -10,8 +10,6 @@ const review = () => {
   const { reviews, isReviewDone } = useSelector((state) => state.review);
   const dispatch = useDispatch();
 
-  console.log(reviews);
-
   useEffect(() => {
     dispatch({
       type: LOAD_REVIEW_LIST_REQUEST,

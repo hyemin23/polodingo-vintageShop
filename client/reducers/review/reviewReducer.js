@@ -9,7 +9,6 @@ import {
   UPLOAD_IMG_REQUEST,
   UPLOAD_IMG_SUCCESS,
 } from '../action';
-import { ADD_REVIEW } from './reviewAction';
 
 const init = {
   isImgLoading: false,
@@ -24,22 +23,17 @@ const init = {
   reviews: [],
 };
 
-const dummy = {
-  reviewId: 2,
-  userId: 2,
-  reviewTitle: '리뷰제목2',
-  reviewContent: '리뷰 테스트2',
-  reviewImage: '/images/review2.jpg',
-  reviewState: true,
-};
+// const dummy = {
+//   reviewId: 2,
+//   userId: 2,
+//   reviewTitle: '리뷰제목2',
+//   reviewContent: '리뷰 테스트2',
+//   reviewImage: '/images/review2.jpg',
+//   reviewState: true,
+// };
 
 const reviewReducer = (state = init, action) => {
   switch (action.type) {
-    case ADD_REVIEW:
-      return {
-        ...state,
-        reviews: [dummy, ...state.reviews],
-      };
     case UPLOAD_IMG_REQUEST:
       return {
         isImgLoading: true,
