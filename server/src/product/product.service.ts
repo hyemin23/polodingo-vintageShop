@@ -11,10 +11,13 @@ export class ProductService {
   ) {}
 
   async getLoadProduct(productType: string) {
-    console.log(productType);
     // all일 경우에는 날짜가 제일 최신인애들 기준으로 보여줘야함
     if (productType === 'all') {
-      const result = await this.productRepository.find();
+      const result = await this.productRepository.find({
+        order: {
+          productType : "ASC"
+        }
+      });
       return result;
     } else if (productType === 'outer') {
       const result = await this.productRepository.find({
@@ -41,7 +44,7 @@ export class ProductService {
       else if (productType === 'acc') {
       const result = await this.productRepository.find({
         where: {
-          productType: 1,
+          productType: 5,
         },
       });
       return result;
