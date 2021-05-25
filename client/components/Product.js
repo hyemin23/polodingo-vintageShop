@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
@@ -9,14 +8,23 @@ import { LOAD_PRODUCT_TYPE_REQUEST } from '../reducers/action';
 const Product = ({ productType }) => {
   const { products } = useSelector((state) => state.product);
   const dispatch = useDispatch();
+  const router = useRouter();
+  const { searchInfo } = router.query;
 
+  console.log('Product 중간과정');
   // id값으로 product 페이지에 뿌려주기
   useEffect(() => {
-    dispatch({
-      type: LOAD_PRODUCT_TYPE_REQUEST,
-      data: productType,
-    });
-  }, [productType]);
+    if (productType) {
+      dispatch({
+        type: LOAD_PRODUCT_TYPE_REQUEST,
+        data: productType,
+      });
+
+      if (searchInfo) {
+        console.log(searchInfo);
+      }
+    }
+  }, [productType, searchInfo]);
 
   return (
     <>
@@ -24,12 +32,21 @@ const Product = ({ productType }) => {
         products.map((product) => (
           <Link
             href={{
-              pathname: `/product/${product.id}`,
-              query: { productCount: product.productCount },
+              pathname: `/product/${encodeURIComponent(
+                product?.productName.replace(/(\s*)/g, '')
+              )}`,
+              query: {
+                productCount: product.productCount,
+                productPathId: product.id,
+              },
             }}
             key={product.id}
           >
-            <a href={`/product/${product.id}`}>
+            <a
+              href={`/product/${encodeURIComponent(
+                product?.productName.replace(/(\s*)/g, '')
+              )}`}
+            >
               <div key={product.id}>
                 <img src={`${product.thumbnailPath || ''}`} />
                 <div className="inner">

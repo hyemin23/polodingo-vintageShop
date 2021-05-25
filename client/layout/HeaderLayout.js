@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import Link from 'next/link';
 import {
   BarsOutlined,
@@ -8,11 +8,17 @@ import {
 } from '@ant-design/icons';
 import { useRouter } from 'next/router';
 import { useDispatch, useSelector } from 'react-redux';
+import { useForm } from 'react-hook-form';
 import { HeaderInner, Logo, SearchForm } from '../style/HeaderStyle';
 import { LOG_OUT_REQUEST } from '../reducers/action';
 
 // children : 레이아웃으로 감싸진 당한 태그들 모두
 const HeaderLayout = ({ children }) => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
   const dispatch = useDispatch();
   const { me } = useSelector((state) => state.user);
   const router = useRouter();
@@ -34,6 +40,26 @@ const HeaderLayout = ({ children }) => {
 
     alert('로그아웃 되었습니다!');
   };
+
+  const onSubmit = useCallback((data) => {
+    setSearchPopOpen((prev) => !prev);
+
+    // 쿼리 스트링 형식으로 보내야함
+    // 중간 과정으로 보내야함 Product Components
+    //     router.push(
+    // `product/${encodeURIComponent(data.searchInfo.replace(/(\s*)/g, ''))}`
+    // );
+
+    router.push({
+      pathname: `product/`,
+      query: {
+        searchInfo: data.searchInfo.replace(/(\s*)/g, ''),
+      },
+    });
+
+    router.query();
+  }, []);
+
   return (
     <header>
       <HeaderInner router={router}>
@@ -46,19 +72,19 @@ const HeaderLayout = ({ children }) => {
         </button>
 
         <ul className={navToggleBtn ? 'open_items' : 'close_items'}>
-          <li>
+          {/* <li>
             <Link href="/question">
               <a>Q&A</a>
             </Link>
-          </li>
+          </li> */}
           <li>
             <Link href="/notice">
-              <a>NOTICE</a>
+              <a>LOCATION</a>
             </Link>
           </li>
           <li>
             <Link href="/about">
-              <a>About Us</a>
+              <a>About</a>
             </Link>
           </li>
           <li>
@@ -87,11 +113,14 @@ const HeaderLayout = ({ children }) => {
             {SearchPopOpen && (
               <SearchForm SearchPopOpen={SearchPopOpen}>
                 <div className="Search_div">
-                  <form>
+                  <form onSubmit={handleSubmit(onSubmit)}>
                     <div>
                       <fieldset>
-                        <input className="keyWord" />
-                        <button type="button">
+                        <input
+                          className="keyWord"
+                          {...register('searchInfo')}
+                        />
+                        <button type="submit">
                           <strong>SEARCH</strong>
                         </button>
                         <a href="#" onClick={SearchPopClick}>

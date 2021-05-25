@@ -1,13 +1,11 @@
 import axios from 'axios';
 import Head from 'next/head';
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import { END } from 'redux-saga';
 import MainSection from '../components/MainSection';
 import {
   LOAD_PRODUCT_TYPE_REQUEST,
   LOAD_USER_INFO_REQUEST,
-  LOAD_WISH_REQUEST,
 } from '../reducers/action';
 import wrapper from '../store/configureStore';
 

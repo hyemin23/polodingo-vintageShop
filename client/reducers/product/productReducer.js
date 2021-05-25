@@ -1,4 +1,7 @@
 import {
+  LOAD_PRODUCT_TITLE_FAILURE,
+  LOAD_PRODUCT_TITLE_REQUEST,
+  LOAD_PRODUCT_TITLE_SUCCESS,
   LOAD_PRODUCT_TYPE_FAILURE,
   LOAD_PRODUCT_TYPE_REQUEST,
   LOAD_PRODUCT_TYPE_SUCCESS,
@@ -52,6 +55,27 @@ export const init = {
 
 const postReducer = (state = init, action) => {
   switch (action.type) {
+    case LOAD_PRODUCT_TITLE_REQUEST:
+      return {
+        isPostLoading: true,
+        isPostDone: false,
+        isPostError: null,
+      };
+    case LOAD_PRODUCT_TITLE_SUCCESS:
+      // 추가가 아니라 불러오는것이므로
+      return {
+        ...state,
+        isPostLoading: false,
+        isPostDone: true,
+        products: [...action.data],
+      };
+    case LOAD_PRODUCT_TITLE_FAILURE:
+      return {
+        isPostLoading: false,
+        isPostDone: false,
+        isPostError: action.data,
+      };
+
     case LOAD_PRODUCT_TYPE_REQUEST:
       return {
         isPostLoading: true,

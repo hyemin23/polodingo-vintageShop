@@ -1,19 +1,37 @@
 import { InjectRepository } from '@nestjs/typeorm';
 import { Product } from './entities/product.entity';
-import { Repository } from 'typeorm';
+import { Repository, getConnection } from 'typeorm';
 import { Injectable, HttpException } from '@nestjs/common';
 
 @Injectable()
 export class ProductService {
+ 
   constructor(
     @InjectRepository(Product)
     private productRepository: Repository<Product>,
-  ) {}
+  ) { }
+  
+  async getLoadProductTitle(productTitle: string) {
+   
+    console.log("service", productTitle);
 
+   const result = await getConnection()
+     .createQueryBuilder()
+     .select()
+     .from('Product', 'product')
+     .where('productName like :name', { name: `%${productTitle}%` })
+     .execute();
+   
+   console.log("like검색",result);
+   return result;
+
+ }
+  
   async getLoadProduct(productType: string) {
     // all일 경우에는 날짜가 제일 최신인애들 기준으로 보여줘야함
     if (productType === 'all') {
       const result = await this.productRepository.find({
+        
         order: {
           productType : "ASC"
         }
@@ -23,6 +41,7 @@ export class ProductService {
       const result = await this.productRepository.find({
         where: {
           productType: 2,
+          
         },
       });
       return result;
@@ -47,6 +66,7 @@ export class ProductService {
           productType: 5,
         },
       });
+      
       return result;
     }
     else {
