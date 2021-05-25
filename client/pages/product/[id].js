@@ -11,6 +11,7 @@ const ProductDetail = () => {
   const router = useRouter();
   const dispatch = useDispatch();
   const productPathId = parseInt(router.query.id, 10);
+  const productCount = parseInt(router.query.productCount, 10);
 
   const { products } = useSelector((state) => state.product);
   const { me, isLoginDone, isLogOutDone } = useSelector((state) => state.user);
@@ -25,60 +26,56 @@ const ProductDetail = () => {
         data: me.id,
       });
     }
-
-    // url을 타고오는 상품을 위해
-    if (router.query.id) {
-      // dispatch({
-      //   type: LOAD_PRODUCT_ID_REQUEST,
-      //   data: router.query.id,
-      // });
-    }
   }, [me]);
 
   const addCart = useCallback(() => {
-    // 비로그인 유저
-    if (me === null) {
-      alert('회원만 가능한 기능입니다.');
-      router.push('/login');
-    }
-
-    // 로그인 유저
-    if (me) {
-      const data = {
-        productId: productPathId,
-        userId: me.id,
-      };
-
-      // 장바구니가 없는 유저라면
-      if (wishList === null && me !== null) {
-        // 장바구니에 상품 추가
-        dispatch({
-          type: ADD_WISH_REQUEST,
-          data,
-        });
-        alert('장바구니에 추가되었습니다!1');
-        router.push('/myshop');
+    if (productCount === 0) {
+      alert('품절된 상품입니다!');
+    } else {
+      // 비로그인 유저
+      if (me === null) {
+        alert('회원만 가능한 기능입니다.');
+        router.push('/login');
       }
-      // 장바구니가 있는 유저라면
-      else if (wishList !== null && me !== null && wishList !== undefined) {
-        // 로그인한 유저의 장바구니에 해당 상품이 존재하는지 먼저 확인
-        const existId = wishList.filter((wish) => wish.id === productPathId);
 
-        // 장바구니에 상품이 존재하면
-        if (existId.length > 0) {
-          alert('장바구니에 상품이 존재합니다!');
-        }
-        // 장바구니에 상품이 없다면
-        else {
+      // 로그인 유저
+      if (me) {
+        const data = {
+          productId: productPathId,
+          userId: me.id,
+        };
+
+        // 장바구니가 없는 유저라면
+        if (wishList === null && me !== null) {
+          // 장바구니에 상품 추가
           dispatch({
             type: ADD_WISH_REQUEST,
             data,
           });
-          alert('장바구니에 추가되었습니다!');
+          alert('장바구니에 추가되었습니다!1');
           router.push('/myshop');
         }
-      } else {
-        alert('장바구니에 상품이 존재합니다!');
+        // 장바구니가 있는 유저라면
+        else if (wishList !== null && me !== null && wishList !== undefined) {
+          // 로그인한 유저의 장바구니에 해당 상품이 존재하는지 먼저 확인
+          const existId = wishList.filter((wish) => wish.id === productPathId);
+
+          // 장바구니에 상품이 존재하면
+          if (existId.length > 0) {
+            alert('장바구니에 상품이 존재합니다!');
+          }
+          // 장바구니에 상품이 없다면
+          else {
+            dispatch({
+              type: ADD_WISH_REQUEST,
+              data,
+            });
+            alert('장바구니에 추가되었습니다!');
+            router.push('/myshop');
+          }
+        } else {
+          alert('장바구니에 상품이 존재합니다!');
+        }
       }
     }
   }, [wishList]);

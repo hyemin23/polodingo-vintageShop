@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { LOAD_PRODUCT_TYPE_REQUEST } from '../reducers/action';
@@ -21,7 +22,13 @@ const Product = ({ productType }) => {
     <>
       {products &&
         products.map((product) => (
-          <Link href={`/product/${product.id}`} key={product.id}>
+          <Link
+            href={{
+              pathname: `/product/${product.id}`,
+              query: { productCount: product.productCount },
+            }}
+            key={product.id}
+          >
             <a href={`/product/${product.id}`}>
               <div key={product.id}>
                 <img src={`${product.thumbnailPath || ''}`} />
