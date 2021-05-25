@@ -1,3 +1,4 @@
+import { OneToOne } from 'typeorm';
 import { Review } from './../../review/entity/review.entity';
 import { Wish } from './../../wish/entities/wish.entity';
 import {
@@ -28,7 +29,7 @@ export class User extends BaseEntity {
   @Column()
   roleType: string;
 
-  @OneToMany(() => Wish, (wish) => wish.wishId)
+  @OneToOne(() => Wish, (wish) => wish.id)
   wish: Wish;
 
   @OneToMany(() => Review, (review) => review.id, {

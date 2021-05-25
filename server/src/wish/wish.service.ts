@@ -62,6 +62,7 @@ export class WishService {
         .leftJoinAndSelect('wish.product', 'product')
         .leftJoinAndSelect('wish.user', 'user')
         .where('wish.userId ', { userId })
+        .andWhere('wish.detailId is NULL')
         .getMany();
       return result;
     } catch (error) {

@@ -9,6 +9,7 @@ import { ConfigModule } from '@nestjs/config';
 import { ProductModule } from './product/product.module';
 import { WishModule } from './wish/wish.module';
 import { ReviewModule } from './review/review.module';
+import { OrderModule } from './order/order.module';
 import * as Joi from 'joi';
 
 // app.module.ts
@@ -20,6 +21,8 @@ import * as Joi from 'joi';
     WishModule,
     ProductModule,
     ConfigModule,
+    ReviewModule,
+    OrderModule,
     ConfigModule.forRoot({
       isGlobal: true,
       envFilePath: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env.product',
@@ -47,7 +50,7 @@ import * as Joi from 'joi';
       logging: true,
     }),
 
-    ReviewModule,
+    
   ],
   controllers: [AppController],
   providers: [AppService],
