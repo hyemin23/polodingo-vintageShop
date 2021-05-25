@@ -18,12 +18,13 @@ const ProductDetail = () => {
 
   // 로그인 했을 경우에만 장바구니 불러오기
   useEffect(() => {
-    // if (me && me !== undefined) {
-    //   dispatch({
-    //     type: LOAD_WISH_REQUEST,
-    //     data: me.id,
-    //   });
-    // }
+    // 로그인한 유저라면 장바구니 가져오기
+    if (me && me !== null) {
+      dispatch({
+        type: LOAD_WISH_REQUEST,
+        data: me.id,
+      });
+    }
 
     // url을 타고오는 상품을 위해
     if (router.query.id) {
@@ -32,7 +33,7 @@ const ProductDetail = () => {
       //   data: router.query.id,
       // });
     }
-  }, [wishList, router.query.id]);
+  }, [me]);
 
   const addCart = useCallback(() => {
     // 비로그인 유저
@@ -41,16 +42,46 @@ const ProductDetail = () => {
       router.push('/login');
     }
 
-    // 로그인한 유저
+    // 로그인 유저
     if (me) {
       const data = {
         productId: productPathId,
         userId: me.id,
       };
 
-      // console.log('wishList', wishList);
+      // 장바구니가 없는 유저라면
+      if (wishList === null && me !== null) {
+        // 장바구니에 상품 추가
+        dispatch({
+          type: ADD_WISH_REQUEST,
+          data,
+        });
+        alert('장바구니에 추가되었습니다!1');
+        router.push('/myshop');
+      }
+      // 장바구니가 있는 유저라면
+      else if (wishList !== null && me !== null && wishList !== undefined) {
+        // 로그인한 유저의 장바구니에 해당 상품이 존재하는지 먼저 확인
+        const existId = wishList.filter((wish) => wish.id === productPathId);
+
+        // 장바구니에 상품이 존재하면
+        if (existId.length > 0) {
+          alert('장바구니에 상품이 존재합니다!');
+        }
+        // 장바구니에 상품이 없다면
+        else {
+          dispatch({
+            type: ADD_WISH_REQUEST,
+            data,
+          });
+          alert('장바구니에 추가되었습니다!');
+          router.push('/myshop');
+        }
+      } else {
+        alert('장바구니에 상품이 존재합니다!');
+      }
     }
-  });
+  }, [wishList]);
 
   //   // 로그인한 사용자인 경우에만
 

@@ -84,7 +84,7 @@ export const cartReducer = (state = init, action) => {
         ...state,
         isCartLoading: false,
         isCartDone: true,
-        wishList: action.data,
+        wishList: action.data.map((p) => p.product),
         // wishList: (action.data && action.data.map((p) => p.product)) || null,
       };
     case LOAD_WISH_FAILURE:
