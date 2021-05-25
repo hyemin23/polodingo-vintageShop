@@ -7,6 +7,9 @@ import {
   LOAD_WISH_FAILURE,
   LOAD_WISH_REQUEST,
   LOAD_WISH_SUCCESS,
+  ORDER_DETAIL_FAILURE,
+  ORDER_DETAIL_REQUEST,
+  ORDER_DETAIL_SUCCESS,
   REMOVE_WISH_FAILURE,
   REMOVE_WISH_REQUSET,
   REMOVE_WISH_SUCCESS,
@@ -78,6 +81,28 @@ function* removeWishList(action) {
   }
 }
 
+function orderDeatailAPI(data) {
+  console.log('saga 최종 데이터');
+  console.log(data);
+  return axios.post('order/detail', data);
+}
+function* orderDeatail(action) {
+  try {
+    console.log('orderDetail', action.data);
+    const result = yield call(orderDeatailAPI, action.data);
+    yield put({
+      type: ORDER_DETAIL_SUCCESS,
+      data: result.data,
+    });
+  } catch (error) {
+    console.error(error);
+    yield put({
+      type: ORDER_DETAIL_FAILURE,
+      data: error.response.data,
+    });
+  }
+}
+
 function* watchAddWishList() {
   yield takeLatest(ADD_WISH_REQUEST, addWishList);
 }
@@ -87,10 +112,14 @@ function* watchWishList() {
 function* watchRemoveWishList() {
   yield takeLatest(REMOVE_WISH_REQUSET, removeWishList);
 }
+function* watchOrderDetail() {
+  yield takeLatest(ORDER_DETAIL_REQUEST, orderDeatail);
+}
 export default function* cartSaga() {
   yield all([
     fork(watchAddWishList),
     fork(watchWishList),
     fork(watchRemoveWishList),
+    fork(watchOrderDetail),
   ]);
 }

@@ -1,33 +1,54 @@
 import Head from 'next/head';
-import React, { useEffect } from 'react';
+import React, { useCallback, useEffect } from 'react';
 import Link from 'next/link';
 
 import { useDispatch, useSelector } from 'react-redux';
+import { useRouter } from 'next/router';
 import { StockStyle } from '../style/StockStyle';
 import { LOAD_WISH_REQUEST, REMOVE_WISH_REQUSET } from '../reducers/action';
 
 const myshop = () => {
   const dispatch = useDispatch();
-
+  const router = useRouter();
   // wishInfo 에서 상품 정보들 가져와서 뿌려주기
   const { me } = useSelector((state) => state.user);
-  const { wishList } = useSelector((state) => state.cart);
-
-  console.log(wishList);
+  const { wishList, isWishRemoveSuccess, isWishDone } = useSelector(
+    (state) => state.cart
+  );
 
   useEffect(() => {
-    if (me && me.id) {
+    if (me && me.id && wishList) {
       // 해당 유저의 장바구니 리스트 가져오기
       dispatch({
         type: LOAD_WISH_REQUEST,
         data: me.id,
       });
     }
-  }, []);
+
+    if (me === null) {
+      router.push('/');
+    }
+  }, [me, isWishDone]);
+
+  useEffect(() => {
+    if (isWishRemoveSuccess) {
+      dispatch({
+        type: LOAD_WISH_REQUEST,
+        data: me.id,
+      });
+    }
+
+    if (isWishDone === true) {
+      dispatch({
+        type: LOAD_WISH_REQUEST,
+        data: me.id,
+      });
+    }
+  }, [isWishRemoveSuccess, isWishDone]);
 
   // 사용자 id와
   // 상품 id 를 전달받음
-  const onRemove = (userId, productId) => {
+  const onRemove = useCallback((userId, productId) => {
     const data = {
       userId,
       productId,
@@ -38,7 +59,7 @@ const myshop = () => {
     });
 
     alert('삭제되었습니다!');
-  };
+  }, []);
 
   return (
     <StockStyle>
@@ -52,7 +73,7 @@ const myshop = () => {
         {wishList && wishList.length !== 0 && (
           <>
             {wishList.map((wish) => (
-              <div className="cart_container">
+              <div className="cart_container" key={wish.id}>
                 <Link href="#">
                   <a>
                     <img src={`${wish.thumbnailPath}`} />
@@ -82,7 +103,14 @@ const myshop = () => {
             ))}
 
             <div className="cart_finall">
-              <p>주문수량 : 개</p>
+              <p>
+                총 금액 :
+                {wishList.reduce((acc, cur) => acc + cur.productPrice, 0)} 원
+              </p>
+              <p>
+                주문수량 :
+                {wishList.reduce((acc, cur) => acc + cur.productCount, 0)} 개
+              </p>
               <p>배송비 : 3000원</p>
               {/* <p className="cart_total">
                 총 구매 금액:
@@ -92,7 +120,7 @@ const myshop = () => {
               </p> */}
 
               {/* 매개변수로 주문번호 Or 회원아이디 */}
-              <Link href={`/order/shippingStep/${12}`}>
+              <Link href={`/order/shippingStep/${me.id}`}>
                 <a>
                   <button type="button" className="btn">
                     주문하기

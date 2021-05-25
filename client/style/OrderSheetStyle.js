@@ -9,12 +9,11 @@ export const ShippingStyle = styled.div`
   width: 100%;
   text-align: center;
 
-  #lottie {
+  /* #lottie {
     min-width: 20rem;
     width: 28rem;
     margin-left: 3.5rem;
-  }
-  //브라우저 가로크기에 따라 로티이미지가 사라지는 문제
+  } */
 
   .shipping_title h2 {
     font-size: 18px;

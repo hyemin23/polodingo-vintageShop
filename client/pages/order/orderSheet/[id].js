@@ -1,8 +1,51 @@
+import { useRouter } from 'next/router';
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react/cjs/react.development';
+import { ORDER_DETAIL_REQUEST } from '../../../reducers/action';
 import { OrderSheetStyle } from '../../../style/OrderSheetStyle';
 import OrderStep from '../../orderStep';
 
 const orderSheetScreen = () => {
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const paymentInfo = router.query;
+  const { me } = useSelector((state) => state.user);
+  const { wishList } = useSelector((state) => state.cart);
+  const { address, payment } = router.query;
+  useEffect(() => {
+    if (me === null) {
+      router.push('/');
+    }
+  }, [me]);
+
+  const onClick = () => {
+    // 결제가 되면 사용자의 장바구니에서 모든 상품이 안보여야한다.
+    // 그러려면, wishList에서 detailId 컬럼을 채워주고
+    // 장바구니를 불러올 때 detailId가 없는 애들만 불러오도록 해야한다.
+
+    const totalPrice =
+      wishList.reduce((acc, cur) => acc + cur.productPrice, 3000) * 0.11;
+
+    delete paymentInfo.id;
+    paymentInfo.totalPrice = parseInt(totalPrice, 10);
+
+    paymentInfo.userId = me.id;
+    console.log('insert전 정보 : ', paymentInfo);
+
+    dispatch({
+      type: ORDER_DETAIL_REQUEST,
+      data: paymentInfo,
+    });
+
+    alert('결제가 완료되었습니다!');
+
+    router.push({
+      pathname: '/',
+      query: '',
+    });
+  };
+
   return (
     <div>
       <OrderStep />
@@ -13,38 +56,23 @@ const orderSheetScreen = () => {
         <div className="order_contents">
           <div className="order_info">
             <h3>SHIPPING</h3>
-            <p>Address : </p>
+            <p>Address : {address}</p>
             <h3>지불방법</h3>
-            <p>신용카드</p>
+            <p>{payment === '1' ? '신용카드' : '지불오류'} </p>
             <div className="order_items">
               <h3>주문목록</h3>
-              <div className="order_item_list">
-                <img src="/images/product1.jpg" />
-                <div>
-                  <span>1번 상품</span>
-                </div>
-                <div>
-                  <span>수량X가격 = 400원</span>
-                </div>
-              </div>
-              <div className="order_item_list">
-                <img src="/images/product2.jpg" />
-                <div>
-                  <span>1번 상품</span>
-                </div>
-                <div>
-                  <span>수량X가격 = 400원</span>
-                </div>
-              </div>
-              <div className="order_item_list">
-                <img src="/images/product3.jpg" />
-                <div>
-                  <span>1번 상품</span>
-                </div>
-                <div>
-                  <span>수량X가격 = 400원</span>
-                </div>
-              </div>
+              {wishList &&
+                wishList.map((wish) => (
+                  <div className="order_item_list" key={wish.id}>
+                    <img src={wish.thumbnailPath} />
+                    <div>
+                      <span>{wish.productName}</span>
+                    </div>
+                    <div>
+                      <span>{wish.productPrice} 원</span>
+                    </div>
+                  </div>
+                ))}
             </div>
           </div>
 
@@ -53,12 +81,23 @@ const orderSheetScreen = () => {
               <h2>ORDER SUMMARY</h2>
             </div>
             <div className="order_summary_contents">
-              <p>총 상품금액 : 2000 원</p>
-              <p>배송비 : 무료</p>
-              <p>수수료 : 10% </p>
-              <p>총 주문가격 : 원</p>
+              <p>
+                총 상품금액 :
+                {wishList &&
+                  wishList.reduce((acc, cur) => acc + cur.productPrice, 0)}
+                원
+              </p>
+              <p>배송비 : 3000원</p>
+              <p>수수료 : 11% </p>
+              <p>
+                총 주문가격 :
+                {wishList &&
+                  wishList.reduce((acc, cur) => acc + cur.productPrice, 3000) *
+                    0.11}
+                원
+              </p>
             </div>
-            <button type="button" className="btn">
+            <button type="button" className="btn" onClick={onClick}>
               결제하기
             </button>
           </div>

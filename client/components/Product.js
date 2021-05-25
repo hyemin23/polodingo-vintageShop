@@ -9,9 +9,6 @@ const Product = ({ productType }) => {
   const { products } = useSelector((state) => state.product);
   const dispatch = useDispatch();
 
-  console.log('products', products);
-  console.log('productType', productType);
-
   // id값으로 product 페이지에 뿌려주기
   useEffect(() => {
     dispatch({
@@ -25,8 +22,8 @@ const Product = ({ productType }) => {
       {products &&
         products.map((product) => (
           <Link href={`/product/${product.id}`} key={product.id}>
-            <a>
-              <div>
+            <a href={`/product/${product.id}`}>
+              <div key={product.id}>
                 <img src={`${product.thumbnailPath || ''}`} />
                 <div className="inner">
                   <strong className="name">

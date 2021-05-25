@@ -9,6 +9,7 @@ import wrapper from '../store/configureStore';
 // 페이지들의 공통적인 부분을 처리하는 곳
 // appjs는 indexjs의 부모인셈. 즉, index의 return이 들어옴
 const App = ({ Component }) => {
+  console.log('app.js');
   return (
     <ThemeProvider
       theme={{

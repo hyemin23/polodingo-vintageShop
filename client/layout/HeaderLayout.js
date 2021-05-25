@@ -13,7 +13,6 @@ import { LOG_OUT_REQUEST } from '../reducers/action';
 
 // children : 레이아웃으로 감싸진 당한 태그들 모두
 const HeaderLayout = ({ children }) => {
-  console.log('header');
   const dispatch = useDispatch();
   const { me } = useSelector((state) => state.user);
   const router = useRouter();

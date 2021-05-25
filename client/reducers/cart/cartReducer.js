@@ -5,6 +5,9 @@ import {
   LOAD_WISH_FAILURE,
   LOAD_WISH_REQUEST,
   LOAD_WISH_SUCCESS,
+  ORDER_DETAIL_FAILURE,
+  ORDER_DETAIL_REQUEST,
+  ORDER_DETAIL_SUCCESS,
   REMOVE_WISH_FAILURE,
   REMOVE_WISH_REQUSET,
   REMOVE_WISH_SUCCESS,
@@ -23,6 +26,10 @@ const init = {
   isCartError: null,
   isCartDone: false,
 
+  isOrderDeatilLoading: false,
+  isOrderDeatilDone: false,
+  isOrderDeatilError: null,
+
   userInfo: null,
   wishList: [],
   wishInfo: {},
@@ -30,6 +37,25 @@ const init = {
 
 export const cartReducer = (state = init, action) => {
   switch (action.type) {
+    case ORDER_DETAIL_REQUEST:
+      return {
+        isOrderDeatilLoading: true,
+        isOrderDeatilDone: false,
+        isOrderDeatilError: null,
+      };
+    case ORDER_DETAIL_SUCCESS:
+      return {
+        ...state,
+        isOrderDeatilLoading: false,
+        isOrderDeatilDone: true,
+      };
+    case ORDER_DETAIL_FAILURE:
+      return {
+        isOrderDeatilLoading: false,
+        isOrderDeatilDone: false,
+        isOrderDeatilError: action.data,
+      };
+
     case ADD_WISH_REQUEST:
       return {
         isWishLoading: true,
@@ -47,8 +73,6 @@ export const cartReducer = (state = init, action) => {
         isWishLoading: false,
         isWishError: action.error,
       };
-
-    // saga에서 post 정보를 가져오기?
     case LOAD_WISH_REQUEST:
       return {
         isCartLoading: true,
@@ -56,12 +80,12 @@ export const cartReducer = (state = init, action) => {
         isCartDone: false,
       };
     case LOAD_WISH_SUCCESS:
-      console.log('reducer : , ', action);
       return {
         ...state,
         isCartLoading: false,
         isCartDone: true,
-        wishList: (action.data && action.data.map((p) => p.product)) || null,
+        wishList: action.data,
+        // wishList: (action.data && action.data.map((p) => p.product)) || null,
       };
     case LOAD_WISH_FAILURE:
       return {

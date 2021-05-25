@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { all, call, fork, put, takeLatest } from 'redux-saga/effects';
 import {
-  LOAD_PRODUCT_TYPE_FAILURE,
   LOAD_PRODUCT_TYPE_REQUEST,
   LOAD_PRODUCT_TYPE_SUCCESS,
 } from '../reducers/action';
@@ -13,7 +12,6 @@ function loadProductInfoAPI(data) {
 function* loadProductInfo(action) {
   try {
     const result = yield call(loadProductInfoAPI, action.data);
-    console.log('결과 리절트', result.data);
 
     yield put({
       type: LOAD_PRODUCT_TYPE_SUCCESS,
