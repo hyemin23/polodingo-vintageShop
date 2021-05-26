@@ -6,11 +6,28 @@ import { Injectable, HttpException } from '@nestjs/common';
 @Injectable()
 export class ProductService {
  
+ 
   constructor(
     @InjectRepository(Product)
     private productRepository: Repository<Product>,
   ) { }
   
+
+   async getLoadProductId(productId) {
+     console.log("service productId : ", productId);
+
+     const idSelect = await this.productRepository.find({
+       where: {
+         id: productId
+       }
+     });
+     
+     console.log("idSelect", idSelect);
+    return idSelect;
+
+  }
+
+
   async getLoadProductTitle(productTitle: string) {
 
    const result = await getConnection()

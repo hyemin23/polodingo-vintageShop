@@ -24,13 +24,13 @@ export class Product extends BaseEntity {
   @Column()
   productSize: string;
   @Column()
-  procutRsize: string;
+  productRsize: string;
   @Column()
   productMsize: string;
   @Column()
   productMaterial: string;
   @Column()
-  procutLogoColor: string;
+  productLogoColor: string;
   @Column()
   productPrice: number;
   @Column()

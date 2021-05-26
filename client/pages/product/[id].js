@@ -7,6 +7,7 @@ import {
 } from '../../style/ProductDetailStyles';
 import {
   ADD_WISH_REQUEST,
+  LOAD_PRODUCT_ID_REQUEST,
   LOAD_PRODUCT_TITLE_REQUEST,
   LOAD_PRODUCT_TYPE_REQUEST,
   LOAD_WISH_REQUEST,
@@ -23,26 +24,15 @@ const ProductDetail = () => {
   const { me } = useSelector((state) => state.user);
   const { wishList } = useSelector((state) => state.cart);
 
-  console.log('프로덕트 마지막과정 ?');
   // 로그인 했을 경우에만 장바구니 불러오기
   useEffect(() => {
-    // console.log(productTitle);
-    // console.log(productPathId);
-    // console.log(productCount);
-
-    // 상품 검색명이 존재하면
-    if (productTitle) {
-      dispatch({
-        type: LOAD_PRODUCT_TITLE_REQUEST,
-        data: productTitle,
-      });
-    }
+    console.log(productTitle, productPathId);
 
     // 상품 정보 불러오기
     if (productPathId) {
       dispatch({
-        type: LOAD_PRODUCT_TYPE_REQUEST,
-        productPathId,
+        type: LOAD_PRODUCT_ID_REQUEST,
+        data: productPathId,
       });
     }
 
@@ -53,7 +43,7 @@ const ProductDetail = () => {
         data: me.id,
       });
     }
-  }, [me]);
+  }, [me, productPathId]);
 
   const addCart = useCallback(() => {
     if (productCount === 0) {
@@ -124,7 +114,7 @@ const ProductDetail = () => {
                 </div>
                 <div className="information">
                   <p>상품 색상:{p.productColor} </p>
-                  <p>로고색상 : {p.productLogoColor}</p>
+                  <p>로고색상 : {p.procutLogoColor}</p>
                   <p>상품 재질 : {p.productMaterial}</p>
                   <p>상품 사이즈 :{p.productSize}</p>
                   <p>추천 사이즈 :{p.productRsize}</p>

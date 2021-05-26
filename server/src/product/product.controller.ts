@@ -8,6 +8,8 @@ export class ProductController {
 
   @Get('load/:productType')
   public async getLoadProduct(@Param('productType') productType: string) {
+
+    console.log("productType",productType)
     const result = await this.productService.getLoadProduct(productType);
     return result;
   }
@@ -17,7 +19,16 @@ export class ProductController {
     console.log("productTitle",productTitle);
     const result = await this.productService.getLoadProductTitle(productTitle.id);
     
-    return result;
-    
+    return result; 
   }
+
+
+  @Get('load/productId/:productId')
+  public async getLoadProductId(@Param('productId') productId:number) {
+    console.log(productId);
+    const result = await this.productService.getLoadProductId(productId);
+    return result;
+  }
+
+
 }

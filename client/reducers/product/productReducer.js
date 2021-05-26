@@ -1,4 +1,7 @@
 import {
+  LOAD_PRODUCT_ID_FAILURE,
+  LOAD_PRODUCT_ID_REQUEST,
+  LOAD_PRODUCT_ID_SUCCESS,
   LOAD_PRODUCT_TITLE_FAILURE,
   LOAD_PRODUCT_TITLE_REQUEST,
   LOAD_PRODUCT_TITLE_SUCCESS,
@@ -47,6 +50,9 @@ const dummyData = {
 
 // 상품
 export const init = {
+  isPostIdLoading: false,
+  isPostIdDone: false,
+  isPostIdError: null,
   isPostLoading: false,
   isPostDone: false,
   isPostError: null,
@@ -55,6 +61,26 @@ export const init = {
 
 const postReducer = (state = init, action) => {
   switch (action.type) {
+    case LOAD_PRODUCT_ID_REQUEST:
+      return {
+        isPostIdLoading: true,
+        isPostIdDone: false,
+        isPostIdError: null,
+      };
+    case LOAD_PRODUCT_ID_SUCCESS:
+      return {
+        ...state,
+        isPostIdLoading: false,
+        isPostIdDone: true,
+        products: [...action.data],
+      };
+    case LOAD_PRODUCT_ID_FAILURE:
+      return {
+        isPostIdLoading: false,
+        isPostIdDone: false,
+        isPostIdError: action.data,
+      };
+
     case LOAD_PRODUCT_TITLE_REQUEST:
       return {
         isPostLoading: true,
@@ -62,7 +88,6 @@ const postReducer = (state = init, action) => {
         isPostError: null,
       };
     case LOAD_PRODUCT_TITLE_SUCCESS:
-      // 추가가 아니라 불러오는것이므로
       return {
         ...state,
         isPostLoading: false,
