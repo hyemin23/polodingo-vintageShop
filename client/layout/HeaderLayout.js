@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import {
   BarsOutlined,
@@ -19,15 +19,23 @@ const HeaderLayout = ({ children }) => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
   const dispatch = useDispatch();
   const { me } = useSelector((state) => state.user);
   const router = useRouter();
   const [navToggleBtn, setNavToggleBtn] = useState(false);
   const [SearchPopOpen, setSearchPopOpen] = useState(false);
+  const searchRef = useRef(null);
 
-  const SearchPopClick = () => {
+  const SearchPopClick = useCallback(() => {
     setSearchPopOpen((prev) => !prev);
-  };
+  }, [SearchPopOpen]);
+
+  useEffect(() => {
+    if (SearchPopOpen) {
+      searchRef.current.focus();
+    }
+  }, [SearchPopOpen]);
 
   const logout = () => {
     // 쿠키 지우기
@@ -42,22 +50,13 @@ const HeaderLayout = ({ children }) => {
   };
 
   const onSubmit = useCallback((data) => {
-    setSearchPopOpen((prev) => !prev);
-
-    // 쿼리 스트링 형식으로 보내야함
-    // 중간 과정으로 보내야함 Product Components
-    //     router.push(
-    // `product/${encodeURIComponent(data.searchInfo.replace(/(\s*)/g, ''))}`
-    // );
-
     router.push({
-      pathname: `product/`,
+      pathname: `/search/`,
       query: {
-        searchInfo: data.searchInfo.replace(/(\s*)/g, ''),
+        searchInfo: encodeURIComponent(data.searchInfo.replace(/(\s*)/g, '')),
       },
     });
-
-    router.query();
+    setSearchPopOpen((prev) => !prev);
   }, []);
 
   return (
@@ -119,6 +118,7 @@ const HeaderLayout = ({ children }) => {
                         <input
                           className="keyWord"
                           {...register('searchInfo')}
+                          ref={searchRef}
                         />
                         <button type="submit">
                           <strong>SEARCH</strong>

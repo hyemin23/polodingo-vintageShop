@@ -12,8 +12,6 @@ export class ProductService {
   ) { }
   
   async getLoadProductTitle(productTitle: string) {
-   
-    console.log("service", productTitle);
 
    const result = await getConnection()
      .createQueryBuilder()
