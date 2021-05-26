@@ -4,8 +4,14 @@ import Link from 'next/link';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
+import { END } from 'redux-saga';
 import { StockStyle } from '../style/StockStyle';
-import { LOAD_WISH_REQUEST, REMOVE_WISH_REQUSET } from '../reducers/action';
+import {
+  LOAD_USER_INFO_REQUEST,
+  LOAD_WISH_REQUEST,
+  REMOVE_WISH_REQUSET,
+} from '../reducers/action';
+import wrapper from '../store/configureStore';
 
 const myshop = () => {
   const dispatch = useDispatch();
@@ -147,5 +153,16 @@ const myshop = () => {
     </StockStyle>
   );
 };
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  async (context) => {
+    context.store.dispatch({
+      type: LOAD_USER_INFO_REQUEST,
+    });
+
+    context.store.dispatch(END);
+    await context.store.sagaTask.toPromise(); // store.
+  }
+);
 
 export default myshop;

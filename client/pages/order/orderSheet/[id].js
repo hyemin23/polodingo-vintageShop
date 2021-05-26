@@ -2,7 +2,12 @@ import { useRouter } from 'next/router';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react/cjs/react.development';
-import { ORDER_DETAIL_REQUEST } from '../../../reducers/action';
+import { END } from 'redux-saga';
+import {
+  LOAD_USER_INFO_REQUEST,
+  ORDER_DETAIL_REQUEST,
+} from '../../../reducers/action';
+import wrapper from '../../../store/configureStore';
 import { OrderSheetStyle } from '../../../style/OrderSheetStyle';
 import OrderStep from '../../orderStep';
 
@@ -106,5 +111,16 @@ const orderSheetScreen = () => {
     </div>
   );
 };
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  async (context) => {
+    context.store.dispatch({
+      type: LOAD_USER_INFO_REQUEST,
+    });
+
+    context.store.dispatch(END);
+    await context.store.sagaTask.toPromise(); // store.
+  }
+);
 
 export default orderSheetScreen;

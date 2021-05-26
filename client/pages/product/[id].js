@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
+import { END } from 'redux-saga';
 import {
   ProductDetailContnets,
   ProductDetailMainStyle,
@@ -10,8 +11,10 @@ import {
   LOAD_PRODUCT_ID_REQUEST,
   LOAD_PRODUCT_TITLE_REQUEST,
   LOAD_PRODUCT_TYPE_REQUEST,
+  LOAD_USER_INFO_REQUEST,
   LOAD_WISH_REQUEST,
 } from '../../reducers/action';
+import wrapper from '../../store/configureStore';
 
 const ProductDetail = () => {
   const router = useRouter();
@@ -186,13 +189,14 @@ const ProductDetail = () => {
   );
 };
 
-export async function getServerSideProps(context) {
-  console.log('context product id 에서 의 컨텍스트:', context);
-  const currentDateTime = new Date().getTime();
+export const getServerSideProps = wrapper.getServerSideProps(
+  async (context) => {
+    context.store.dispatch({
+      type: LOAD_USER_INFO_REQUEST,
+    });
 
-  return {
-    props: { time: currentDateTime },
-  };
-}
-
+    context.store.dispatch(END);
+    await context.store.sagaTask.toPromise(); // store.
+  }
+);
 export default ProductDetail;

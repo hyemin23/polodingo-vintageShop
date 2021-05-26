@@ -4,8 +4,11 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { useRouter } from 'next/router';
 import { useForm } from 'react-hook-form';
+import { END } from 'redux-saga';
 import { ShippingStyle } from '../../../style/OrderSheetStyle';
 import OrderStep from '../../orderStep';
+import wrapper from '../../../store/configureStore';
+import { LOAD_USER_INFO_REQUEST } from '../../../reducers/action';
 
 const shippingScreen = () => {
   const { me } = useSelector((state) => state.user);
@@ -117,5 +120,16 @@ const shippingScreen = () => {
     </div>
   );
 };
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  async (context) => {
+    context.store.dispatch({
+      type: LOAD_USER_INFO_REQUEST,
+    });
+
+    context.store.dispatch(END);
+    await context.store.sagaTask.toPromise(); // store.
+  }
+);
 
 export default shippingScreen;

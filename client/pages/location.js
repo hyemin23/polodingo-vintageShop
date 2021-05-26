@@ -1,9 +1,12 @@
 import Head from 'next/head';
 import React from 'react';
 import { useEffect } from 'react/cjs/react.development';
-import styled from 'styled-components';
+import { END } from 'redux-saga';
+import { LOAD_USER_INFO_REQUEST } from '../reducers/action';
+import wrapper from '../store/configureStore';
+import { KakaoMapDiv } from '../style/KakaoMapStyle';
 
-const notice = () => {
+const location = () => {
   useEffect(() => {
     const container = document.getElementById('map'); // 지도를 담을 영역의 DOM 레퍼런스
     const options = {
@@ -82,67 +85,15 @@ const notice = () => {
   );
 };
 
-export const KakaoMapDiv = styled.div`
-  padding: 10rem 20rem;
-  width: 100%;
-  margin: auto;
+export const getServerSideProps = wrapper.getServerSideProps(
+  async (context) => {
+    context.store.dispatch({
+      type: LOAD_USER_INFO_REQUEST,
+    });
 
-  .location_title {
-    text-align: center;
+    context.store.dispatch(END);
+    await context.store.sagaTask.toPromise(); // store.
+  }
+);
 
-    h2 {
-      padding: 10px;
-    }
-  }
-  .location_contents {
-    font-size: 16px;
-    font-weight: 500;
-    padding: 10px 0;
-  }
-  .customoverlay {
-    position: relative;
-    bottom: 85px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    border-bottom: 2px solid #ddd;
-    float: left;
-  }
-  .customoverlay:nth-of-type(n) {
-    border: 0;
-    box-shadow: 0px 1px 2px #888;
-  }
-  .customoverlay a {
-    display: block;
-    text-decoration: none;
-    color: #000;
-    text-align: center;
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: bold;
-    overflow: hidden;
-    background: #d95050;
-    background: #d95050
-      url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/arrow_white.png)
-      no-repeat right 14px center;
-  }
-  .customoverlay .title {
-    display: block;
-    text-align: center;
-    background: #fff;
-    margin-right: 35px;
-    padding: 10px 15px;
-    font-size: 14px;
-    font-weight: bold;
-  }
-  .customoverlay:after {
-    content: '';
-    position: absolute;
-    margin-left: -12px;
-    left: 50%;
-    bottom: -12px;
-    width: 22px;
-    height: 12px;
-    background: url('https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/vertex_white.png');
-  }
-`;
-export default notice;
+export default location;

@@ -1,6 +1,9 @@
 import React from 'react';
+import { END } from 'redux-saga';
 import Product from '../../components/Product';
 import CategoryLayout from '../../layout/CategoryLayout';
+import { LOAD_USER_INFO_REQUEST } from '../../reducers/action';
+import wrapper from '../../store/configureStore';
 import { ProductStyle } from '../../style/ProductStyle';
 
 const { useRouter } = require('next/router');
@@ -21,4 +24,16 @@ const Category = () => {
     </div>
   );
 };
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  async (context) => {
+    context.store.dispatch({
+      type: LOAD_USER_INFO_REQUEST,
+    });
+
+    context.store.dispatch(END);
+    await context.store.sagaTask.toPromise(); // store.
+  }
+);
+
 export default Category;

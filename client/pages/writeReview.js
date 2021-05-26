@@ -4,8 +4,10 @@ import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react/cjs/react.development';
 import Head from 'next/head';
-import { UPLOAD_IMG_REQUEST } from '../reducers/action';
+import { END } from 'redux-saga';
+import { LOAD_USER_INFO_REQUEST, UPLOAD_IMG_REQUEST } from '../reducers/action';
 import { ReviewDetailStyles } from '../style/ReviewStyle';
+import wrapper from '../store/configureStore';
 
 const writeReview = () => {
   const dispatch = useDispatch();
@@ -110,5 +112,16 @@ const writeReview = () => {
     </ReviewDetailStyles>
   );
 };
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  async (context) => {
+    context.store.dispatch({
+      type: LOAD_USER_INFO_REQUEST,
+    });
+
+    context.store.dispatch(END);
+    await context.store.sagaTask.toPromise(); // store.
+  }
+);
 
 export default writeReview;

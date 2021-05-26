@@ -1,5 +1,8 @@
 import Head from 'next/head';
 import React from 'react';
+import { END } from 'redux-saga';
+import { LOAD_USER_INFO_REQUEST } from '../reducers/action';
+import wrapper from '../store/configureStore';
 import { AboutStyle } from '../style/AboutStyle';
 
 const consignment = () => {
@@ -51,5 +54,16 @@ const consignment = () => {
     </>
   );
 };
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  async (context) => {
+    context.store.dispatch({
+      type: LOAD_USER_INFO_REQUEST,
+    });
+
+    context.store.dispatch(END);
+    await context.store.sagaTask.toPromise(); // store.
+  }
+);
 
 export default consignment;

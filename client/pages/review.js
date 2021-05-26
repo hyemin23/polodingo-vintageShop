@@ -3,8 +3,13 @@ import Link from 'next/link';
 import React, { useEffect } from 'react';
 import { StarFilled } from '@ant-design/icons';
 import { useDispatch, useSelector } from 'react-redux';
+import { END } from 'redux-saga';
 import { ReviewStyle } from '../style/ReviewStyle';
-import { LOAD_REVIEW_LIST_REQUEST } from '../reducers/action';
+import {
+  LOAD_REVIEW_LIST_REQUEST,
+  LOAD_USER_INFO_REQUEST,
+} from '../reducers/action';
+import wrapper from '../store/configureStore';
 
 const review = () => {
   const { reviews, isReviewDone } = useSelector((state) => state.review);
@@ -72,4 +77,16 @@ const review = () => {
     </ReviewStyle>
   );
 };
+
+export const getServerSideProps = wrapper.getServerSideProps(
+  async (context) => {
+    context.store.dispatch({
+      type: LOAD_USER_INFO_REQUEST,
+    });
+
+    context.store.dispatch(END);
+    await context.store.sagaTask.toPromise(); // store.
+  }
+);
+
 export default review;
