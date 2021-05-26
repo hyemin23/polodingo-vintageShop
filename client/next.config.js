@@ -1,3 +1,5 @@
+// analyze 설정하는 방법 env파일에 없이 package.json에서
+// cross-env ANALYZE=true NODE_ENV=production 이와 같이 설정하면 된다.
 const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true',
 });
@@ -9,6 +11,7 @@ module.exports = withBundleAnalyzer({
     return {
       ...config,
       mode: prod ? 'production' : 'development',
+      // hidden source map 을 해줘야 배포 환경에서 소스코드 노출을 막음
       devtool: prod ? 'hidden-source-map' : 'eval',
       plugins: [
         ...config.plugins,
