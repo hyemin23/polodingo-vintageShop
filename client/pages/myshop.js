@@ -64,7 +64,7 @@ const myshop = () => {
   return (
     <StockStyle>
       <Head>
-        <title>장바구니</title>
+        <title>폴로딩고 | 장바구니</title>
       </Head>
       <div className="title">
         <h2>CART</h2>

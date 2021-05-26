@@ -77,7 +77,7 @@ const HeaderLayout = ({ children }) => {
             </Link>
           </li> */}
           <li>
-            <Link href="/notice">
+            <Link href="/location">
               <a>LOCATION</a>
             </Link>
           </li>

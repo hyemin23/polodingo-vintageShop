@@ -1,5 +1,6 @@
-import React from 'react';
-import { useState } from 'react';
+import Head from 'next/head';
+import React, { useState } from 'react';
+
 import ActiveLink from '../components/ActiveLink';
 import CategoryStyle from '../style/CategoryStyle';
 
@@ -14,6 +15,10 @@ const orderStep = () => {
 
   return (
     <CategoryStyle>
+      <Head>
+        <title>폴로딩고 | 주문</title>
+      </Head>
+
       <div>
         <ul className="productLanding_filter">
           <li>

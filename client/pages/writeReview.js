@@ -3,6 +3,7 @@ import router from 'next/router';
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react/cjs/react.development';
+import Head from 'next/head';
 import { UPLOAD_IMG_REQUEST } from '../reducers/action';
 import { ReviewDetailStyles } from '../style/ReviewStyle';
 
@@ -55,6 +56,9 @@ const writeReview = () => {
   }, [isImgDone]);
   return (
     <ReviewDetailStyles>
+      <Head>
+        <title>폴로딩고 | 리뷰작성</title>
+      </Head>
       <div className="writer_container">
         <div className="writer_title">
           <h2>리뷰작성</h2>

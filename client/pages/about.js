@@ -1,12 +1,12 @@
-import Head from "next/head";
-import React from "react";
-import { AboutStyle } from "../style/AboutStyle";
+import Head from 'next/head';
+import React from 'react';
+import { AboutStyle } from '../style/AboutStyle';
 
 const consignment = () => {
   return (
     <>
       <Head>
-        <title>폴로딩고</title>
+        <title>폴로딩고 | 소개</title>
       </Head>
 
       <AboutStyle>

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from 'styled-components';
 
 const CategoryStyle = styled.div`
   padding: 10rem 0 1rem 0;
@@ -16,6 +16,6 @@ const CategoryStyle = styled.div`
       margin-right: 1rem;
     }
   }
-`
+`;
 
-export default CategoryStyle
+export default CategoryStyle;

@@ -18,6 +18,10 @@ const review = () => {
 
   return (
     <ReviewStyle>
+      <Head>
+        <title>폴로딩고 | 리뷰</title>
+      </Head>
+
       <div className="review_main_title">
         <h2>REVIEW</h2>
       </div>

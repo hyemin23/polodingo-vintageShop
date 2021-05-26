@@ -4,6 +4,7 @@ import Router from 'next/router';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
+import Head from 'next/head';
 import { LoginformStyle } from '../style/FormStyle';
 import { LOG_IN_REQUEST } from '../reducers/action';
 
@@ -41,6 +42,10 @@ const login = () => {
 
   return (
     <LoginformStyle>
+      <Head>
+        <title>폴로딩고 | 로그인</title>
+      </Head>
+
       <h2>Sign In</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="form__content">

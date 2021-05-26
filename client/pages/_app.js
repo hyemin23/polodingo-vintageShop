@@ -52,6 +52,11 @@ const App = ({ Component }) => {
           href="https://fonts.googleapis.com/css2?family=Jost:wght@200;300;400;700;800&display=swap"
           rel="stylesheet"
         />
+        <script
+          type="text/javascript"
+          src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c53e694391d9385c9f70c1330e6ab07b"
+        />
+        <script src="https://developers.kakao.com/sdk/js/kakao.js" />
         <title>폴로딩고</title>
       </Head>
       <div className="wrapper">
