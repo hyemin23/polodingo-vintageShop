@@ -7,11 +7,21 @@ import * as cookieParser from 'cookie-parser';
 async function bootstrap() {
   // const app = await NestFactory.create(AppModule, { cors: true });
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
-  app.enableCors({
-    // origin: true,
-    origin : ['http://localhost:3001','polodingo.com'],
-    credentials: true,
-  });
+
+  if (process.env.NODE_ENV === 'production') {
+    app.enableCors({
+      // origin: true,
+      origin: ['http://polodingo.shop'],
+      credentials: true,
+    });
+  } else {
+    app.enableCors({
+      // origin: true,
+      origin: true,
+      credentials: true,
+    });
+  }
+  
   app.use(cookieParser());
 
   // app.enableCors();
