@@ -6,34 +6,27 @@ import { NestExpressApplication } from '@nestjs/platform-express';
 import * as cookieParser from 'cookie-parser';
 async function bootstrap() {
   // const app = await NestFactory.create(AppModule, { cors: true });
-  try {
+  const app = await NestFactory.create<NestExpressApplication>(AppModule);
+  app.enableCors({
+    origin: true,
+    credentials: true,
+  });
+  app.use(cookieParser());
 
-  
-    const app = await NestFactory.create<NestExpressApplication>(AppModule);
-    app.enableCors({
-      origin: true,
-      credentials: true,
-    });
-    app.use(cookieParser());
+  // app.enableCors();
+  // app.enableCors();
 
-    // app.enableCors();
-    // app.enableCors();
-
-    //파일업로드를 위한 설정
-    // app.useStaticAssets(path.join(__dirname, '..', 'uploads'));
-    // app.use('/public', express.static(path.join(__dirname, '../public')));
-    app.useStaticAssets(join(__dirname, '..', 'public'));
-    app.useGlobalPipes(
-      new ValidationPipe({
-        whitelist: true,
-        forbidNonWhitelisted: true,
-        transform: true,
-      }),
-    );
-    await app.listen(3000);
-  }
-  catch (error) {
-    throw new Error(error);
-  }
+  //파일업로드를 위한 설정
+  // app.useStaticAssets(path.join(__dirname, '..', 'uploads'));
+  // app.use('/public', express.static(path.join(__dirname, '../public')));
+  app.useStaticAssets(join(__dirname, '..', 'public'));
+  app.useGlobalPipes(
+    new ValidationPipe({
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
+    }),
+  );
+  await app.listen(3000);
 }
 bootstrap();
