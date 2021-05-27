@@ -28,7 +28,7 @@ import * as Joi from 'joi';
       envFilePath: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env.product',
 
       validationSchema: Joi.object({
-        NODE_ENV: Joi.string().valid('dev').required(),
+        
         DB_HOST: Joi.string().required(),
         DB_PORT: Joi.number().default(3360),
         DB_USERNAME: Joi.string().required(),
