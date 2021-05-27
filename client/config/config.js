@@ -1,5 +1,5 @@
 export const backUrl =
-  // process.env.NODE_ENV === 'production'
-  //   ? ''
-  //   : 'http://shopapi-env.eba-prpggjew.ap-northeast-2.elasticbeanstalk.com/';
-  process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3000/';
+  // 배포모드일 경우 aws ec2의 backend IP를 입력해주자
+  process.env.NODE_ENV === 'production'
+    ? 'http://3.37.52.147'
+    : 'http://localhost:3000/';

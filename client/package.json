@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "next -p 3001",
     "build": "cross-env ANALYZE=true NODE_ENV=production next build",
-    "start": "cross-env NODE_ENV=production next start -p 3001"
+    "start": "cross-env NODE_ENV=production next start -p 80"
   },
   "author": "vintageshop",
   "license": "ISC",
@@ -25,6 +25,7 @@
     "gsap": "^3.6.1",
     "next": "^10.2.0",
     "next-redux-wrapper": "^6.0.2",
+    "pm2": "^4.5.6",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
