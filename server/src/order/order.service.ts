@@ -14,6 +14,8 @@ export class OrderService {
     ) { }
     async postDetailOrder(body: CreateOrderDto) {
 
+        console.log("zzzzzzzzzzzzzz",body);
+
         const userId = body.userId;
         const result = await this.orderRepository.save(body);
         
@@ -32,26 +34,38 @@ export class OrderService {
             .execute();
           
 
+            //장바구니 테이블의 유저아이디가 일치하고
+            //상품 테이블에서 상품 수량이 1인 애들을 가져와야함.
             const productQuery = await createQueryBuilder('Wish')
-                .leftJoinAndSelect('Wish.product', 'product'
-                    , 'product.productCount =:productCount', { productCount: 1 })
+                .leftJoinAndSelect('Wish.product', 'product')
                 .select('product.id')
-                .where('Wish.userId',{userId}).execute();
+                .where('Wish.userId =:userId', { userId })
+                .andWhere('product.productCount =:productCount', { productCount: 1 })
+                .execute();
             
+            console.log("productQuery",productQuery);
+
             
-            console.log("==================")
-            let updateId = '';
+            let updateId =[];
+            if (!!productQuery) {
             for (let a = 0; a < productQuery.length; a++){
                 if (a < productQuery.length) {
-                    updateId += productQuery[a].product_id+",";
+                    if (productQuery[a] !== null) {
+                    updateId.push(productQuery[a].product_id);    
+                    }
                  }
+            }    
             }
-            const newUpdateId = updateId.slice(0, -1);
-            console.log("수량 업데이트칠 상품들 : " , newUpdateId);
+
+
+
+            // const newUpdateId = updateId.slice(0, -1);
+            console.log("수량 업데이트칠 상품들 : " , updateId);
             console.log("==================")
 
 
             //상품 테이블의 상품 수량 0개로 카운트
+            
             const updateProduct = await getConnection()
                 .createQueryBuilder()
                 .update(Product)
@@ -60,7 +74,7 @@ export class OrderService {
                 })
                 //whereInIds와 row쿼리는 동작이 달라짐 In이냐 OR 이냐에 갈림
                 // .whereInIds(newUpdateId)
-                .where("id IN (:id)", { id: newUpdateId })
+                .where(`id IN (:...id)`, { id:updateId })
                 .execute();
             
             console.log("상품 수량 업데이트 쿼리 ", updateProduct);

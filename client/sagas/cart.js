@@ -27,6 +27,7 @@ function* wishList(action) {
     });
   } catch (error) {
     console.error(error);
+
     yield put({
       type: LOAD_WISH_FAILURE,
       data: error.response.data,

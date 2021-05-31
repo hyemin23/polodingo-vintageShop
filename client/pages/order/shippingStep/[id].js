@@ -110,7 +110,7 @@ const shippingScreen = () => {
               </Link> */}
 
               <button type="submit" className="btn">
-                결제하기
+                완료
               </button>
             </div>
           </div>

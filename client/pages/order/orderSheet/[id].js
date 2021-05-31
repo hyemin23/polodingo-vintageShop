@@ -5,6 +5,7 @@ import { useEffect } from 'react/cjs/react.development';
 import { END } from 'redux-saga';
 import {
   LOAD_USER_INFO_REQUEST,
+  LOAD_WISH_REQUEST,
   ORDER_DETAIL_REQUEST,
 } from '../../../reducers/action';
 import wrapper from '../../../store/configureStore';
@@ -18,20 +19,29 @@ const orderSheetScreen = () => {
   const { me } = useSelector((state) => state.user);
   const { wishList } = useSelector((state) => state.cart);
   const { address, payment } = router.query;
+
+  const taxPrice =
+    wishList?.reduce((acc, cur) => acc + cur.productPrice, 3000) * 0.11;
+
+  const finalPrice = wishList?.reduce((acc, cur) => acc + cur.productPrice, 0);
+  const totalPrice = finalPrice + taxPrice;
+
   useEffect(() => {
     if (me === null) {
       router.push('/');
     }
+
+    console.log('paymentInfo', paymentInfo);
+    // 장바구니 정보 가져오기
+    // 조건은 그 유저의 장바구니 상품이 결제가 미완료인것들인 애들
+    // 즉, detailId가 없는 애들을 가져와야함
+    dispatch({
+      type: LOAD_WISH_REQUEST,
+      data: me.id,
+    });
   }, [me]);
 
   const onClick = () => {
-    // 결제가 되면 사용자의 장바구니에서 모든 상품이 안보여야한다.
-    // 그러려면, wishList에서 detailId 컬럼을 채워주고
-    // 장바구니를 불러올 때 detailId가 없는 애들만 불러오도록 해야한다.
-
-    const totalPrice =
-      wishList.reduce((acc, cur) => acc + cur.productPrice, 3000) * 0.11;
-
     delete paymentInfo.id;
     paymentInfo.totalPrice = parseInt(totalPrice, 10);
 
@@ -94,13 +104,7 @@ const orderSheetScreen = () => {
               </p>
               <p>배송비 : 3000원</p>
               <p>수수료 : 11% </p>
-              <p>
-                총 주문가격 :
-                {wishList &&
-                  wishList.reduce((acc, cur) => acc + cur.productPrice, 3000) *
-                    0.11}
-                원
-              </p>
+              <p>총 주문가격 :{wishList && totalPrice}원</p>
             </div>
             <button type="button" className="btn" onClick={onClick}>
               결제하기

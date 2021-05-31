@@ -46,7 +46,8 @@ export class WishService {
     console.log('service id : ', userId);
 
     //장바구니 테이블에서 userId가 일치하는 애들의
-    // product 정보를 가져와야함
+    // product 정보를 가져와야함 
+    // 동시에 detailId가 없는 애들을 가져와야함
 
     //    select *
     // from wish a

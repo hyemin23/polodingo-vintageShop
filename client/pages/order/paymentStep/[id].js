@@ -28,13 +28,15 @@ const paymentScreen = () => {
   }, [me]);
 
   const onSubmit = async (data) => {
-    console.log(typeof Number(data.payment, 10));
     const finalInfo = {
       payment: Number(data.payment, 10),
       userId: parseInt(me.id, 10),
     };
 
     Object.assign(finalInfo, userAddressInfo);
+
+    console.log(typeof Number(data.payment, 10));
+    console.log('finalInfo', finalInfo);
 
     router.push({
       pathname: `/order/orderSheet/${3}`,
