@@ -22,15 +22,40 @@
 - 반응형 웹
 
 ### 랜딩페이지 
+GSAP를 이용한 스크롤 애니매이션
+
 - web
+ 
 ![화면 기록 2021-05-31 오후 5 15 57](https://user-images.githubusercontent.com/54235714/120165369-7876b480-c236-11eb-9942-54c25a7241bc.gif)
 
 -mobile
+
 ![화면 기록 2021-05-31 오후 5 37 32](https://user-images.githubusercontent.com/54235714/120168017-62b6be80-c239-11eb-8fe8-ba0cc30a179d.gif)
 
-GSAP를 이용한 스크롤 애니매이션
 
-### 상품 카테고리별 검색 & 상품 리스트
+### jwt를 이용한 LOGIN/ LOGOUT
+
+
+
+
+### 상품 카테고리별 검색 & 상품 리스트 & 상품 상세 페이지
+
+![화면 기록 2021-05-31 오후 6 09 53](https://user-images.githubusercontent.com/54235714/120170047-87139a80-c23b-11eb-9827-b4796d63309c.gif)
+
+![화면 기록 2021-05-31 오후 5 37 32](https://user-images.githubusercontent.com/54235714/120168867-52ebaa00-c23a-11eb-8e51-3b3e904f3697.gif)
+
+
+### 검색 기능
+
+
+
+### 장바구니 
+
+
+### 주문 프로세스
+
+
+
 
 
 
