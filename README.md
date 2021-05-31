@@ -22,13 +22,11 @@
 - 반응형 웹
 
 ### 랜딩페이지 
-
+- web
 ![화면 기록 2021-05-31 오후 5 15 57](https://user-images.githubusercontent.com/54235714/120165369-7876b480-c236-11eb-9942-54c25a7241bc.gif)
 
-
-https://user-images.githubusercontent.com/54235714/120167961-4fa3ee80-c239-11eb-8e76-4935ccb04e5b.mov
-
-
+-mobile
+![화면 기록 2021-05-31 오후 5 37 32](https://user-images.githubusercontent.com/54235714/120168017-62b6be80-c239-11eb-8fe8-ba0cc30a179d.gif)
 
 GSAP를 이용한 스크롤 애니매이션
 
