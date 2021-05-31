@@ -11,7 +11,7 @@
  
  <div>
 <img src="https://user-images.githubusercontent.com/54235714/120165369-7876b480-c236-11eb-9942-54c25a7241bc.gif" width="600px" height="400px" style="display:block"/>.  
-<img src="https://user-images.githubusercontent.com/54235714/120168017-62b6be80-c239-11eb-8fe8-ba0cc30a179d.gif"  width="30%" height="600px" style="display:block"/>
+<img src="https://user-images.githubusercontent.com/54235714/120181731-6e5db180-c248-11eb-97bb-f2ad16c6ac95.gif"  width="30%" height="500px" style="display:block"/>
  </div>
 -  GSAP를 이용한 스크롤 애니매이션
 
@@ -32,16 +32,31 @@
 ### 검색 기능
 <div>
 <img src="https://user-images.githubusercontent.com/54235714/120175057-c395c500-c240-11eb-8441-662cf9f238f8.gif"  width="600px" height="400px"/>
- <img src="https://user-images.githubusercontent.com/54235714/120174774-7154a400-c240-11eb-9469-8135aba5c292.gif"  width="30%" height="600px"  />
+ <img src="https://user-images.githubusercontent.com/54235714/120225244-d7ace700-c27f-11eb-8499-48c8a01afe3c.gif"  width="30%" height="600px"  />
 </div>
 
 
-### 장바구니 & 주문 프로세스
+### 장바구니 Page 
+<div>
+ <img src="https://user-images.githubusercontent.com/54235714/120181213-b203eb80-c247-11eb-80c8-28c261f4476c.gif"  width="600px" height="400px" />
+<img src="https://user-images.githubusercontent.com/54235714/120181432-06a76680-c248-11eb-9bee-69c8ea593388.gif"  width="30%" height="500px" />
+ </div>
+
+
+### 주문 프로세스
 <div>
  <img src=""  width="600px" height="400px" />
-<img src=""  width="30%" height="600px" />
+<img src=""  width="30%" height="500px" />
  </div>
 - 총 3단계 주문 프로세스
+
+
+### About Page
+<div>
+<img src="https://user-images.githubusercontent.com/54235714/120209757-01f3aa00-c26a-11eb-9098-456eb41bdd97.png" width="60%" height="400px"/>
+<img src="https://user-images.githubusercontent.com/54235714/120210619-f359c280-c26a-11eb-9e7c-8d25ee4e4721.png" width="30%" height="500px"/>
+</div>
+
 
 
 ## 프로젝트 소개 👋🏻
