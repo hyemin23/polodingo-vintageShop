@@ -19,7 +19,8 @@ export class AuthController {
   @Get('loadUserInfo')
   async loadUserInfo(@Request() req) {
 
-    console.log("loadUSerInfo 컨트롤러")
+    console.log("loadUSerInfo 컨트롤러");
+    console.log("req headers cookie는", req.headers.cookie);
     if (req.headers && req.headers.cookie) {
       const cookieSub = req.headers.cookie;
       const splitCookie = cookieSub.split('=')[1];
