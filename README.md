@@ -30,38 +30,38 @@
 <br/>
 <h3 align="center">🍀 상품 카테고리별 검색 & 상품 리스트 & 상품 상세 페이지</h3>
 <div>
-<img src="https://user-images.githubusercontent.com/54235714/120170047-87139a80-c23b-11eb-9827-b4796d63309c.gif"  width="60%" height="400px"/>
-<img src="https://user-images.githubusercontent.com/54235714/120168867-52ebaa00-c23a-11eb-8e51-3b3e904f3697.gif"  width="30%" height="600px"/>
+<img src="https://user-images.githubusercontent.com/54235714/120170047-87139a80-c23b-11eb-9827-b4796d63309c.gif"  width="60%" height="40%"/>
+<img src="https://user-images.githubusercontent.com/54235714/120168867-52ebaa00-c23a-11eb-8e51-3b3e904f3697.gif"  width="30%" height="50%"/>
 </div>
 - Custom ActiveClassName Components 구현
 
 <br/>
 <h3 align="center">🍀 검색 기능</h3>
 <div>
-<img src="https://user-images.githubusercontent.com/54235714/120175057-c395c500-c240-11eb-8441-662cf9f238f8.gif"  width="60%" height="400px"/>
- <img src="https://user-images.githubusercontent.com/54235714/120225244-d7ace700-c27f-11eb-8499-48c8a01afe3c.gif"  width="30%" height="600px"  />
+<img src="https://user-images.githubusercontent.com/54235714/120175057-c395c500-c240-11eb-8441-662cf9f238f8.gif"  width="60%" height="40%"/>
+ <img src="https://user-images.githubusercontent.com/54235714/120225244-d7ace700-c27f-11eb-8499-48c8a01afe3c.gif"  width="30%" height="50%"  />
 </div>
 
 <br/>
 <h3 align="center">🍀 장바구니 Page</h3>
 <div>
- <img src="https://user-images.githubusercontent.com/54235714/120181213-b203eb80-c247-11eb-80c8-28c261f4476c.gif"  width="60%" height="400px" />
-<img src="https://user-images.githubusercontent.com/54235714/120181432-06a76680-c248-11eb-9bee-69c8ea593388.gif"  width="30%" height="500px" />
+ <img src="https://user-images.githubusercontent.com/54235714/120181213-b203eb80-c247-11eb-80c8-28c261f4476c.gif"  width="60%" height="40%" />
+<img src="https://user-images.githubusercontent.com/54235714/120181432-06a76680-c248-11eb-9bee-69c8ea593388.gif"  width="30%" height="50%" />
  </div>
 
 <br/>
 <h3 align="center">🍀 주문 프로세스 & 품절 표시</h3>
 <div>
- <img src="https://user-images.githubusercontent.com/54235714/120265847-c5609680-c2db-11eb-95b0-7dd0c30b5ac5.gif"  width="60%" height="400px" />
-<img src="https://user-images.githubusercontent.com/54235714/120266155-461f9280-c2dc-11eb-8e9d-5b44d1b5e6fc.gif"  width="30%" height="500px" />
+ <img src="https://user-images.githubusercontent.com/54235714/120265847-c5609680-c2db-11eb-95b0-7dd0c30b5ac5.gif"  width="60%" height="40%" />
+<img src="https://user-images.githubusercontent.com/54235714/120266155-461f9280-c2dc-11eb-8e9d-5b44d1b5e6fc.gif"  width="30%" height="50%" />
  </div>
 - 총 3단계 주문 프로세스와 모든 주문이 끝난 후 구매완료 상품 "품절" 표시
 
 <br/>
 <h3 align="center">🍀 About Page</h3>
 <div>
-<img src="https://user-images.githubusercontent.com/54235714/120209757-01f3aa00-c26a-11eb-9098-456eb41bdd97.png" width="60%" height="400px"/>
-<img src="https://user-images.githubusercontent.com/54235714/120210619-f359c280-c26a-11eb-9e7c-8d25ee4e4721.png" width="30%" height="500px"/>
+<img src="https://user-images.githubusercontent.com/54235714/120209757-01f3aa00-c26a-11eb-9098-456eb41bdd97.png" width="60%" height="40%"/>
+<img src="https://user-images.githubusercontent.com/54235714/120210619-f359c280-c26a-11eb-9e7c-8d25ee4e4721.png" width="30%" height="50%"/>
 </div>
 <br/>
 
