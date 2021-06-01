@@ -146,18 +146,22 @@ function* reviewLoad(action) {
 }
 
 // 토큰을 넣어줘야함
-function loadUserInfoAPI(data) {
+function loadUserInfoAPI() {
+  console.log('로드유저 사가 API');
+  console.log(axios.defaults.baseURL);
+  console.log(process.env.NODE_ENV);
   return axios.get('auth/loadUserInfo');
 }
 function* loadUserInfo(action) {
   try {
     const result = yield call(loadUserInfoAPI, action.data);
+    console.log('esresrse result ', result);
     yield put({
       type: LOAD_USER_INFO_SUCCESS,
       data: result.data,
     });
   } catch (error) {
-    // console.log('에러', error.response);
+    console.log('에러', error.response.data);
     // console.error(error);
     // yield put({
     //   type: LOAD_USER_INFO_FAILURE,

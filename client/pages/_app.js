@@ -56,6 +56,7 @@ const App = ({ Component }) => {
           type="text/javascript"
           src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c53e694391d9385c9f70c1330e6ab07b"
         />
+
         <script src="https://developers.kakao.com/sdk/js/kakao.js" />
         <title>폴로딩고</title>
       </Head>

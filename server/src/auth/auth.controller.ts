@@ -17,10 +17,14 @@ export class AuthController {
   constructor(private authService: AuthService) {}
 
   @Get('loadUserInfo')
-  async loadUserInfo(@Req() req) {
+  async loadUserInfo(@Request() req) {
+
+    console.log("loadUSerInfo 컨트롤러")
     if (req.headers && req.headers.cookie) {
       const cookieSub = req.headers.cookie;
       const splitCookie = cookieSub.split('=')[1];
+
+      console.log("splitCookie", splitCookie);
       const cookie_Info = jwt_decode(splitCookie);
 
       const userId = cookie_Info['userId'];
@@ -38,6 +42,7 @@ export class AuthController {
   @UseGuards(LocalAuthGuard)
   @Post('login')
   async login(@Request() req, @Res({ passthrough: true }) res) {
+    console.log("login Controller");
     const { accessToken, userInfo } = await this.authService.login(req.user);
     delete userInfo.password;
 

@@ -30,6 +30,7 @@ const index = () => {
 
 export const getServerSideProps = wrapper.getServerSideProps(
   async (context) => {
+    console.log('indexxxxxxxxxxxxxxx');
     // index js의 리듀서 구조를 바꿔야함 중첩되게 끔
 
     axios.defaults.headers.Cookie = '';
@@ -43,6 +44,7 @@ export const getServerSideProps = wrapper.getServerSideProps(
       axios.defaults.headers.Cookie = cookie;
     }
 
+    console.log('cookie', cookie);
     context.store.dispatch({
       type: LOAD_USER_INFO_REQUEST,
     });
