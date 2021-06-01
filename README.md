@@ -11,8 +11,8 @@
  
  <div>
 <p align="center">
- <img src="https://user-images.githubusercontent.com/54235714/120165369-7876b480-c236-11eb-9942-54c25a7241bc.gif" width="60%" height="400px" style="display:block"/>
-<img src="https://user-images.githubusercontent.com/54235714/120181731-6e5db180-c248-11eb-97bb-f2ad16c6ac95.gif"  width="30%" height="500px" style="display:block"/>
+ <img src="https://user-images.githubusercontent.com/54235714/120165369-7876b480-c236-11eb-9942-54c25a7241bc.gif" width="60%" height="40%"/>
+<img src="https://user-images.githubusercontent.com/54235714/120181731-6e5db180-c248-11eb-97bb-f2ad16c6ac95.gif"  width="30%" height="50%"/>
  </p>
  </div>
  <p>
@@ -22,8 +22,8 @@
 <br/>
 <h3 align="center">🍀 LOGIN/ LOGOUT Page</h3>
 <div>
- <img src="https://user-images.githubusercontent.com/54235714/120173077-a4963380-c23e-11eb-9a8a-fbfb429ac62f.gif"  width="60%" height="400px" />
-<img src="https://user-images.githubusercontent.com/54235714/120173578-1c645e00-c23f-11eb-89d8-b51002ca8b1a.gif"  width="30%" height="600px" />
+ <img src="https://user-images.githubusercontent.com/54235714/120173077-a4963380-c23e-11eb-9a8a-fbfb429ac62f.gif"  width="60%" height="40%" />
+<img src="https://user-images.githubusercontent.com/54235714/120173578-1c645e00-c23f-11eb-89d8-b51002ca8b1a.gif"  width="30%" height="50%" />
  </div>
 -  jwt를 이용한 로그인/로그아웃 그현
 
