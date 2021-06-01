@@ -3,10 +3,15 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { join } from 'path';
 import { NestExpressApplication } from '@nestjs/platform-express';
+import * as hpp from 'hpp';
+import * as helmet from 'helmet';
 import * as cookieParser from 'cookie-parser';
 async function bootstrap() {
   // const app = await NestFactory.create(AppModule, { cors: true });
   const app = await NestFactory.create<NestExpressApplication>(AppModule);
+
+ app.use(hpp());
+  app.use(helmet({ contentSecurityPolicy: false }));
 
   if (process.env.NODE_ENV === 'production') {
     app.enableCors({
@@ -21,8 +26,9 @@ async function bootstrap() {
       credentials: true,
     });
   }
+
   
-  app.use(cookieParser());
+  app.use(cookieParser('vintage-info-user'));
 
   // app.enableCors();
   // app.enableCors();
