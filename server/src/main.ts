@@ -11,7 +11,7 @@ async function bootstrap() {
   if (process.env.NODE_ENV === 'production') {
     app.enableCors({
       // origin: true,
-      origin: ['http://polodingo.shop'],
+      origin: 'http://polodingo.shop',
       credentials: true,
     });
   } else {
