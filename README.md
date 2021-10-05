@@ -1,6 +1,6 @@
 
-<h1 align="center"> 🛍 POLODINGO 🛍 (개인 프로젝트) /h1>
-
+<h1 align="center"> 🛍 POLODINGO 🛍</h1>
+<h2 align="center">개인 프로젝트</h2>
 
 
 
